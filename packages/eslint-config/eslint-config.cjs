@@ -89,5 +89,6 @@ module.exports = {
     'no-unused-labels': 'off',
     'require-jsdoc': 'off',
     'valid-jsdoc': 'off',
+    "require-await": "error"
   },
 };
