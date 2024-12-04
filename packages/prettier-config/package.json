@@ -1,6 +1,6 @@
 {
   "name": "@nexim/prettier-config",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Nexim's shareable configurations for Prettier.",
   "keywords": [
     "prettier",
