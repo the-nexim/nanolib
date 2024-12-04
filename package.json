@@ -64,5 +64,10 @@
     "prettier-plugin-tailwindcss@0.6.9": {
       "unplugged": true
     }
+  },
+  "dependencies": {
+    "@alwatr/logger": "^5.0.0",
+    "@alwatr/package-tracer": "^5.0.0",
+    "lit": "^3.2.1"
   }
 }

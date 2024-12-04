@@ -21,6 +21,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@alwatr/logger@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@alwatr/logger@npm:5.0.0"
+  dependencies:
+    "@alwatr/package-tracer": "npm:^5.0.0"
+    "@alwatr/platform-info": "npm:^5.0.0"
+  checksum: 10c0/33a73b0b12985661be6017a6675f157b37b7b052fe4f65f971bb2e66a22f8ab712d95e12b646760cbe0589bc1b9f4eba25ef595d9ac30b85a87e48d4dfd34ed0
+  languageName: node
+  linkType: hard
+
 "@alwatr/nano-build@npm:^5.0.0":
   version: 5.0.0
   resolution: "@alwatr/nano-build@npm:5.0.0"
@@ -36,6 +46,15 @@ __metadata:
   version: 5.0.0
   resolution: "@alwatr/package-tracer@npm:5.0.0"
   checksum: 10c0/62d5dc8940ab269995020a8bcdcd83a4554da74b397e6404f41631251c1274b34ad45382b0b9a159f57f50ea9ecaccef537b14cb0d7f0c05a1e5023c4e0350a3
+  languageName: node
+  linkType: hard
+
+"@alwatr/platform-info@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@alwatr/platform-info@npm:5.0.0"
+  dependencies:
+    "@alwatr/package-tracer": "npm:^5.0.0"
+  checksum: 10c0/e9c05fadf8d084da838f2f5323bcaee1fc4af212eacfbc59a232e64f5e96c11a0b5b42a6f6b0f6450f105018caf0c0ad64dea30016622ea547a6b6d4c3b09d07
   languageName: node
   linkType: hard
 
@@ -681,6 +700,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/ssr-dom-shim@npm:^1.2.0":
+  version: 1.2.1
+  resolution: "@lit-labs/ssr-dom-shim@npm:1.2.1"
+  checksum: 10c0/75cecf2cc4c1a089c6984d9f45b8264e3b4947b4ebed96aef7eb201bd6b3f26caeaafedf457884ac38d4f2d99cddaf94a4b2414c02c61fbf1f64c0a0dade11f4
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@lit/reactive-element@npm:2.0.4"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+  checksum: 10c0/359cc19ea9ee8b65e1417eb9c12f40dddba8f0a5ab32f0e5facaecee6060629e44eb4ca27d9af945fe6eda8c033aa636abaa5f0c4e6a529b224d78674acf47ba
+  languageName: node
+  linkType: hard
+
 "@mapbox/node-pre-gyp@npm:^1.0.11":
   version: 1.0.11
   resolution: "@mapbox/node-pre-gyp@npm:1.0.11"
@@ -1211,6 +1246,13 @@ __metadata:
   version: 7.0.3
   resolution: "@types/parse-path@npm:7.0.3"
   checksum: 10c0/8344b6c7acba4e4e5a8d542f56f53c297685fa92f9b0c085d7532cc7e1b661432cecfc1c75c76cdb0d161c95679b6ecfe0573d9fef7c836962aacf604150a984
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 10c0/4c4855f10de7c6c135e0d32ce462419d8abbbc33713b31d294596c0cc34ae1fa6112a2f9da729c8f7a20707782b0d69da3b1f8df6645b0366d08825ca1522e0c
   languageName: node
   linkType: hard
 
@@ -4347,6 +4389,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lit-element@npm:^4.1.0":
+  version: 4.1.1
+  resolution: "lit-element@npm:4.1.1"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+    "@lit/reactive-element": "npm:^2.0.4"
+    lit-html: "npm:^3.2.0"
+  checksum: 10c0/b3c6c77d60a8239134d7c7e7c002be48414074f5b42f9ad026216749101a4f948266a4db9110a536fb23914044d584dbe4185c87064a4fa98baa4045ba2bbb46
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.2.0":
+  version: 3.2.1
+  resolution: "lit-html@npm:3.2.1"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 10c0/31c02df2148bf9a73545570cbe57aae01c4de1d9b44060b6ff13641837d38e39e6b1abcf92e13882cc84f5fee37605ed79602b91ad479728549014462808118e
+  languageName: node
+  linkType: hard
+
+"lit@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "lit@npm:3.2.1"
+  dependencies:
+    "@lit/reactive-element": "npm:^2.0.4"
+    lit-element: "npm:^4.1.0"
+    lit-html: "npm:^3.2.0"
+  checksum: 10c0/064a31459fe54ad052c0685d058dd5aef089ddc97a247888ef91a0356dfef60c8cc531e48077bbd2cb4e9f48cb86f0ff0951bb535f1d9f144d2351f253291f66
+  languageName: node
+  linkType: hard
+
 "load-json-file@npm:^7.0.1":
   version: 7.0.1
   resolution: "load-json-file@npm:7.0.1"
@@ -4658,6 +4731,8 @@ __metadata:
   resolution: "nanolib-monorepo@workspace:."
   dependencies:
     "@alwatr/eslint-config": "npm:^5.0.0"
+    "@alwatr/logger": "npm:^5.0.0"
+    "@alwatr/package-tracer": "npm:^5.0.0"
     "@alwatr/prettier-config": "npm:^5.0.0"
     "@lerna-lite/changed": "npm:^3.10.1"
     "@lerna-lite/cli": "npm:^3.10.1"
@@ -4674,6 +4749,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:^3.7.0"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-require-extensions: "npm:^0.1.3"
+    lit: "npm:^3.2.1"
     prettier: "npm:^3.4.2"
     prettier-plugin-tailwindcss: "npm:^0.6.9"
     typescript: "npm:^5.6.3"
