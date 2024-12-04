@@ -1,0 +1,54 @@
+{
+  "name": "@nexim/prettier-config",
+  "version": "0.0.0",
+  "description": "Nexim's shareable configurations for Prettier.",
+  "keywords": [
+    "prettier",
+    "config",
+    "pretty",
+    "beautify",
+    "cross-platform",
+    "ECMAScript",
+    "typescript",
+    "javascript",
+    "node",
+    "nodejs",
+    "browser",
+    "esm",
+    "module",
+    "utility",
+    "util",
+    "utils",
+    "nanolib",
+    "alwatr"
+  ],
+  "homepage": "https://github.com/the-nexim/nanolib/",
+  "bugs": {
+    "url": "https://github.com/the-nexim/nanolib/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-nexim/nanolib",
+    "directory": "packages/prettier-config"
+  },
+  "license": "AGPL-3.0-only",
+  "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
+  "contributors": [
+    "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
+  ],
+  "type": "commonjs",
+  "main": "./prettier.config.cjs",
+  "files": [
+    "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
+    "LICENSE",
+    "!demo/**/*"
+  ],
+  "dependencies": {
+    "prettier": "^3.4.2",
+    "prettier-plugin-packagejson": "^2.5.6",
+    "prettier-plugin-tailwindcss": "^0.6.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
