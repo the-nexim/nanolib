@@ -5,6 +5,12 @@
   },
   "js/ts.implicitProjectConfig.checkJs": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[nunjucks]": {
+    "editor.defaultFormatter": "guapibai.nunjucks-prettier"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "editor.wordWrapColumn": 120,
@@ -12,16 +18,15 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map, ${capture}.js.LEGAL.txt",
-    "*.mjs": "${capture}.mjs.map, ${capture}.min.mjs, ${capture}.d.ts, ${capture}.d.ts.map, ${capture}.mjs.LEGAL.txt, ${capture}.cjs",
-    "*.cjs": "${capture}.cjs.map, ${capture}.min.cjs, ${capture}.d.ts, ${capture}.d.ts.map, ${capture}.cjs.LEGAL.txt",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map",
     "*.ts": "${capture}.js, ${capture}.js.map, ${capture}.d.ts, ${capture}.d.ts.map",
     "tsconfig.json": "tsconfig.*.json, *.tsbuildinfo"
   },
   "files.associations": {
     "*.ajs": "json",
     "*.ajs.bk": "json",
-    "*.conf.template": "nginx"
+    "*.conf.template": "nginx",
+    "*.njk": "html"
   },
   "files.exclude": {
     // "**/*.map": true,
@@ -29,17 +34,9 @@
     // "**/*.tsbuildinfo": true
   },
   "git.autoStash": true,
-  "git.branchProtection": [
-    "main",
-    "next"
-  ],
-  "githubPullRequests.ignoredPullRequestBranches": [
-    "main",
-    "next"
-  ],
-  "markdownlint.ignore": [
-    "**/CHANGELOG.md"
-  ],
+  "git.branchProtection": ["main", "next"],
+  "githubPullRequests.ignoredPullRequestBranches": ["main", "next"],
+  "markdownlint.ignore": ["**/CHANGELOG.md"],
   "npm.packageManager": "yarn",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
   "prettier.useEditorConfig": true,
@@ -51,20 +48,55 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "cSpell.words": [
-    "Alwatr",
-    "conventionalcommits",
-    "Deno",
-    "flatomise",
-    "Jsonifiable",
-    "Jsonify",
-    "Mihandoost",
-    "nanolib",
-    "nexim",
-    "outdir",
-    "outfile",
+    "alpinejs",
+    "alwatr",
+    "aparat",
+    "argb",
+    "backorder",
+    "backordering",
+    "colspan",
+    "cssnano",
+    "endmacro",
+    "fract",
+    "initialzed",
+    "kavenegar",
+    "linkify",
+    "linkpass",
+    "nanotron",
+    "Nexim",
+    "nitrobase",
+    "nowrap",
     "pmpa",
-    "Strigifyable",
+    "publistore",
+    "shortcode",
+    "stringifyable",
+    "tailwindcss",
+    "tbody",
+    "thead",
+    "thenexim",
+    "toman",
     "tsbuildinfo",
-    "typeof"
+    "vazirmatn",
+    "اپلیکیشن",
+    "بندیل",
+    "سافاری",
+    "سفارشگیر",
+    "گچبرگ",
+    "نکسیم"
+  ],
+  "css.customData": [".vscode/tailwind.json"],
+  "lit-plugin.strict": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "lit-plugin.rules.no-missing-import": "off",
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "javascript.preferences.importModuleSpecifier": "project-relative",
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "todo-tree.tree.scanMode": "workspace only",
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/copilot-instruction.md"
+    }
   ]
 }

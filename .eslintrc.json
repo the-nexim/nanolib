@@ -1,4 +1,22 @@
 {
   "root": true,
-  "extends": "@alwatr/eslint-config"
+  "extends": "@alwatr/eslint-config",
+  "rules": {
+    "require-await": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.mjs", "*.cjs"],
+      "parserOptions": {
+        "project": null
+      },
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      },
+      "env": {
+        "node": true
+      }
+    }
+  ]
 }

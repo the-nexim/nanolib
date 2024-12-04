@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 
-name: Build & Lint
+name: Build & Lint & Test
 
 on:
   workflow_dispatch:
@@ -57,5 +57,5 @@ jobs:
       - name: 🚀 Run ESLint
         run: yarn lint
 
-      - name: 🚀 Run Jest
+      - name: 🚀 Run Test
         run: yarn test

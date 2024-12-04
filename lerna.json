@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/lerna-lite/lerna-lite/main/packages/cli/schemas/lerna-schema.json",
-  "version": "5.2.1",
+  "version": "7.4.0",
   "npmClient": "yarn",
   "packages": [
     "packages/*"
@@ -54,7 +54,7 @@
           {
             "type": "deps",
             "section": "Dependencies update",
-            "hidden": false
+            "hidden": true
           },
           {
             "type": "style",
@@ -82,15 +82,13 @@
       "ignoreChanges": [
         "*.md"
       ],
-      "skipBumpOnlyReleases": true,
-      "message": "release:",
-      "private": false,
+      "message": "release: %s",
+      "private": true,
       "forceGitTag": true,
       "signGitTag": true,
       "signGitCommit": true,
       "push": true,
-      "createRelease": "github",
-      "conventionalGraduate": true
+      "createRelease": "github"
     },
     "run": {
       "stream": true
