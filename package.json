@@ -3,6 +3,9 @@
   "description": "Necessary library for all ECMAScript (JavaScript/TypeScript) projects.",
   "repository": "https://github.com/the-nexim/nanolib",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
+  "contributors": [
+    "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
+  ],
   "license": "AGPL-3.0-only",
   "type": "module",
   "private": true,
@@ -47,6 +50,7 @@
     "@lerna-lite/publish": "^3.10.1",
     "@lerna-lite/run": "^3.10.1",
     "@lerna-lite/version": "^3.10.1",
+    "@nexim/tsconfig-base": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
     "ava": "^6.2.0",
@@ -56,10 +60,11 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-require-extensions": "^0.1.3",
     "prettier": "^3.4.2",
+    "prettier-plugin-packagejson": "^2.5.6",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.6.3"
   },
-  "packageManager": "yarn@4.5.1",
+  "packageManager": "yarn@4.5.3",
   "dependenciesMeta": {
     "prettier-plugin-tailwindcss@0.6.9": {
       "unplugged": true
