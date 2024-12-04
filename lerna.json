@@ -1,10 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/lerna-lite/lerna-lite/main/packages/cli/schemas/lerna-schema.json",
-  "version": "7.4.0",
+  "version": "independent",
   "npmClient": "yarn",
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "loglevel": "verbose",
   "command": {
     "version": {
@@ -79,9 +77,7 @@
         ]
       },
       "changelogIncludeCommitsClientLogin": " by @%l",
-      "ignoreChanges": [
-        "*.md"
-      ],
+      "ignoreChanges": ["*.md"],
       "message": "release: %s",
       "private": true,
       "forceGitTag": true,
