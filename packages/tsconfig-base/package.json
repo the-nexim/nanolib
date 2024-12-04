@@ -1,0 +1,40 @@
+{
+  "name": "@nexim/tsconfig-base",
+  "version": "0.0.1",
+  "description": "This is a base TypeScript configuration for Nexim projects.",
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "tsconfig.json",
+    "tsconfig-base",
+    "nanolib",
+    "nexim"
+  ],
+  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/tsconfig-base#readme",
+  "bugs": {
+    "url": "https://github.com/the-nexim/nanolib/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-nexim/nanolib",
+    "directory": "packages/tsconfig-base"
+  },
+  "license": "AGPL-3.0-only",
+  "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
+  "contributors": [
+    "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
+  ],
+  "exports": {
+    ".": "./tsconfig.json"
+  },
+  "main": "tsconfig.json",
+  "files": [
+    "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
+    "tsconfig.json",
+    "LICENSE",
+    "!demo/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
