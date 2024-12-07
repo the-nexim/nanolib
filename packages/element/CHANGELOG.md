@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.0.0...@nexim/element@1.0.1) (2024-12-07)
+
+### Bug Fixes
+
+* **element/logging-mixin:** remove extra field in type and make some part private ([9774abb](https://github.com/the-nexim/nanolib/commit/9774abbfbbba8ed539138d8f50127933cdcc791a)) by @njfamirm
+
+### Code Refactoring
+
+* **element/light-dom:** move style utils to class as static property ([7532dc7](https://github.com/the-nexim/nanolib/commit/7532dc738b8d8e66c9ee12c75485dd30ca32a897)) by @njfamirm
+
+### Miscellaneous Chores
+
+* **element/type:** move to root ([433a1c0](https://github.com/the-nexim/nanolib/commit/433a1c057edc8ae797f75db4bcb3d1c846a033bc)) by @njfamirm
+* **element:** exclude test files from package distribution ([d308a17](https://github.com/the-nexim/nanolib/commit/d308a1724e12b1a5738352f5b8cd9bae0c7e225a)) by @njfamirm
+* **element:** move lit to the devDependency because use as type ([fd5f879](https://github.com/the-nexim/nanolib/commit/fd5f879d964b710ee76b8f7a59375d7f708991d0)) by @njfamirm
+* **element:** remove base element ([94047d4](https://github.com/the-nexim/nanolib/commit/94047d45e15df99d03605b82a4708cc735fe99ed)) by @njfamirm
+
 ## 1.0.0 (2024-12-04)
 
 ### Features
