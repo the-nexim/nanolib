@@ -40,6 +40,7 @@
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
     "LICENSE",
+    "!**/*.test.js",
     "!demo/**/*"
   ],
   "scripts": {
