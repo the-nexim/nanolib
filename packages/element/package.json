@@ -1,18 +1,14 @@
 {
   "name": "@nexim/element",
   "version": "1.0.0",
-  "description": "A collection of utility functions and mixins for building high-performance, maintainable web components using Lit.",
+  "description": "Utility functions and mixins for building high-performance web components with Lit.",
   "keywords": [
     "lit",
-    "element",
-    "web-component",
-    "ECMAScript",
+    "web-components",
+    "mixins",
+    "logger",
+    "light-dom",
     "typescript",
-    "javascript",
-    "browser",
-    "esm",
-    "module",
-    "nanolib",
     "nexim"
   ],
   "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/element#readme",
@@ -26,6 +22,9 @@
   },
   "license": "AGPL-3.0-only",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
+  "contributors": [
+    "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
+  ],
   "type": "module",
   "exports": {
     ".": {
@@ -40,6 +39,7 @@
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
     "LICENSE",
+    "!**/*.test.js",
     "!demo/**/*"
   ],
   "scripts": {
@@ -60,14 +60,14 @@
   },
   "dependencies": {
     "@alwatr/logger": "^5.0.0",
-    "@alwatr/package-tracer": "^5.0.0",
-    "lit": "^3.2.1"
+    "@alwatr/package-tracer": "^5.0.0"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
     "@alwatr/type-helper": "^5.0.0",
     "@nexim/typescript-config": "workspace:^",
     "ava": "^6.2.0",
+    "lit": "^3.2.1",
     "typescript": "^5.6.3"
   },
   "publishConfig": {
