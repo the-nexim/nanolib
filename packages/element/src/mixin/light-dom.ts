@@ -79,5 +79,5 @@ export function LightDomMixin<T extends Constructor<LitElement> = Constructor<Li
     }
   }
 
-  return MixinClass as unknown as T;
+  return MixinClass;
 }
