@@ -36,10 +36,14 @@ export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(
   superClass: T,
 ): Class<LoggerMixinInterface> & T {
   return class MixinClass extends superClass {
-    // Unique index for each element instance
+    /**
+     * Unique index for each element instance.
+     */
     private elementIndex__: number = ++elementIndex;
 
-    // Logger instance with a tag name and unique index
+    /**
+     * Logger instance with a tag name and unique index.
+     */
     protected logger_ = createLogger(`<${this.tagName.toLowerCase()}-${this.elementIndex__}>`);
 
     private firstUpdated__?: true;
@@ -105,5 +109,5 @@ export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(
       this.logger_.logMethod?.('remove');
       super.remove();
     }
-  } as unknown as Class<LoggerMixinInterface> & T;
+  } as unknown as Class<LoggerMixinInterface> & T; // Typescript Don't support protected mixin methods!
 }
