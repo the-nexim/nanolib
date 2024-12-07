@@ -1,6 +1,6 @@
 import {createLogger, type AlwatrLogger} from '@alwatr/logger';
 
-import type {Constructor} from '../type.js';
+import type {Class} from '@alwatr/type-helper';
 import type {LitElement, PropertyValues} from 'lit';
 
 // Global element index to uniquely identify each element instance
@@ -32,8 +32,9 @@ export declare class LoggerMixinInterface extends LitElement {
  *   }
  * }
  */
-export function LoggerMixin<T extends Constructor<LitElement> = Constructor<LitElement>>
-(superClass: T): Constructor<LoggerMixinInterface> & T {
+export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(
+  superClass: T,
+): Class<LoggerMixinInterface> & T {
   class MixinClass extends superClass {
     // Unique index for each element instance
     private elementIndex__: number = ++elementIndex;
@@ -106,5 +107,5 @@ export function LoggerMixin<T extends Constructor<LitElement> = Constructor<LitE
     }
   }
 
-  return MixinClass as unknown as Constructor<LoggerMixinInterface> & T;
+  return MixinClass as unknown as Class<LoggerMixinInterface> & T;
 }
