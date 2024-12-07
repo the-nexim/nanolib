@@ -78,7 +78,7 @@
       },
       "changelogIncludeCommitsClientLogin": " by @%l",
       "ignoreChanges": ["*.md"],
-      "message": "release: %s",
+      "message": "release: new independent version",
       "private": true,
       "forceGitTag": true,
       "signGitTag": true,
