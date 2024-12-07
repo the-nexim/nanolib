@@ -23,8 +23,7 @@ import type {LitElement, CSSResultGroup, ReactiveElement} from 'lit';
  *   }
  * }
  */
-export function LightDomMixin<T extends Class<LitElement> = Class<LitElement>>
-(superClass: T): T {
+export function LightDomMixin<T extends Class<LitElement> = Class<LitElement>>(superClass: T): T {
   class MixinClass extends superClass {
     /**
      * Flattens the CSSResultGroup into a single string of CSS text.

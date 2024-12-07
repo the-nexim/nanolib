@@ -32,9 +32,7 @@ export interface LoggerMixinInterface extends LitElement {
  *   }
  * }
  */
-export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(
-  superClass: T,
-): Class<LoggerMixinInterface> & T {
+export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(superClass: T): Class<LoggerMixinInterface> & T {
   return class MixinClass extends superClass {
     /**
      * Unique index for each element instance.
