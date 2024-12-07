@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.0.4...@nexim/element@1.0.5) (2024-12-07)
+
+### Bug Fixes
+
+* **element:** deps ([1fa8618](https://github.com/the-nexim/nanolib/commit/1fa8618cd45978361adfd7be2dcce5a50c530dc6)) by @njfamirm
+
 ## [1.0.4](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.0.3...@nexim/element@1.0.4) (2024-12-07)
 
 ### Bug Fixes
