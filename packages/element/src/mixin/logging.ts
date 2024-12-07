@@ -32,7 +32,8 @@ export declare class LoggerMixinInterface extends LitElement {
  *   }
  * }
  */
-export function LoggerMixin<T extends Constructor<LitElement>>(superClass: T): Constructor<LoggerMixinInterface> & T {
+export function LoggerMixin<T extends Constructor<LitElement> = Constructor<LitElement>>
+(superClass: T): Constructor<LoggerMixinInterface> & T {
   class MixinClass extends superClass {
     // Unique index for each element instance
     private elementIndex__: number = ++elementIndex;
