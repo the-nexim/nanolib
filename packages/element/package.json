@@ -1,6 +1,6 @@
 {
   "name": "@nexim/element",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility functions and mixins for building high-performance web components with Lit.",
   "keywords": [
     "lit",
