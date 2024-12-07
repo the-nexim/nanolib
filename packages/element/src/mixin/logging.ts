@@ -107,5 +107,5 @@ export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(sup
       this.logger_.logMethod?.('remove');
       super.remove();
     }
-  } as unknown as Class<LoggerMixinInterface> & T; // Typescript Don't support protected mixin methods!
+  } as unknown as Class<LoggerMixinInterface> & T; // TypeScript doesn't support protected mixin methods!
 }
