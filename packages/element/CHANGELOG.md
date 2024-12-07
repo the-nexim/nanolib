@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.0.1...@nexim/element@1.0.2) (2024-12-07)
+
+### Bug Fixes
+
+* **element:** default mixin type ([#12](https://github.com/the-nexim/nanolib/issues/12)) ([ec0966d](https://github.com/the-nexim/nanolib/commit/ec0966d28e4172eec4879bbc273c1b9fd50ab800)) by @arashagp
+
 ## [1.0.1](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.0.0...@nexim/element@1.0.1) (2024-12-07)
 
 ### Bug Fixes
