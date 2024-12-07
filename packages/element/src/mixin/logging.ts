@@ -3,13 +3,13 @@ import {createLogger, type AlwatrLogger} from '@alwatr/logger';
 import type {Class} from '@alwatr/type-helper';
 import type {LitElement, PropertyValues} from 'lit';
 
-// Global element index to uniquely identify each element instance
+/**
+ * Global element index to uniquely identify each element instance
+ */
 let elementIndex = /* @__PURE__ */ 0;
 
-// Declaration of the LoggerMixinInterface class extending LitElement
-export declare class LoggerMixinInterface extends LitElement {
-  // Logger instance for the element
-  protected logger_: AlwatrLogger;
+export interface LoggerMixinInterface extends LitElement {
+  logger_: AlwatrLogger;
 }
 
 /**
@@ -35,7 +35,7 @@ export declare class LoggerMixinInterface extends LitElement {
 export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(
   superClass: T,
 ): Class<LoggerMixinInterface> & T {
-  class MixinClass extends superClass {
+  return class MixinClass extends superClass {
     // Unique index for each element instance
     private elementIndex__: number = ++elementIndex;
 
@@ -105,7 +105,5 @@ export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(
       this.logger_.logMethod?.('remove');
       super.remove();
     }
-  }
-
-  return MixinClass as unknown as Class<LoggerMixinInterface> & T;
+  } as unknown as Class<LoggerMixinInterface> & T;
 }
