@@ -1,4 +1,4 @@
-import type {Constructor} from '../type.js';
+import type {Class} from '@alwatr/type-helper';
 import type {LitElement, CSSResultGroup, ReactiveElement} from 'lit';
 
 /**
@@ -23,7 +23,7 @@ import type {LitElement, CSSResultGroup, ReactiveElement} from 'lit';
  *   }
  * }
  */
-export function LightDomMixin<T extends Constructor<LitElement> = Constructor<LitElement>>
+export function LightDomMixin<T extends Class<LitElement> = Class<LitElement>>
 (superClass: T): T {
   class MixinClass extends superClass {
     /**
