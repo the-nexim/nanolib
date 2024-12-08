@@ -5,6 +5,24 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@alwatr/is-number@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@alwatr/is-number@npm:5.0.0"
+  dependencies:
+    "@alwatr/package-tracer": "npm:^5.0.0"
+  checksum: 10c0/13d0115a14c4896a7e27741e2eb4f3acb95249b6835c66f010f094e2ffa61cbd7eb730fd7614401339090b1e1eb2866f00fecde2182d726facffe3bffca50852
+  languageName: node
+  linkType: hard
+
+"@alwatr/local-storage@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@alwatr/local-storage@npm:5.0.0"
+  dependencies:
+    "@alwatr/package-tracer": "npm:^5.0.0"
+  checksum: 10c0/af35d96be5305dfcd1c5f47c3dede94f6915f27a61e59845a6f92fdfc031d30198ae80361eb1e2f01721bf4a1bc96e76a9a06a80ebd8c346d37c186b13bf46f8
+  languageName: node
+  linkType: hard
+
 "@alwatr/logger@npm:^5.0.0":
   version: 5.0.0
   resolution: "@alwatr/logger@npm:5.0.0"
@@ -30,6 +48,16 @@ __metadata:
   version: 5.0.0
   resolution: "@alwatr/package-tracer@npm:5.0.0"
   checksum: 10c0/62d5dc8940ab269995020a8bcdcd83a4554da74b397e6404f41631251c1274b34ad45382b0b9a159f57f50ea9ecaccef537b14cb0d7f0c05a1e5023c4e0350a3
+  languageName: node
+  linkType: hard
+
+"@alwatr/parse-duration@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@alwatr/parse-duration@npm:5.0.0"
+  dependencies:
+    "@alwatr/is-number": "npm:^5.0.0"
+    "@alwatr/package-tracer": "npm:^5.0.0"
+  checksum: 10c0/c4fd3ba095d92d0faf413ac0a68e81b2b92c5a2ba373370d167df1d86319afe7eb360e230c59c29ac9965713f59be9469d0a29312197060673259524dd2cdb90
   languageName: node
   linkType: hard
 
@@ -740,6 +768,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@nexim/store@workspace:packages/store":
+  version: 0.0.0-use.local
+  resolution: "@nexim/store@workspace:packages/store"
+  dependencies:
+    "@alwatr/local-storage": "npm:^5.0.0"
+    "@alwatr/logger": "npm:^5.0.0"
+    "@alwatr/nano-build": "npm:^5.0.0"
+    "@alwatr/package-tracer": "npm:^5.0.0"
+    "@alwatr/parse-duration": "npm:^5.0.0"
+    "@alwatr/type-helper": "npm:^5.0.0"
+    "@nexim/typescript-config": "workspace:^"
+    "@types/alpinejs": "npm:^3"
+    alpinejs: "npm:^3.14.7"
+    ava: "npm:^6.2.0"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@nexim/typescript-config@workspace:^, @nexim/typescript-config@workspace:packages/typescript-config":
   version: 0.0.0-use.local
   resolution: "@nexim/typescript-config@workspace:packages/typescript-config"
@@ -1225,6 +1271,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/alpinejs@npm:^3":
+  version: 3.13.11
+  resolution: "@types/alpinejs@npm:3.13.11"
+  checksum: 10c0/181dcff0af59211043e4121f68548bc2efabe74f71ac397bc20aac7a497f76344e8f327745e621ec5db5b4991d12834b88840ad87e7a28c4a1554930b9e32ad6
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:^1.0.0":
   version: 1.0.6
   resolution: "@types/estree@npm:1.0.6"
@@ -1416,6 +1469,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/reactivity@npm:~3.1.1":
+  version: 3.1.5
+  resolution: "@vue/reactivity@npm:3.1.5"
+  dependencies:
+    "@vue/shared": "npm:3.1.5"
+  checksum: 10c0/1c38aeb73725b3825bea793194334b232388236f0b06b04471508a77cb55d71841e3eb2f345ab6812c76569918aa8f019e4cdf59ec9cefbab7625bb2bc26eb58
+  languageName: node
+  linkType: hard
+
+"@vue/shared@npm:3.1.5":
+  version: 3.1.5
+  resolution: "@vue/shared@npm:3.1.5"
+  checksum: 10c0/197aa5bdd370177d26ca7a178bb3d3d2332cee2c8e67000bd2bb91b1ffc571d5489fab3a65f38a32e941dc8182d1cd6c6af6e294bb9ea13e01eafdde475319ea
+  languageName: node
+  linkType: hard
+
 "JSONStream@npm:^1.3.5":
   version: 1.3.5
   resolution: "JSONStream@npm:1.3.5"
@@ -1522,6 +1591,15 @@ __metadata:
     json-schema-traverse: "npm:^0.4.1"
     uri-js: "npm:^4.2.2"
   checksum: 10c0/41e23642cbe545889245b9d2a45854ebba51cda6c778ebced9649420d9205f2efb39cb43dbc41e358409223b1ea43303ae4839db682c848b891e4811da1a5a71
+  languageName: node
+  linkType: hard
+
+"alpinejs@npm:^3.14.7":
+  version: 3.14.7
+  resolution: "alpinejs@npm:3.14.7"
+  dependencies:
+    "@vue/reactivity": "npm:~3.1.1"
+  checksum: 10c0/658e0627280aa8908e40951edc0e20a98889723677b0dea242f7d7af028c7079c6f79e9709fc9c7d59485a49b6abade2dacaeca535f6e7ce623d720c19245836
   languageName: node
   linkType: hard
 
