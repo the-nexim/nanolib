@@ -26,11 +26,11 @@ yarn add @nexim/store
 The `Store` class provides a base store implementation with logging capabilities.
 
 ```ts
-import { Store } from '@nexim/store';
+import {Store} from '@nexim/store';
 
 const store = new Store({
   name: 'myStore',
-  defaultStore: { key: 'value' }
+  defaultStore: {key: 'value'},
 });
 ```
 
@@ -39,13 +39,13 @@ const store = new Store({
 The `StoreWithBackup` class extends `Store` to add backup and restore functionality with local storage support and expiration handling.
 
 ```ts
-import { StoreWithBackup } from '@nexim/store';
+import {StoreWithBackup} from '@nexim/store';
 
 const storeWithBackup = new StoreWithBackup({
   name: 'myStoreWithBackup',
   version: 1,
-  defaultStore: { data: null },
-  expireDuration: '1d'
+  defaultStore: {data: null},
+  expireDuration: '1d',
 });
 ```
 
@@ -54,10 +54,10 @@ const storeWithBackup = new StoreWithBackup({
 The `BaseStore` class is a base class for creating stores with Alpine.js state management.
 
 ```ts
-import { BaseStore } from '@nexim/store';
+import {BaseStore} from '@nexim/store';
 
 const baseStore = new BaseStore({
   name: 'myBaseStore',
-  defaultStore: { key: 'value' }
+  defaultStore: {key: 'value'},
 });
 ```

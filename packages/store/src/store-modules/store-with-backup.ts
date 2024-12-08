@@ -17,7 +17,7 @@ export type StoreWithBackupConfig<T extends StoreWithBackupType> = {
   expireDuration?: Duration;
 };
 
-const localStorageKey = '[nexim.store.v1]'
+const localStorageKey = '[nexim.store.v1]';
 
 /**
  * StoreWithBackup class extends the Store class to provide backup and restore functionality
