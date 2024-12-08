@@ -1,7 +1,7 @@
 {
   "name": "@nexim/store",
   "version": "1.0.0",
-  "description": "Utility functions and mixins for building high-performance web components with Lit.",
+  "description": "A state management library using Alpine Store, and integrated with our custom logger and FSM for client-side logic.",
   "keywords": [
     "lit",
     "web-components",
@@ -11,14 +11,14 @@
     "typescript",
     "nexim"
   ],
-  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/element#readme",
+  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/store#readme",
   "bugs": {
     "url": "https://github.com/the-nexim/nanolib/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/the-nexim/nanolib",
-    "directory": "packages/element"
+    "directory": "packages/store"
   },
   "license": "AGPL-3.0-only",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
