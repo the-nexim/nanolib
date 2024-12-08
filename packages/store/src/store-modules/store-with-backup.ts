@@ -17,6 +17,8 @@ export type StoreWithBackupConfig<T extends StoreWithBackupType> = {
   expireDuration?: Duration;
 };
 
+const localStorageKey = '[nexim.store.v1]'
+
 /**
  * StoreWithBackup class extends the Store class to provide backup and restore functionality
  * with local storage support and expiration handling.
@@ -26,8 +28,8 @@ export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
    * Keys for storing data and expireTime in local storage.
    */
   private localStorageKey__ = {
-    data: `[store.v2]:${this.config__.name}`,
-    expireTime: `[store.v2]:${this.config__.name}-expire-time`,
+    data: `${localStorageKey}:${this.config__.name}`,
+    expireTime: `${localStorageKey}:${this.config__.name}-expire-time`,
   };
 
   /**
@@ -46,7 +48,8 @@ export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
    * Updates the expiration time.
    */
   save(): void {
-    this.logger_.logMethodArgs?.('save', this.store.data);
+    this.logger_.logMethodArgs?.(`${__package_name__}.save`, this.store.data);
+
     if (this.store.data === null) {
       this.clear();
       return;
@@ -60,7 +63,7 @@ export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
    * Clears the stored data, and expiration time from local storage.
    */
   clear(): void {
-    this.logger_.logMethod?.('clear');
+    this.logger_.logMethod?.(`${__package_name__}.clear`);
 
     localJsonStorage.removeItem(this.localStorageKey__.data, this.config__.version);
     localJsonStorage.removeItem(this.localStorageKey__.expireTime, this.config__.version);
@@ -70,7 +73,7 @@ export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
    * Resets the data to the default store configuration and clears the stored data.
    */
   resetDataToDefault(): void {
-    this.logger_.logMethod?.('resetDataToDefault');
+    this.logger_.logMethod?.(`${__package_name__}.resetDataToDefault`);
     this.store = this.config__.defaultStore;
     this.clear();
   }
@@ -81,7 +84,7 @@ export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
    */
   private handleExpireDuration__(): void {
     if (this.config__.expireDuration == null) return;
-    this.logger_.logMethod?.('handleExpireDuration__');
+    this.logger_.logMethod?.(`${__package_name__}.handleExpireDuration__`);
 
     const expireDuration = localJsonStorage.getItem<{time: number}>(
       this.localStorageKey__.expireTime,
@@ -99,12 +102,12 @@ export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
    */
   private updateExpireTime__(): void {
     if (this.config__.expireDuration == null) return;
-    this.logger_.logMethod?.('updateExpireTime__');
+    this.logger_.logMethod?.(`${__package_name__}.updateExpireTime__`);
 
     const newExpireTime = Date.now() + parseDuration(this.config__.expireDuration);
     localJsonStorage.setItem(this.localStorageKey__.expireTime, {time: newExpireTime}, this.config__.version);
 
-    this.logger_.logOther?.('updated_expire_time', {newExpireTime});
+    this.logger_.logOther?.(`${__package_name__}.updated_expire_time`, {newExpireTime});
   }
 
   /**
@@ -126,7 +129,7 @@ export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
         return;
       }
 
-      this.logger_.error('load__', 'data_not_parsed', {localStorageKey: this.localStorageKey__});
+      this.logger_.error(`${__package_name__}.load__`, 'data_not_parsed', {localStorageKey: this.localStorageKey__});
       return;
     }
 

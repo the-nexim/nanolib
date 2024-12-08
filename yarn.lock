@@ -40,7 +40,7 @@ __metadata:
     esbuild: "npm:^0.24.0"
   bin:
     nano-build: ./nano-build.cjs
-  checksum: 10c0/fccfbcb55559571b158e79553cbbd9c44c06492aab91c47071e467b2ea0d40a87142d49acb938af60a708c5ad56b6f6854df6220ec1c088af5cf6fbd7ab0255c
+  checksum: 10c0/58f4d1b24d628712943f26e8688392dc7d74cd4eda86205284481ea22d681758715c254d416091dde8d52b86f743c8b6cdec3741c8b6fc6e1627c476b73d8094
   languageName: node
   linkType: hard
 
