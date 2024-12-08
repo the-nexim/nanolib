@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "A state management library using Alpine Store, and integrated with our custom logger and FSM for client-side logic.",
   "keywords": [
-    "lit",
-    "web-components",
-    "mixins",
+    "alpinejs",
+    "store",
     "logger",
-    "light-dom",
+    "fsm",
+    "state management",
+    "client-side",
+    "logic",
     "typescript",
     "nexim"
   ],
