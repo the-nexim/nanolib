@@ -1,60 +1,63 @@
-# @nexim/element
+# @nexim/store
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Felement)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Felement)
+![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fstore)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fstore)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Felement)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Felement)
+![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Fstore)
+![NPM License](https://img.shields.io/npm/l/%40nexim%2Fstore)
 
 ## Overview
 
-`@nexim/element` is a collection of utility functions and mixins for building high-performance, maintainable web components using Lit.
+`@nexim/store` is a collection of utility functions and mixins for building high-performance, maintainable web components using Lit.
 
 ## Installation
 
 ```sh
-npm install @nexim/element
+npm install @nexim/store
 
 # Or using yarn
-yarn add @nexim/element
+yarn add @nexim/store
 ```
 
 ## API
 
-### LoggerMixin
+### Store
 
-The LoggerMixin adds logging capabilities to your LitElement components. It logs lifecycle methods and measures update times.
+The `Store` class provides a base store implementation with logging capabilities.
 
 ```ts
-import {LitElement, html} from 'lit';
-import {LoggerMixin} from '@nexim/element';
+import { Store } from '@nexim/store';
 
-class MyElement extends LoggerMixin(LitElement) {
-  protected override render() {
-    super.render(); // must call super method to logger work
-
-    return html`<p>Hello, world!</p>`;
-  }
-}
+const store = new Store({
+  name: 'myStore',
+  defaultStore: { key: 'value' }
+});
 ```
 
-### LightDomMixin
+### StoreWithBackup
 
-The LightDomMixin enables light DOM rendering and style encapsulation for LitElement components.
+The `StoreWithBackup` class extends `Store` to add backup and restore functionality with local storage support and expiration handling.
 
 ```ts
-import {LitElement, html, css} from 'lit';
-import {LightDomMixin} from '@nexim/element';
+import { StoreWithBackup } from '@nexim/store';
 
-class MyLightDomElement extends LightDomMixin(LitElement) {
-  static styles = css`
-    p {
-      color: blue;
-    }
-  `;
+const storeWithBackup = new StoreWithBackup({
+  name: 'myStoreWithBackup',
+  version: 1,
+  defaultStore: { data: null },
+  expireDuration: '1d'
+});
+```
 
-  protected override render() {
-    return html`<p>Hello, light DOM!</p>`;
-  }
-}
+### BaseStore
+
+The `BaseStore` class is a base class for creating stores with Alpine.js state management.
+
+```ts
+import { BaseStore } from '@nexim/store';
+
+const baseStore = new BaseStore({
+  name: 'myBaseStore',
+  defaultStore: { key: 'value' }
+});
 ```
