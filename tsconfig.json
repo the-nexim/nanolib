@@ -6,5 +6,15 @@
   },
   "files": [],
   "exclude": [],
-  "references": [{"path": "./packages/element"}, {"path": "./packages/typescript-config"}]
+  "references": [
+    {
+      "path": "./packages/element"
+    },
+    {
+      "path": "./packages/typescript-config"
+    },
+    {
+      "path": "./packages/alpine"
+    }
+  ]
 }

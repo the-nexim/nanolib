@@ -1,7 +1,7 @@
 {
   "name": "@nexim/eslint-config",
   "version": "1.0.0",
-  "description": "Nexim ECMAScript Style Guide as a ESLint shareable configurations.",
+  "description": "Base Eslint configuration for Nexim projects.",
   "keywords": [
     "eslint",
     "eslint-config",
