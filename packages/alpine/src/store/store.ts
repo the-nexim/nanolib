@@ -15,19 +15,33 @@ export type AlpineStoreOptions<T extends DictionaryReq> = {
 };
 
 /**
- * Class representing an Alpine store.
+ * Provides a Alpine.js store implementation with logging capabilities in the class.
  *
  * @template T - The type of the store's state.
  * @description This class provides a simple way to create and manage a store with a default state and logging capabilities.
  *
  * @example
- * const storeOptions = {
- *   name: 'exampleStore',
- *   defaultValue: { key: 'value' }
- * };
- * const store = new AlpineStore(storeOptions);
  *
- * console.log(store.store); // Output: { key: 'value' }
+ * interface StoreType {
+ *   name: 'user',
+ *   defaultValue: {
+ *     type: 'root' | 'user';
+ *     // Add more properties here
+ *   },
+ * }
+ *
+ * class UserProfile extends AlpineStore<StoreType> {
+ *   constructor() {
+ *     super({
+ *       name: 'user',
+ *       defaultStore: {
+ *         type: 'root'
+ *       }
+ *     })
+ *
+ *     console.log(this.store.type) // output: root
+ *   }
+ * }
  *
  * @description
  * The AlpineStore class leverages Alpine.js to create a reactive store that holds a default value.

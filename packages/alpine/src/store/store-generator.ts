@@ -4,7 +4,7 @@ import alpine from 'alpinejs';
 const logger = createLogger(__package_name__);
 
 /**
- * Options for creating an Alpine store.
+ * alpineStoreGenerator Options.
  *
  * @template T - The type of the default value.
  * @property {string} name - The name of the store.
@@ -25,19 +25,18 @@ export type AlpineStoreGeneratorOptions<T extends DictionaryReq> = {
  * @see https://alpinejs.dev/globals/alpine-store
  *
  * @example
- * // Create a store with a default state
  * const store = alpineStoreGenerator({
  *   name: 'user',
  *   defaultValue: {type: 'root'},
  * });
  *
- * console.log(store.type); // Output: value
+ * console.log(store.type); // Output: root
  *
  * @description
  * This function uses Alpine.js to create a reactive store with a default value.
  * The store is identified by a unique name and can be accessed and manipulated
  * throughout the application. Alpine.js stores provide a simple way to manage
- * state in your application, making it easy to keep your UI in sync with your data.
+ * data in your application, making it easy to keep your UI in sync with your data.
  */
 export function alpineStoreGenerator<T extends DictionaryReq>(config: AlpineStoreGeneratorOptions<T>): T {
   logger.logMethodArgs?.('alpineStoreGenerator', config);

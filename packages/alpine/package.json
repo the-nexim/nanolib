@@ -1,7 +1,7 @@
 {
   "name": "@nexim/alpine",
   "version": "0.0.0",
-  "description": "A state management library using Alpine Store, and integrated with our custom logger and FSM for client-side logic.",
+  "description": "Utility functions to enhance Alpine.js usage with backup support.",
   "keywords": [
     "alpinejs",
     "alpine",

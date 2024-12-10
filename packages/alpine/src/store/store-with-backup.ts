@@ -22,12 +22,11 @@ export type AlpineStoreWithBackupConfig<TBase extends AlpineStoreWithBackupType<
 const schemaVersion = 1;
 
 /**
- * StoreWithBackup class extends the Store class to provide backup and restore functionality
- * with local storage support and expiration handling.
+ * Provides a Alpine.js store implementation with backup, expiration and logging capabilities.
  */
 export class AlpineStoreWithBackup<TBase extends AlpineStoreWithBackupType<TData>, TData extends DictionaryReq> extends AlpineStore<TBase> {
   /**
-   * Keys for storing data and expireTime in local storage.
+   * Keys for storing data and expire time in local storage.
    */
   private localStorageKey__ = {
     data: `[@nexim/alpine:data:sv${schemaVersion}]:${this.config__.name}`,
@@ -35,7 +34,7 @@ export class AlpineStoreWithBackup<TBase extends AlpineStoreWithBackupType<TData
   };
 
   /**
-   * AlpineStoreWithBackup Constructor.
+   * Provides a Alpine.js store implementation with backup, expiration and logging capabilities.
    *
    * @param {AlpineStoreWithBackupConfig} config__ - Configuration object.
    */
