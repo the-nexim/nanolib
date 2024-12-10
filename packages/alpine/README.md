@@ -40,6 +40,38 @@ const store = alpineStoreGenerator({
 console.log(store.type); // Output: root
 ```
 
+### AlpineStore
+
+Provides a Alpine.js pure store implementation with logger.
+
+#### Constructor
+
+Creates an instance of `AlpineStore`.
+
+- **config**: The configuration object for the store.
+  - **name**: The name of the store.
+  - **defaultValue**: The default value of the store.
+
+### Properties
+
+- **store**: alpine store proxy.
+
+#### Example Usage
+
+```ts
+import {AlpineStore} from '@nexim/alpine';
+
+const {store} = new AlpineStore({
+  name: 'myStore',
+  defaultValue: {data: 'root'},
+});
+
+console.log(store.data); // Output: { data: 'root' }
+store.data = 'user';
+
+console.log(store.data); // Output: { data: 'user' }
+```
+
 ### AlpineStoreWithBackup
 
 Extends `AlpineStore` to add backup and restore functionality with local storage support and expiration handling.
@@ -53,6 +85,10 @@ Creates an instance of `AlpineStoreWithBackup`.
   - **version**: The version of the store.
   - **defaultValue**: The default value of the store.
   - **expireDuration**: Optional. The duration after which the store expires.
+
+### Properties
+
+- **store**: alpine store proxy.
 
 #### Methods
 
@@ -79,3 +115,7 @@ console.log(storeWithBackup.store.data); // Output: { data: 'user' }
 storeWithBackup.clear();
 console.log(storeWithBackup.store.data); // Output: { data: 'root' }
 ```
+
+### TODO
+
+- Analyze [@alwatr/context](https://github.com/Alwatr/flux/tree/next/packages/context) for use here.

@@ -1,6 +1,7 @@
 import {localJsonStorage} from '@alwatr/local-storage';
-import {type AlwatrLogger, createLogger} from '@alwatr/logger';
 import {parseDuration, type Duration} from '@alwatr/parse-duration';
+
+import {AlpineStore} from './store.js';
 
 /**
  * Type for the store's data to extends from them.
@@ -36,14 +37,7 @@ const schemaVersion = 1;
 /**
  * Provides a Alpine.js store implementation with backup and expiration.
  */
-export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> {
-  /**
-   * The store's data.
-   */
-  store: T;
-
-  protected logger_: AlwatrLogger;
-
+export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends AlpineStore<T> {
   /**
    * Keys for storing data and expire time in local storage with version.
    */
@@ -76,10 +70,7 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> {
    * console.log(storeWithBackup.store.data); // Output: { data: 'root' }
    */
   constructor(private config__: AlpineStoreWithBackupOptions<T>) {
-    this.logger_ = createLogger(`[${__package_name__}]:${config__.name}`);
-    this.logger_.logMethodArgs?.('constructor', config__);
-
-    this.store = config__.defaultValue;
+    super(config__);
 
     if (this.config__.expireDuration !== null) {
       this.handleDataExpiration__();
