@@ -56,6 +56,24 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> {
    * Provides a Alpine.js store implementation with backup and expiration.
    *
    * @param {AlpineStoreWithBackupOptions} config__ - Configuration object.
+   *
+   * @example
+   * import {AlpineStoreWithBackup} from '@nexim/alpine';
+   *
+   * const storeWithBackup = new AlpineStoreWithBackup({
+   *   name: 'myStoreWithBackup',
+   *   version: 1,
+   *   defaultValue: {data: 'root'},
+   *   expireDuration: '1d',
+   * });
+   *
+   * storeWithBackup.store.data = 'user';
+   *
+   * storeWithBackup.save();
+   * console.log(storeWithBackup.store.data); // Output: { data: 'user' }
+   *
+   * storeWithBackup.clear();
+   * console.log(storeWithBackup.store.data); // Output: { data: 'root' }
    */
   constructor(private config__: AlpineStoreWithBackupOptions<T>) {
     this.logger_ = createLogger(`[${__package_name__}]:${config__.name}`);

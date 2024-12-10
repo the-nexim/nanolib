@@ -5,6 +5,7 @@
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
 ![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Falpine)
 ![NPM License](https://img.shields.io/npm/l/%40nexim%2Falpine)
+![Code Coverage](https://img.shields.io/codecov/c/github/the-nexim/nanolib)
 
 ## Overview
 
@@ -27,6 +28,8 @@ yarn add @nexim/alpine
 
 Generates an Alpine.js store with a default value.
 
+#### Example Usage
+
 ```ts
 import {alpineStoreGenerator} from '@nexim/alpine';
 
@@ -42,13 +45,38 @@ console.log(store.type); // Output: root
 
 Extends `AlpineStore` to add backup and restore functionality with local storage support and expiration handling.
 
+#### Constructor
+
+Creates an instance of `AlpineStoreWithBackup`.
+
+- **config**: The configuration object for the store.
+  - **name**: The name of the store.
+  - **version**: The version of the store.
+  - **defaultValue**: The default value of the store.
+  - **expireDuration**: Optional. The duration after which the store expires.
+
+#### Methods
+
+- **save()**: Saves the current data to local storage. If the data is null, it clears the stored data. Also updates the expiration time.
+- **clear()**: Clears the local storage and set default value to store.
+
+#### Example Usage
+
 ```ts
 import {AlpineStoreWithBackup} from '@nexim/alpine';
 
 const storeWithBackup = new AlpineStoreWithBackup({
   name: 'myStoreWithBackup',
   version: 1,
-  defaultValue: {data: null},
+  defaultValue: {data: 'root'},
   expireDuration: '1d',
 });
+
+storeWithBackup.store.data = 'user';
+
+storeWithBackup.save();
+console.log(storeWithBackup.store.data); // Output: { data: 'user' }
+
+storeWithBackup.clear();
+console.log(storeWithBackup.store.data); // Output: { data: 'root' }
 ```
