@@ -1,7 +1,7 @@
 {
   "name": "@nexim/typescript-config",
   "version": "1.0.0",
-  "description": "This is a base TypeScript configuration for Nexim projects.",
+  "description": "Base TypeScript configuration for Nexim projects.",
   "keywords": [
     "typescript",
     "tsconfig",
