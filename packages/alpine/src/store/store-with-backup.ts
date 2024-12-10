@@ -1,53 +1,78 @@
 import {localJsonStorage} from '@alwatr/local-storage';
+import {type AlwatrLogger, createLogger} from '@alwatr/logger';
 import {parseDuration, type Duration} from '@alwatr/parse-duration';
 
-import {AlpineStore} from './store.js';
-
-import type {EmptyObject} from '../type.js';
-
-export type AlpineStoreWithBackupType<T extends DictionaryReq> = {
-  data: T | null;
+/**
+ * Type for the store's data to extends from them.
+ */
+export type AlpineStoreWithBackupType = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: DictionaryReq<any> | null;
 };
 
-export type AlpineStoreWithBackupConfig<TBase extends AlpineStoreWithBackupType<TData>, TData extends DictionaryReq> = {
+/**
+ * AlpineStoreWithBackup Options.
+ *
+ * @template T - The type of the store value.
+ * @param {string} name - The name of the store.
+ * @param {number} version - The version of the store.
+ * @param {T} defaultValue - The default value of the store.
+ * @param {Duration} [expireDuration] - Optional. The duration after which the store expires.
+ */
+export type AlpineStoreWithBackupOptions<T extends AlpineStoreWithBackupType> = {
   name: string;
   version: number;
-  defaultValue: TBase;
+  defaultValue: T;
   expireDuration?: Duration;
 };
 
 /**
- * Schema version `sv` that's change just when the schema changes.
+ * Version of the schema for storing data in local storage.
+ *
+ * Change when this schema changes.
  */
 const schemaVersion = 1;
 
 /**
- * Provides a Alpine.js store implementation with backup, expiration and logging capabilities.
+ * Provides a Alpine.js store implementation with backup and expiration.
  */
-export class AlpineStoreWithBackup<TBase extends AlpineStoreWithBackupType<TData>, TData extends DictionaryReq> extends AlpineStore<TBase> {
+export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> {
   /**
-   * Keys for storing data and expire time in local storage.
+   * The store's data.
+   */
+  store: T;
+
+  protected logger_: AlwatrLogger;
+
+  /**
+   * Keys for storing data and expire time in local storage with version.
    */
   private localStorageKey__ = {
-    data: `[@nexim/alpine:data:sv${schemaVersion}]:${this.config__.name}`,
-    expireTime: `[@nexim/alpine:expire-time:sv${schemaVersion}]:${this.config__.name}`,
+    data: `[${__package_name__}:data:sv${schemaVersion}]:${this.config__.name}`,
+    expireTime: `[${__package_name__}:expire-time:sv${schemaVersion}]:${this.config__.name}`,
   };
 
   /**
-   * Provides a Alpine.js store implementation with backup, expiration and logging capabilities.
+   * Provides a Alpine.js store implementation with backup and expiration.
    *
-   * @param {AlpineStoreWithBackupConfig} config__ - Configuration object.
+   * @param {AlpineStoreWithBackupOptions} config__ - Configuration object.
    */
-  constructor(private config__: AlpineStoreWithBackupConfig<TBase, TData>) {
-    super(config__);
+  constructor(private config__: AlpineStoreWithBackupOptions<T>) {
+    this.logger_ = createLogger(`[${__package_name__}]:${config__.name}`);
+    this.logger_.logMethodArgs?.('constructor', config__);
 
-    this.handleDataExpiration__();
+    this.store = config__.defaultValue;
+
+    if (this.config__.expireDuration !== null) {
+      this.handleDataExpiration__();
+    }
     this.load__();
   }
 
   /**
    * Saves the current data to local storage. If the data is null, it clears the stored data.
-   * Updates the expiration time.
+   *
+   * Also updates the expiration time.
    */
   save(): void {
     this.logger_.logMethodArgs?.('save', {data: this.store.data});
@@ -62,23 +87,15 @@ export class AlpineStoreWithBackup<TBase extends AlpineStoreWithBackupType<TData
   }
 
   /**
-   * Resets the data to the default store configuration and clears the stored data.
-   */
-  resetDataToDefault(): void {
-    this.logger_.logMethod?.('resetDataToDefault');
-
-    this.store = this.config__.defaultValue;
-    this.clear();
-  }
-
-  /**
-   * Clears the stored data, and expiration time from local storage.
+   * Clears the stored data.
    */
   clear(): void {
     this.logger_.logMethod?.('clear');
 
     localJsonStorage.removeItem(this.localStorageKey__.data, this.config__.version);
     localJsonStorage.removeItem(this.localStorageKey__.expireTime, this.config__.version);
+
+    this.store = this.config__.defaultValue;
   }
 
   /**
@@ -86,7 +103,6 @@ export class AlpineStoreWithBackup<TBase extends AlpineStoreWithBackupType<TData
    * If expired, it clears the stored data.
    */
   private handleDataExpiration__(): void {
-    if (this.config__.expireDuration == null) return;
     this.logger_.logMethod?.('handleDataExpiration__');
 
     const expireDuration = localJsonStorage.getItem<{time: number}>(
@@ -103,32 +119,13 @@ export class AlpineStoreWithBackup<TBase extends AlpineStoreWithBackupType<TData
   /**
    * Loads data from local storage and updates the store's data.
    *
-   * This method attempts to retrieve data from local storage using the specified key and version.
-   * If the retrieved data is empty, it checks the raw value in local storage.
-   * If the raw value is either an empty object or null, it logs that no data was found and returns.
-   * If an error occurs during parsing, it logs the error.
+   * When data is not found or invalid in local storage, it uses the default value.
    */
   private load__(): void {
     this.logger_.logMethod?.('load__');
 
-    const newData = localJsonStorage.getItem<TData | EmptyObject>(this.localStorageKey__.data, {}, this.config__.version);
-
-    if (Object.keys(newData).length === 0) {
-      // empty object
-      const rawValue = localStorage.getItem(localJsonStorage.key_(this.localStorageKey__.data, this.config__.version));
-      if (rawValue === '{}' || rawValue === null) {
-        this.logger_.logOther?.('no_data');
-
-        this.resetDataToDefault();
-        return;
-      }
-
-      this.logger_.error('load__', 'data_not_parsed', {localStorageKey: this.localStorageKey__});
-      return;
-    }
-    // else: data is not empty
-
-    this.store.data = newData as TData;
+    const newData = localJsonStorage.getItem<T>(this.localStorageKey__.data, this.config__.defaultValue, this.config__.version);
+    this.store.data = newData.data;
   }
 
   /**

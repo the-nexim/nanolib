@@ -8,9 +8,11 @@
 
 ## Overview
 
-`@nexim/alpine` is a versatile library designed to enhance your Alpine.js experience with a suite of utility functions and mixins. It provides robust solutions for Data management, including logging capabilities and backup functionalities with local storage support. This library aims to streamline the development of high-performance, ensuring your projects are both efficient and scalable.
+`@nexim/alpine` is a versatile library designed to enhance your Alpine.js experience with a suite of utility functions and mixins. It provides robust solutions for data management, including logging capabilities and backup functionalities with local storage support. This library aims to streamline the development of high-performance projects, ensuring efficiency and scalability.
 
 ## Installation
+
+Install the package using npm or yarn:
 
 ```sh
 npm install @nexim/alpine
@@ -23,7 +25,7 @@ yarn add @nexim/alpine
 
 ### alpineStoreGenerator
 
-Generates an Alpine.js store with default value.
+Generates an Alpine.js store with a default value.
 
 ```ts
 import {alpineStoreGenerator} from '@nexim/alpine';
@@ -36,38 +38,9 @@ const store = alpineStoreGenerator({
 console.log(store.type); // Output: root
 ```
 
-### AlpineStore
-
-Provides a Alpine.js store implementation with logging capabilities in the class.
-
-```ts
-import {AlpineStore} from '@nexim/alpine';
-
-interface StoreType {
-  name: 'user',
-  defaultValue: {
-    type: 'root' | 'user';
-    // Add more properties here
-  },
-}
-
-class UserProfile extends AlpineStore<StoreType> {
-  constructor() {
-    super({
-      name: 'user',
-      defaultStore: {
-        type: 'root'
-      }
-    })
-
-    console.log(this.store.type) // output: root
-  }
-}
-```
-
 ### AlpineStoreWithBackup
 
-The `AlpineStoreWithBackup` class extends `AlpineStore` to add backup and restore functionality with local storage support and expiration handling.
+Extends `AlpineStore` to add backup and restore functionality with local storage support and expiration handling.
 
 ```ts
 import {AlpineStoreWithBackup} from '@nexim/alpine';

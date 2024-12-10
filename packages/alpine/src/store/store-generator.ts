@@ -22,8 +22,6 @@ export type AlpineStoreGeneratorOptions<T extends DictionaryReq> = {
  * @param {AlpineStoreGeneratorOptions} config - The configuration object for the store.
  * @returns {T} - The initialized store instance.
  *
- * @see https://alpinejs.dev/globals/alpine-store
- *
  * @example
  * const store = alpineStoreGenerator({
  *   name: 'user',
@@ -37,6 +35,8 @@ export type AlpineStoreGeneratorOptions<T extends DictionaryReq> = {
  * The store is identified by a unique name and can be accessed and manipulated
  * throughout the application. Alpine.js stores provide a simple way to manage
  * data in your application, making it easy to keep your UI in sync with your data.
+ *
+ * @see https://alpinejs.dev/globals/alpine-store
  */
 export function alpineStoreGenerator<T extends DictionaryReq>(config: AlpineStoreGeneratorOptions<T>): T {
   logger.logMethodArgs?.('alpineStoreGenerator', config);
