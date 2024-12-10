@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/the-nexim/nanolib/compare/@nexim/typescript-config@1.0.0...@nexim/typescript-config@1.0.1) (2024-12-10)
+
+**Note:** Version bump only for package @nexim/typescript-config
+
 ## 1.0.0 (2024-12-04)
 
 ### Features

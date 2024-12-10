@@ -1,6 +1,6 @@
 {
   "name": "@nexim/prettier-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Base Prettier configuration for Nexim projects.",
   "keywords": [
     "prettier",
