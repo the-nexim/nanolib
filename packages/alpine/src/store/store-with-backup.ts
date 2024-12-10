@@ -5,41 +5,44 @@ import {AlpineStore} from './store.js';
 
 import type {EmptyObject} from '../type.js';
 
-export type AlpineStoreWithBackupType = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: DictionaryReq<any> | null;
+export type AlpineStoreWithBackupType<T extends DictionaryReq> = {
+  data: T | null;
 };
 
-export type AlpineStoreWithBackupConfig<T extends AlpineStoreWithBackupType> = {
+export type AlpineStoreWithBackupConfig<TBase extends AlpineStoreWithBackupType<TData>, TData extends DictionaryReq> = {
   name: string;
   version: number;
-  defaultStore: T;
+  defaultValue: TBase;
   expireDuration?: Duration;
 };
 
-const localStorageKey = '[nexim.store.v1]';
+/**
+ * Schema version `sv` that's change just when the schema changes.
+ */
+const schemaVersion = 1;
 
 /**
  * StoreWithBackup class extends the Store class to provide backup and restore functionality
  * with local storage support and expiration handling.
  */
-export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends AlpineStore<T> {
+export class AlpineStoreWithBackup<TBase extends AlpineStoreWithBackupType<TData>, TData extends DictionaryReq> extends AlpineStore<TBase> {
   /**
    * Keys for storing data and expireTime in local storage.
    */
   private localStorageKey__ = {
-    data: `${localStorageKey}:${this.config__.name}`,
-    expireTime: `${localStorageKey}:${this.config__.name}-expire-time`,
+    data: `[@nexim/alpine:data:sv${schemaVersion}]:${this.config__.name}`,
+    expireTime: `[@nexim/alpine:expire-time:sv${schemaVersion}]:${this.config__.name}`,
   };
 
   /**
-   * Constructor to initialize the StoreWithBackup instance.
-   * @param config__ - Configuration object containing name, version, defaultStore, and optional expireDuration.
+   * AlpineStoreWithBackup Constructor.
+   *
+   * @param {AlpineStoreWithBackupConfig} config__ - Configuration object.
    */
-  constructor(private config__: AlpineStoreWithBackupConfig<T>) {
+  constructor(private config__: AlpineStoreWithBackupConfig<TBase, TData>) {
     super(config__);
 
-    this.handleExpireDuration__();
+    this.handleDataExpiration__();
     this.load__();
   }
 
@@ -48,7 +51,7 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    * Updates the expiration time.
    */
   save(): void {
-    this.logger_.logMethodArgs?.(`${__package_name__}.save`, this.store.data);
+    this.logger_.logMethodArgs?.('save', {data: this.store.data});
 
     if (this.store.data === null) {
       this.clear();
@@ -60,31 +63,32 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
   }
 
   /**
+   * Resets the data to the default store configuration and clears the stored data.
+   */
+  resetDataToDefault(): void {
+    this.logger_.logMethod?.('resetDataToDefault');
+
+    this.store = this.config__.defaultValue;
+    this.clear();
+  }
+
+  /**
    * Clears the stored data, and expiration time from local storage.
    */
   clear(): void {
-    this.logger_.logMethod?.(`${__package_name__}.clear`);
+    this.logger_.logMethod?.('clear');
 
     localJsonStorage.removeItem(this.localStorageKey__.data, this.config__.version);
     localJsonStorage.removeItem(this.localStorageKey__.expireTime, this.config__.version);
   }
 
   /**
-   * Resets the data to the default store configuration and clears the stored data.
-   */
-  resetDataToDefault(): void {
-    this.logger_.logMethod?.(`${__package_name__}.resetDataToDefault`);
-    this.store = this.config__.defaultStore;
-    this.clear();
-  }
-
-  /**
    * Handles the expiration duration by checking if the stored data has expired.
    * If expired, it clears the stored data.
    */
-  private handleExpireDuration__(): void {
+  private handleDataExpiration__(): void {
     if (this.config__.expireDuration == null) return;
-    this.logger_.logMethod?.(`${__package_name__}.handleExpireDuration__`);
+    this.logger_.logMethod?.('handleDataExpiration__');
 
     const expireDuration = localJsonStorage.getItem<{time: number}>(
       this.localStorageKey__.expireTime,
@@ -98,19 +102,6 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
   }
 
   /**
-   * Updates the expiration time in local storage to the current time plus the configured expiration duration.
-   */
-  private updateExpireTime__(): void {
-    if (this.config__.expireDuration == null) return;
-    this.logger_.logMethod?.(`${__package_name__}.updateExpireTime__`);
-
-    const newExpireTime = Date.now() + parseDuration(this.config__.expireDuration);
-    localJsonStorage.setItem(this.localStorageKey__.expireTime, {time: newExpireTime}, this.config__.version);
-
-    this.logger_.logOther?.(`${__package_name__}.updated_expire_time`, {newExpireTime});
-  }
-
-  /**
    * Loads data from local storage and updates the store's data.
    *
    * This method attempts to retrieve data from local storage using the specified key and version.
@@ -121,18 +112,36 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
   private load__(): void {
     this.logger_.logMethod?.('load__');
 
-    const newData = localJsonStorage.getItem<T | EmptyObject>(this.localStorageKey__.data, {}, this.config__.version);
+    const newData = localJsonStorage.getItem<TData | EmptyObject>(this.localStorageKey__.data, {}, this.config__.version);
+
     if (Object.keys(newData).length === 0) {
+      // empty object
       const rawValue = localStorage.getItem(localJsonStorage.key_(this.localStorageKey__.data, this.config__.version));
       if (rawValue === '{}' || rawValue === null) {
         this.logger_.logOther?.('no_data');
+
+        this.resetDataToDefault();
         return;
       }
 
-      this.logger_.error(`${__package_name__}.load__`, 'data_not_parsed', {localStorageKey: this.localStorageKey__});
+      this.logger_.error('load__', 'data_not_parsed', {localStorageKey: this.localStorageKey__});
       return;
     }
+    // else: data is not empty
 
-    this.store.data = newData;
+    this.store.data = newData as TData;
+  }
+
+  /**
+   * Updates the expiration time in local storage to the current time plus the configured expiration duration.
+   */
+  private updateExpireTime__(): void {
+    if (this.config__.expireDuration == null) return;
+    this.logger_.logMethod?.('updateExpireTime__');
+
+    const newExpireTime = Date.now() + parseDuration(this.config__.expireDuration);
+    localJsonStorage.setItem(this.localStorageKey__.expireTime, {time: newExpireTime}, this.config__.version);
+
+    this.logger_.logOther?.('updated_expire_time', {newExpireTime});
   }
 }
