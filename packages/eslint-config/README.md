@@ -1,5 +1,11 @@
 # Nexim's ESLint Configurations
 
+![NPM Version](https://img.shields.io/npm/v/%40nexim%2Feslint-config)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Feslint-config)
+![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
+![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Feslint-config)
+![NPM License](https://img.shields.io/npm/l/%40nexim%2Feslint-config)
+
 Alwatr ECMAScript Style Guide as a ESLint [shareable configurations](http://eslint.org/docs/developer-guide/shareable-configs.html).
 
 ## Installation

@@ -5,7 +5,6 @@
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
 ![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Falpine)
 ![NPM License](https://img.shields.io/npm/l/%40nexim%2Falpine)
-![Code Coverage](https://img.shields.io/codecov/c/github/the-nexim/nanolib)
 
 ## Overview
 
