@@ -1,26 +1,22 @@
 {
-  "name": "@nexim/store",
-  "version": "1.0.0",
+  "name": "@nexim/alpine",
+  "version": "0.0.0",
   "description": "A state management library using Alpine Store, and integrated with our custom logger and FSM for client-side logic.",
   "keywords": [
     "alpinejs",
-    "store",
-    "logger",
-    "fsm",
-    "state management",
-    "client-side",
-    "logic",
+    "alpine",
+    "context",
     "typescript",
     "nexim"
   ],
-  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/store#readme",
+  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/alpine-context#readme",
   "bugs": {
     "url": "https://github.com/the-nexim/nanolib/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/the-nexim/nanolib",
-    "directory": "packages/store"
+    "directory": "packages/alpine-context"
   },
   "license": "AGPL-3.0-only",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
@@ -65,13 +61,13 @@
     "@alwatr/logger": "^5.0.0",
     "@alwatr/package-tracer": "^5.0.0",
     "@alwatr/parse-duration": "^5.0.0",
-    "@alwatr/type-helper": "^5.0.0",
     "alpinejs": "^3.14.7"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
+    "@alwatr/type-helper": "^5.0.0",
     "@nexim/typescript-config": "workspace:^",
-    "@types/alpinejs": "^3",
+    "@types/alpinejs": "^3.13.11",
     "ava": "^6.2.0",
     "typescript": "^5.6.3"
   },

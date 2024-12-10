@@ -1,6 +1,6 @@
 import alpine from 'alpinejs';
 
-export class BaseStore<T extends DictionaryReq> {
+export class AlpineBaseStore<T extends DictionaryReq> {
   store: T;
 
   constructor(config_: {name: string; defaultStore: T}) {

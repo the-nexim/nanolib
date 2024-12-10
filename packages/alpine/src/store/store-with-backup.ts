@@ -1,16 +1,16 @@
 import {localJsonStorage} from '@alwatr/local-storage';
 import {parseDuration, type Duration} from '@alwatr/parse-duration';
 
-import {Store} from './store.js';
+import {AlpineStore} from './store.js';
 
 import type {EmptyObject} from '../type.js';
 
-export type StoreWithBackupType = {
+export type AlpineStoreWithBackupType = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: DictionaryReq<any> | null;
 };
 
-export type StoreWithBackupConfig<T extends StoreWithBackupType> = {
+export type AlpineStoreWithBackupConfig<T extends AlpineStoreWithBackupType> = {
   name: string;
   version: number;
   defaultStore: T;
@@ -23,7 +23,7 @@ const localStorageKey = '[nexim.store.v1]';
  * StoreWithBackup class extends the Store class to provide backup and restore functionality
  * with local storage support and expiration handling.
  */
-export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
+export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends AlpineStore<T> {
   /**
    * Keys for storing data and expireTime in local storage.
    */
@@ -36,7 +36,7 @@ export class StoreWithBackup<T extends StoreWithBackupType> extends Store<T> {
    * Constructor to initialize the StoreWithBackup instance.
    * @param config__ - Configuration object containing name, version, defaultStore, and optional expireDuration.
    */
-  constructor(private config__: StoreWithBackupConfig<T>) {
+  constructor(private config__: AlpineStoreWithBackupConfig<T>) {
     super(config__);
 
     this.handleExpireDuration__();

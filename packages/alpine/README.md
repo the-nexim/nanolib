@@ -1,27 +1,27 @@
-# @nexim/store
+# @nexim/alpine
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fstore)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fstore)
+![NPM Version](https://img.shields.io/npm/v/%40nexim%2Falpine-context)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Falpine-context)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Fstore)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Fstore)
+![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Falpine-context)
+![NPM License](https://img.shields.io/npm/l/%40nexim%2Falpine-context)
 
 ## Overview
 
-`@nexim/store` is a collection of utility functions and mixins for building high-performance, maintainable web components using Lit.
+An collection of utility functions and mixins for building high-performance, maintainable web components using Lit.
 
 ## Installation
 
 ```sh
-npm install @nexim/store
+npm install @nexim/alpine
 
 # Or using yarn
-yarn add @nexim/store
+yarn add @nexim/alpine
 ```
 
 ## API
 
-### Store
+### Alpine-context
 
 The `Store` class provides a base store implementation with logging capabilities.
 
