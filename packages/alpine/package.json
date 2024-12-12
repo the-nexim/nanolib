@@ -1,6 +1,6 @@
 {
   "name": "@nexim/alpine",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "Utility functions to enhance Alpine.js usage with backup support.",
   "keywords": [
     "alpinejs",
