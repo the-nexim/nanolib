@@ -130,12 +130,18 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    * Loads data from local storage and updates the store's data.
    *
    * When data is not found or invalid in local storage, it uses the default value.
+   *
+   * FIXME: NonNullable<T['data']>
    */
   private load__(): void {
     this.logger_.logMethod?.('load__');
 
-    const newData = localJsonStorage.getItem<T>(this.localStorageKey__.data, this.config__.defaultValue, this.config__.version);
-    this.store.data = newData.data;
+    const newData = localJsonStorage.getItem<NonNullable<T['data']>>(
+      this.localStorageKey__.data,
+      this.config__.defaultValue.data as NonNullable<T['data']>,
+      this.config__.version,
+    ) as T['data'];
+    this.store.data = newData;
   }
 
   /**

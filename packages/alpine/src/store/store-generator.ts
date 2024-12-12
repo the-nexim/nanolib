@@ -39,7 +39,7 @@ export type AlpineStoreGeneratorOptions<T extends DictionaryReq> = {
  * @see https://alpinejs.dev/globals/alpine-store
  */
 export function alpineStoreGenerator<T extends DictionaryReq>(config: AlpineStoreGeneratorOptions<T>): T {
-  logger.logMethodArgs?.('alpineStoreGenerator', config);
+  logger.logMethodArgs?.('alpineStoreGenerator', {config});
 
   alpine.store(config.name, config.defaultValue);
 
