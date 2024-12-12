@@ -1,5 +1,7 @@
 import {type AlwatrLogger, createLogger} from '@alwatr/logger';
 
+import {alpineStoreGenerator} from './store-generator.js';
+
 /**
  * AlpineStore Options.
  *
@@ -44,6 +46,6 @@ export class AlpineStore<T extends DictionaryReq> {
     this.logger_ = createLogger(`${__package_name__}:${config.name}`);
     this.logger_.logMethodArgs?.('constructor', config);
 
-    this.store = config.defaultValue;
+    this.store = alpineStoreGenerator(config);
   }
 }
