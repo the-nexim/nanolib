@@ -73,7 +73,7 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
     super(config__);
 
     if (this.config__.expireDuration != null) {
-      this.checkForDataExpiration__();
+      this.handleDataExpiration__();
     }
 
     this.load__();
@@ -112,16 +112,17 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    * Handles the expiration duration by checking if the stored data has expired.
    * If expired, it clears the stored data.
    */
-  private checkForDataExpiration__(): void {
-    this.logger_.logMethod?.('checkForDataExpiration__');
+  private handleDataExpiration__(): void {
+    this.logger_.logMethod?.('handleDataExpiration__');
 
-    const expireDuration = localJsonStorage.getItem<{time: number | null}>(
+    // FIXME: use null if not set, after local storage new version.
+    const expireDuration = localJsonStorage.getItem<{time: number}>(
       this.localStorageKey__.expireTime,
-      {time: null},
+      {time: -1},
       this.config__.version,
     ).time;
 
-    if (expireDuration !== null && expireDuration < Date.now()) {
+    if (expireDuration !== -1 && expireDuration < Date.now()) {
       this.clear();
     }
   }
@@ -131,7 +132,7 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    *
    * When data is not found or invalid in local storage, it uses the default value.
    *
-   * FIXME: NonNullable<T['data']>
+   * FIXME: remove `NonNullable` from <T['data']>, after local storage new version.
    */
   private load__(): void {
     this.logger_.logMethod?.('load__');
