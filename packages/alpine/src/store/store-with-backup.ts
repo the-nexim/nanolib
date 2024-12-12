@@ -72,9 +72,10 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
   constructor(private config__: AlpineStoreWithBackupOptions<T>) {
     super(config__);
 
-    if (this.config__.expireDuration !== null) {
-      this.handleDataExpiration__();
+    if (this.config__.expireDuration != null) {
+      this.checkForDataExpiration__();
     }
+
     this.load__();
   }
 
@@ -111,16 +112,16 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    * Handles the expiration duration by checking if the stored data has expired.
    * If expired, it clears the stored data.
    */
-  private handleDataExpiration__(): void {
-    this.logger_.logMethod?.('handleDataExpiration__');
+  private checkForDataExpiration__(): void {
+    this.logger_.logMethod?.('checkForDataExpiration__');
 
-    const expireDuration = localJsonStorage.getItem<{time: number}>(
+    const expireDuration = localJsonStorage.getItem<{time: number | null}>(
       this.localStorageKey__.expireTime,
-      {time: 0},
+      {time: null},
       this.config__.version,
     ).time;
 
-    if (expireDuration < Date.now()) {
+    if (expireDuration !== null && expireDuration < Date.now()) {
       this.clear();
     }
   }
