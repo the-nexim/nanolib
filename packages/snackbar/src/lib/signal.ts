@@ -10,6 +10,12 @@ const logger = createLogger('common/snackbar');
 
 /**
  * Options for configuring the snackbar.
+ * @property {string} content - The content to be displayed in the snackbar.
+ * @property {Object} [action] - The action button configuration.
+ * @property {string} action.label - The label for the action button.
+ * @property {Function} action.handler - The handler function for the action button.
+ * @property {number} [duration] - Duration for which the snackbar is displayed. `-1` for infinite duration.
+ * @property {boolean} [addCloseButton] - Whether to add a close button to the snackbar.
  */
 export type SnackbarOptions = {
   content: string;
@@ -28,6 +34,7 @@ export type SnackbarOptions = {
 
 /**
  * Signal for when the snackbar action button is clicked.
+ * @type {AlwatrTrigger}
  */
 export const snackbarActionButtonClickedSignal = new AlwatrTrigger({
   name: 'snackbar-action-button-clicked',
@@ -35,6 +42,7 @@ export const snackbarActionButtonClickedSignal = new AlwatrTrigger({
 
 /**
  * Signal for displaying the snackbar.
+ * @type {AlwatrSignal<SnackbarOptions>}
  */
 export const snackbarSignal = new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
 
@@ -48,7 +56,8 @@ let unsubscribeActionButtonHandler: (() => void) | null = null;
 
 /**
  * Displays the snackbar with the given options.
- * @param options - Options for configuring the snackbar.
+ * @param {SnackbarOptions} options - Options for configuring the snackbar.
+ * @returns {Promise<void>}
  */
 async function showSnackbar(options: SnackbarOptions): Promise<void> {
   logger.logMethodArgs?.('showSnackbar', {options});
