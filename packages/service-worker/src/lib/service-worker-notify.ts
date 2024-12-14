@@ -1,10 +1,10 @@
 import {l10n} from '@alwatr/i18n';
+import {snackbarSignal} from '@nexim/snackbar';
 
-import {snackbarSignal} from 'common/component/snackbar';
-import {isVersionLarger} from 'common/util';
 
 import {logger} from './logger.js';
 import {serviceWorkerSignal} from './service-worker.js';
+import {isVersionLarger} from './version-checker.js';
 
 const notifyLocalStorageKey = 'notify_new_version';
 

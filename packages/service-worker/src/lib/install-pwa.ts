@@ -1,7 +1,6 @@
 import {parseDuration} from '@alwatr/parse-duration';
 import {waitForTimeout} from '@alwatr/wait';
-
-import {snackbarSignal} from 'common/component/snackbar';
+import {snackbarSignal} from '@nexim/snackbar';
 
 import {logger} from './logger.js';
 
