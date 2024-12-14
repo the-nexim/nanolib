@@ -1,15 +1,6 @@
 import {createLogger} from '@alwatr/logger';
 import {packageTracer} from '@alwatr/package-tracer';
 import {waitForAnimationFrame, waitForTimeout} from '@alwatr/wait';
-import {LightDomMixin, LoggerMixin} from '@nexim/element';
-import {LitElement} from 'lit';
-
-/**
- * Base element class that includes Light DOM and Logger mixins.
- * @class
- * @extends {LitElement}
- */
-export const BaseElement = LightDomMixin(LoggerMixin(LitElement));
 
 /**
  * Add package tracer for development mode.

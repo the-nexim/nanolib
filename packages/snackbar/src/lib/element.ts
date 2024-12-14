@@ -1,9 +1,11 @@
 import {waitForTimeout} from '@alwatr/wait';
-import {html, nothing, type PropertyValues, type TemplateResult} from 'lit';
+import { LightDomMixin, LoggerMixin } from '@nexim/element';
+import {html, LitElement, nothing, type PropertyValues, type TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
 import {snackbarActionButtonClickedSignal} from './signal.js';
-import {BaseElement,waitForNextFrame} from '../utils/utils.js';
+import {waitForNextFrame} from '../utils/utils.js';
+
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -12,7 +14,7 @@ declare global {
 }
 
 @customElement('snack-bar')
-export class SnackbarComponent extends BaseElement {
+export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
   /**
    * The content to be displayed inside the snackbar.
    * @type {string}
