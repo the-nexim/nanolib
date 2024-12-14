@@ -1,9 +1,6 @@
-import { createLogger } from '@alwatr/logger';
+import {packageTracer} from '@alwatr/package-tracer';
 
-/**
- * Logger instance for the snackbar package.
- */
-export const logger = /* @__PURE__ */ createLogger(__package_name__);
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
 export * from './lib/element.js';
 export * from './lib/signal.js';

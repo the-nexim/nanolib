@@ -1,13 +1,10 @@
-import {packageTracer} from '@alwatr/package-tracer';
+import {createLogger} from '@alwatr/logger';
 import {waitForAnimationFrame, waitForTimeout} from '@alwatr/wait';
 
-import { logger } from '../main.js';
-
 /**
- * Add package tracer for development mode.
- * @private
+ * Logger instance for the snackbar package.
  */
-__dev_mode__: packageTracer.add(__package_name__, __package_version__);
+export const logger = /* @__PURE__ */ createLogger(__package_name__);
 
 /**
  * Waits for the next frame to ensure the DOM has been fully calculated.

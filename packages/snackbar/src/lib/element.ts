@@ -1,11 +1,10 @@
 import {waitForTimeout} from '@alwatr/wait';
-import { LightDomMixin, LoggerMixin } from '@nexim/element';
+import {LightDomMixin, LoggerMixin} from '@nexim/element';
 import {html, LitElement, nothing, type PropertyValues, type TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
 import {snackbarActionButtonClickedSignal} from './signal.js';
 import {waitForNextFrame} from '../utils/utils.js';
-
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -38,7 +37,6 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
   /**
    * Called when the element is first updated.
    * @param {PropertyValues} changedProperties - The changed properties.
-   * @protected
    */
   protected override firstUpdated(changedProperties: PropertyValues): void {
     super.firstUpdated(changedProperties);
@@ -74,7 +72,6 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
 
   /**
    * Render the snackbar component.
-   * @protected
    */
   protected override render(): unknown {
     super.render();

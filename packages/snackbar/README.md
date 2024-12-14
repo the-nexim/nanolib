@@ -29,8 +29,8 @@ yarn add @nexim/snackbar
 
 To display a snackbar, emit the snackbarSignal with the desired options:
 
-``` ts
-import { snackbarSignal } from '@nexim/snackbar';
+```ts
+import {snackbarSignal} from '@nexim/snackbar';
 
 snackbarSignal.notify({
   content: 'This is a snackbar message',
@@ -58,7 +58,7 @@ The `SnackbarComponent` is a custom element that displays a snackbar message wit
   - **close**(): Closes the snackbar and removes it from the DOM
 
 ```ts
-import { SnackbarComponent } from '@nexim/snackbar';
+import {SnackbarComponent} from '@nexim/snackbar';
 
 const snackbar = document.createElement('snack-bar') as SnackbarComponent;
 snackbar.content = 'This is a snackbar message';

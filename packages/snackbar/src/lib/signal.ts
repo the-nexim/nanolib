@@ -1,25 +1,23 @@
 import {AlwatrSignal, AlwatrTrigger} from '@alwatr/flux';
 import {createLogger} from '@alwatr/logger';
-import {packageTracer} from '@alwatr/package-tracer';
 import {parseDuration, type Duration} from '@alwatr/parse-duration';
-import { waitForTimeout } from '@alwatr/wait';
+import {waitForTimeout} from '@alwatr/wait';
 
 import type {SnackbarComponent} from './element.js';
 
-__dev_mode__: packageTracer.add(__package_name__, __package_version__);
 const logger = createLogger(`${__package_name__}/snackbar`);
 
 export type SnackbarOptions = {
   /**
    * @property {string} content - The content to be displayed in the snackbar.
-  */
+   */
   content: string;
 
   /**
-  * @property { Object } [action] - The action button configuration.
-  * @property {string} action.label - The label for the action button.
-  * @property {Function} action.handler - The handler function for the action button.
-  */
+   * @property { Object } [action] - The action button configuration.
+   * @property {string} action.label - The label for the action button.
+   * @property {Function} action.handler - The handler function for the action button.
+   */
   action?: {
     label: string;
     handler: () => void;
