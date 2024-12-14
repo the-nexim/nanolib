@@ -1,121 +1,74 @@
-# @nexim/alpine
+# @nexim/snackbar
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Falpine)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Falpine)
+This package provides a customizable snackbar component for displaying brief messages to users. It includes utilities for managing the snackbar's state and animations.
+
+![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fsnackbar)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fsnackbar)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Falpine)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Falpine)
+![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Fsnackbar)
+![NPM License](https://img.shields.io/npm/l/%40nexim%2Fsnackbar)
 
 ## Overview
 
-`@nexim/alpine` is a versatile library designed to enhance your Alpine.js experience with a suite of utility functions and mixins. It provides robust solutions for data management, including logging capabilities and backup functionalities with local storage support. This library aims to streamline the development of high-performance projects, ensuring efficiency and scalability.
+`@nexim/snackbar` is a versatile library designed to provide a customizable snackbar component for displaying brief messages to users. It includes utilities for managing the snackbar's state and animations, ensuring efficiency and scalability in high-performance projects.
 
 ## Installation
 
 Install the package using npm or yarn:
 
 ```sh
-npm install @nexim/alpine
+npm install @nexim/snackbar
 
 # Or using yarn
-yarn add @nexim/alpine
+yarn add @nexim/snackbar
 ```
 
 ## API
 
-### alpineStoreGenerator
+### snackbarSignal
 
-Generates an Alpine.js store with a default value.
+To display a snackbar, emit the snackbarSignal with the desired options:
 
-#### Example Usage
+``` ts
+import { snackbarSignal } from '@nexim/snackbar';
 
-```ts
-import {alpineStoreGenerator} from '@nexim/alpine';
-
-const store = alpineStoreGenerator({
-  name: 'user',
-  defaultValue: {type: 'root'},
+snackbarSignal.notify({
+  content: 'This is a snackbar message',
+  // The following properties are optional.
+  action: {
+    label: 'Undo',
+    handler: () => {
+      console.log('Action button clicked');
+    },
+  },
+  duration: 4000,
+  addCloseButton: true,
 });
-
-console.log(store.type); // Output: root
 ```
 
-### AlpineStore
+### SnackbarComponent
 
-Provides a Alpine.js pure store implementation with logger.
+The `SnackbarComponent` is a custom element that displays a snackbar message with optional action and close buttons.
 
-#### Constructor
-
-Creates an instance of `AlpineStore`.
-
-- **config**: The configuration object for the store.
-  - **name**: The name of the store.
-  - **defaultValue**: The default value of the store.
-
-### Properties
-
-- **store**: alpine store proxy.
-
-#### Example Usage
+- **Properties**
+  - **content**: The content to be displayed inside the snackbar
+  - **actionButtonLabel**: The label for the action button. If null, the action button will not be rendered
+  - **addCloseButton**: Whether to add a close button to the snackbar
+  - **Methods**
+  - **close**(): Closes the snackbar and removes it from the DOM
 
 ```ts
-import {AlpineStore} from '@nexim/alpine';
+import { SnackbarComponent } from '@nexim/snackbar';
 
-const {store} = new AlpineStore({
-  name: 'myStore',
-  defaultValue: {data: 'root'},
-});
+const snackbar = document.createElement('snack-bar') as SnackbarComponent;
+snackbar.content = 'This is a snackbar message';
+snackbar.actionButtonLabel = 'Undo';
+snackbar.addCloseButton = true;
 
-console.log(store.data); // Output: { data: 'root' }
-store.data = 'user';
+document.body.appendChild(snackbar);
 
-console.log(store.data); // Output: { data: 'user' }
+// Close the snackbar after 4 seconds
+setTimeout(() => {
+  snackbar.close();
+}, 4000);
 ```
-
-### AlpineStoreWithBackup
-
-Extends `AlpineStore` to add backup and restore functionality with local storage support and expiration handling.
-
-#### Constructor
-
-Creates an instance of `AlpineStoreWithBackup`.
-
-- **config**: The configuration object for the store.
-  - **name**: The name of the store.
-  - **version**: The version of the store.
-  - **defaultValue**: The default value of the store.
-  - **expireDuration**: Optional. The duration after which the store expires.
-
-### Properties
-
-- **store**: alpine store proxy.
-
-#### Methods
-
-- **save()**: Saves the current data to local storage. If the data is null, it clears the stored data. Also updates the expiration time.
-- **clear()**: Clears the local storage and set default value to store.
-
-#### Example Usage
-
-```ts
-import {AlpineStoreWithBackup} from '@nexim/alpine';
-
-const storeWithBackup = new AlpineStoreWithBackup({
-  name: 'myStoreWithBackup',
-  version: 1,
-  defaultValue: {data: 'root'},
-  expireDuration: '1d',
-});
-
-storeWithBackup.store.data = 'user';
-
-storeWithBackup.save();
-console.log(storeWithBackup.store.data); // Output: { data: 'user' }
-
-storeWithBackup.clear();
-console.log(storeWithBackup.store.data); // Output: { data: 'root' }
-```
-
-### TODO
-
-- Analyze [@alwatr/context](https://github.com/Alwatr/flux/tree/next/packages/context) for use here.
