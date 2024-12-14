@@ -17,26 +17,21 @@ declare global {
 export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
   /**
    * The content to be displayed inside the snackbar.
-   * @type {string}
    */
   @property({type: String}) content = '';
 
   /**
    * The label for the action button. If null, the action button will not be rendered.
-   * @type {string | null}
    */
   @property({type: String, attribute: 'action-button-label'}) actionButtonLabel: string | null = null;
 
   /**
    * Whether to add a close button to the snackbar.
-   * @type {boolean}
    */
   @property({type: Boolean, attribute: 'add-close-button'}) addCloseButton = false;
 
   /**
    * Duration for the open and close animation in milliseconds.
-   * @type {number}
-   * @private
    */
   private static openAndCloseAnimationDuration__ = 200; // ms
 
@@ -57,7 +52,6 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
   /**
    * Close the snackbar and remove it from the DOM.
    * Waits for the closing animation to end before removing the element.
-   * @returns {Promise<void>}
    */
   async close(): Promise<void> {
     this.logger_.logMethod?.(`${__package_name__}:close`);
@@ -71,7 +65,6 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
   /**
    * Handle the action button click event.
    * Sends a signal when the action button is clicked.
-   * @private
    */
   private actionButtonClickHandler__(): void {
     this.logger_.logMethod?.(`${__package_name__}:actionButtonClickHandler__`);
@@ -81,7 +74,6 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
 
   /**
    * Render the snackbar component.
-   * @returns {unknown}
    * @protected
    */
   protected override render(): unknown {
@@ -100,8 +92,6 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
 
   /**
    * Render the action button.
-   * @returns {TemplateResult | typeof nothing}
-   * @private
    */
   private renderActionButton__(): TemplateResult | typeof nothing {
     if (this.actionButtonLabel == null) return nothing;
@@ -112,8 +102,6 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
 
   /**
    * Render the close button.
-   * @returns {TemplateResult | typeof nothing}
-   * @private
    */
   private renderCloseButton__(): TemplateResult | typeof nothing {
     if (this.addCloseButton === false) return nothing;

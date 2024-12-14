@@ -5,7 +5,7 @@
   "keywords": [
     "snackbar",
     "notification",
-    "web component",
+    "web-component",
     "typescript",
     "nexim"
   ],
@@ -60,6 +60,7 @@
     "@alwatr/flux": "^4.0.2",
     "@alwatr/logger": "^5.0.0",
     "@alwatr/package-tracer": "^5.0.0",
+    "@alwatr/parse-duration": "^5.0.0",
     "@alwatr/wait": "^1.1.16",
     "@nexim/element": "^1.0.6",
     "lit": "^3.2.1"
