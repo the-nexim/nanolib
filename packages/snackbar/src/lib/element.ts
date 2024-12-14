@@ -3,8 +3,7 @@ import {html, nothing, type PropertyValues, type TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
 import {snackbarActionButtonClickedSignal} from './signal.js';
-import {BaseElement} from '../utils/base-element.js';
-import {waitForNextFrame} from '../utils/wait-for-next-frame.js';
+import {BaseElement,waitForNextFrame} from '../utils/utils.js';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -59,7 +58,7 @@ export class SnackbarComponent extends BaseElement {
    * @returns {Promise<void>}
    */
   async close(): Promise<void> {
-    this.logger_.logMethod?.('close');
+    this.logger_.logMethod?.(`${__package_name__}:close`);
 
     this.removeAttribute('open');
 
@@ -73,7 +72,7 @@ export class SnackbarComponent extends BaseElement {
    * @private
    */
   private actionButtonClickHandler__(): void {
-    this.logger_.logMethod?.('actionButtonClickHandler__');
+    this.logger_.logMethod?.(`${__package_name__}:actionButtonClickHandler__`);
 
     snackbarActionButtonClickedSignal.notify();
   }
@@ -104,7 +103,7 @@ export class SnackbarComponent extends BaseElement {
    */
   private renderActionButton__(): TemplateResult | typeof nothing {
     if (this.actionButtonLabel == null) return nothing;
-    this.logger_.logMethodArgs?.('renderActionButton__', {actionLabel: this.actionButtonLabel});
+    this.logger_.logMethodArgs?.(`${__package_name__}:renderActionButton__`, {actionLabel: this.actionButtonLabel});
 
     return html` <button class="action-button" @click=${this.actionButtonClickHandler__.bind(this)}>${this.actionButtonLabel}</button> `;
   }
@@ -116,7 +115,7 @@ export class SnackbarComponent extends BaseElement {
    */
   private renderCloseButton__(): TemplateResult | typeof nothing {
     if (this.addCloseButton === false) return nothing;
-    this.logger_.logMethod?.('renderCloseButton__');
+    this.logger_.logMethod?.(`${__package_name__}:renderCloseButton__`);
 
     return html`
       <button class="close-button" @click=${this.close.bind(this)}>

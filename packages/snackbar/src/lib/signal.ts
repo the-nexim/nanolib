@@ -6,7 +6,7 @@ import {waitForTimeout} from '@alwatr/wait';
 import type {SnackbarComponent} from './element.js';
 
 __dev_mode__: packageTracer.add(__package_name__, __package_version__);
-const logger = createLogger('common/snackbar');
+const logger = createLogger(`${__package_name__}/snackbar`);
 
 /**
  * Options for configuring the snackbar.
@@ -60,7 +60,7 @@ let unsubscribeActionButtonHandler: (() => void) | null = null;
  * @returns {Promise<void>}
  */
 async function showSnackbar(options: SnackbarOptions): Promise<void> {
-  logger.logMethodArgs?.('showSnackbar', {options});
+  logger.logMethodArgs?.(`${__package_name__}:showSnackbar`, {options});
 
   // Set default duration if not provided
   options.duration ??= 4_000;
@@ -87,7 +87,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   let closed = false;
   const closeSnackbar_ = async () => {
     if (closed === true) return;
-    logger.logMethodArgs?.('closeSnackbar', {options});
+    logger.logMethodArgs?.(`${__package_name__}:closeSnackbar`, {options});
 
     await element.close();
     unsubscribeActionButtonHandler?.();

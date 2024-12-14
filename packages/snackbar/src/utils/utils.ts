@@ -1,6 +1,27 @@
+import {createLogger} from '@alwatr/logger';
+import {packageTracer} from '@alwatr/package-tracer';
 import {waitForAnimationFrame, waitForTimeout} from '@alwatr/wait';
+import {LightDomMixin, LoggerMixin} from '@nexim/element';
+import {LitElement} from 'lit';
 
-import { logger } from './logger.js';
+/**
+ * Base element class that includes Light DOM and Logger mixins.
+ * @class
+ * @extends {LitElement}
+ */
+export const BaseElement = LightDomMixin(LoggerMixin(LitElement));
+
+/**
+ * Add package tracer for development mode.
+ * @private
+ */
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
+
+/**
+ * Logger instance for the snackbar package.
+ * @const
+ */
+const logger = /* @__PURE__ */ createLogger(__package_name__);
 
 /**
  * Waits for the next frame to ensure the DOM has been fully calculated.
@@ -14,7 +35,7 @@ import { logger } from './logger.js';
  * @see https://stackoverflow.com/a/47184426
  */
 export function waitForNextFrame(): Promise<void> {
-  logger.logOther?.('waitForNextFrame');
+  logger.logOther?.(`${__package_name__}:waitForNextFrame`);
 
   return new Promise((resolve) => {
     waitForAnimationFrame().then(() => {
