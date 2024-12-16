@@ -73,7 +73,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   // Parse the duration
 
   // Set default duration if not provided
-  options.duration ??= parseDuration('4s');
+  options.duration ??= '4s';
 
   const element = document.createElement('snack-bar') as SnackbarComponent;
 
