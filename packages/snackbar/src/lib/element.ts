@@ -3,7 +3,7 @@ import {LightDomMixin, LoggerMixin} from '@nexim/element';
 import {html, LitElement, nothing, type PropertyValues, type TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-import {snackbarActionButtonClickedSignal} from './signal.js';
+import {snackbarActionButtonClickedSignal} from './handler.js';
 import {waitForNextFrame} from './utils.js';
 
 declare global {
