@@ -1,22 +1,21 @@
 {
   "name": "@nexim/service-worker",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Utility functions to enhance Alpine.js usage with backup support.",
   "keywords": [
-    "alpinejs",
-    "alpine",
-    "context",
+    "worker",
+    "service-worker",
     "typescript",
     "nexim"
   ],
-  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/alpine#readme",
+  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/service-worker#readme",
   "bugs": {
     "url": "https://github.com/the-nexim/nanolib/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/the-nexim/nanolib",
-    "directory": "packages/alpine"
+    "directory": "packages/service-worker"
   },
   "license": "AGPL-3.0-only",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (www.njfamirm.ir)",
