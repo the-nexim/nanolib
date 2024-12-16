@@ -54,8 +54,11 @@ let unsubscribeActionButtonHandler: (() => void) | null = null;
 async function showSnackbar(options: SnackbarOptions): Promise<void> {
   logger.logMethodArgs?.('showSnackbar', {options});
 
+  // Parse the duration
+  if (options.duration != null) options.duration = parseDuration(options.duration);
+
   // Set default duration if not provided
-  options.duration ??= parseDuration('4s');
+  options.duration = parseDuration('4s');
 
   const element = document.createElement('snack-bar') as SnackbarComponent;
 
