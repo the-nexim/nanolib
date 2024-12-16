@@ -12,9 +12,9 @@ const logger = /* @__PURE__ */ createLogger(`${__package_name__}/handler`);
  * @property {action} - The action button configuration.
  * @property action.label - The label for the action button.
  * @property action.handler - The handler function for the action button.
- * @property duration - Duration for which the snackbar is displayed. `-1` for infinite duration.
+ * @property duration - Duration for which the snackbar is displayed. `infinite` for infinite duration.
  * Duration for which the snackbar is displayed.
- * `-1` for infinite duration.
+ * `infinite` for infinite duration.
  * @property addCloseButton - Whether to add a close button to the snackbar.
  */
 export type SnackbarOptions = {
