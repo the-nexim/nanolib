@@ -45,30 +45,3 @@ snackbarSignal.notify({
   addCloseButton: true,
 });
 ```
-
-### SnackbarComponent
-
-The `SnackbarComponent` is a custom element that displays a snackbar message with optional action and close buttons.
-
-- **Properties**
-  - **content**: The content to be displayed inside the snackbar
-  - **actionButtonLabel**: The label for the action button. If null, the action button will not be rendered
-  - **addCloseButton**: Whether to add a close button to the snackbar
-  - **Methods**
-  - **close**(): Closes the snackbar and removes it from the DOM
-
-```ts
-import {SnackbarComponent} from '@nexim/snackbar';
-
-const snackbar = document.createElement('snack-bar') as SnackbarComponent;
-snackbar.content = 'This is a snackbar message';
-snackbar.actionButtonLabel = 'Undo';
-snackbar.addCloseButton = true;
-
-document.body.appendChild(snackbar);
-
-// Close the snackbar after 4 seconds
-setTimeout(() => {
-  snackbar.close();
-}, 4000);
-```
