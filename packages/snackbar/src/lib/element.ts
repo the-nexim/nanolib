@@ -36,7 +36,7 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
 
   /**
    * Called when the element is first updated.
-   * @param {PropertyValues} changedProperties - The changed properties.
+   * @param changedProperties - The changed properties.
    */
   protected override firstUpdated(changedProperties: PropertyValues): void {
     super.firstUpdated(changedProperties);
