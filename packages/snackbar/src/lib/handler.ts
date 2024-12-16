@@ -5,7 +5,7 @@ import {waitForTimeout} from '@alwatr/wait';
 
 import type {SnackbarComponent} from './element.js';
 
-const logger = createLogger(`${__package_name__}/handler`);
+const logger = /* @__PURE__ */ createLogger(`${__package_name__}/handler`);
 
 /**
  * @property content - Content to be displayed in the snackbar.
@@ -53,7 +53,7 @@ export const snackbarActionButtonClickedSignal = new AlwatrTrigger({
  *   addCloseButton: true,
  * });
  */
-export const snackbarSignal = new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
+export const snackbarSignal = /* @__PURE__ */  new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
 
 // Subscribe to the snackbar signal to show the snackbar when the signal is emitted.
 snackbarSignal.subscribe((options) => {
