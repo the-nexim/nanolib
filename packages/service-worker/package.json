@@ -64,6 +64,7 @@
     "@alwatr/package-tracer": "^5.0.0",
     "@alwatr/parse-duration": "^5.0.0",
     "@alwatr/wait": "^1.1.16",
+    "@nexim/snackbar": "workspace:^",
     "alpinejs": "^3.14.7"
   },
   "devDependencies": {

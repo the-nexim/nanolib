@@ -1191,6 +1191,7 @@ __metadata:
     "@alwatr/parse-duration": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.0.0"
     "@alwatr/wait": "npm:^1.1.16"
+    "@nexim/snackbar": "workspace:^"
     "@nexim/typescript-config": "workspace:^"
     "@types/alpinejs": "npm:^3.13.11"
     alpinejs: "npm:^3.14.7"
@@ -1199,7 +1200,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@nexim/snackbar@workspace:packages/snackbar":
+"@nexim/snackbar@workspace:^, @nexim/snackbar@workspace:packages/snackbar":
   version: 0.0.0-use.local
   resolution: "@nexim/snackbar@workspace:packages/snackbar"
   dependencies:
