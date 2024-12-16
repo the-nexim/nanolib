@@ -41,7 +41,7 @@ snackbarSignal.notify({
       console.log('Action button clicked');
     },
   },
-  duration: 4000,
+  duration: '4s',
   addCloseButton: true,
 });
 ```
