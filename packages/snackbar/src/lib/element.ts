@@ -52,7 +52,7 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
    * Waits for the closing animation to end before removing the element.
    */
   async close(): Promise<void> {
-    this.logger_.logMethod?.(`${__package_name__}:close`);
+    this.logger_.logMethod?.('close');
 
     this.removeAttribute('open');
 
@@ -65,7 +65,7 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
    * Sends a signal when the action button is clicked.
    */
   private actionButtonClickHandler__(): void {
-    this.logger_.logMethod?.(`${__package_name__}:actionButtonClickHandler__`);
+    this.logger_.logMethod?.('actionButtonClickHandler__');
 
     snackbarActionButtonClickedSignal.notify();
   }
@@ -92,7 +92,7 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
    */
   private renderActionButton__(): TemplateResult | typeof nothing {
     if (this.actionButtonLabel == null) return nothing;
-    this.logger_.logMethodArgs?.(`${__package_name__}:renderActionButton__`, {actionLabel: this.actionButtonLabel});
+    this.logger_.logMethodArgs?.('renderActionButton__', {actionLabel: this.actionButtonLabel});
 
     return html` <button class="action-button" @click=${this.actionButtonClickHandler__.bind(this)}>${this.actionButtonLabel}</button> `;
   }
@@ -102,7 +102,7 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
    */
   private renderCloseButton__(): TemplateResult | typeof nothing {
     if (this.addCloseButton === false) return nothing;
-    this.logger_.logMethod?.(`${__package_name__}:renderCloseButton__`);
+    this.logger_.logMethod?.('renderCloseButton__');
 
     return html`
       <button class="close-button" @click=${this.close.bind(this)}>

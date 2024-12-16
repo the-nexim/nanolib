@@ -64,7 +64,7 @@ let unsubscribeActionButtonHandler: (() => void) | null = null;
  * @returns {Promise<void>}
  */
 async function showSnackbar(options: SnackbarOptions): Promise<void> {
-  logger.logMethodArgs?.(`${__package_name__}:showSnackbar`, {options});
+  logger.logMethodArgs?.('showSnackbar', {options});
 
   // Set default duration if not provided
   options.duration ??= parseDuration('4s');
@@ -91,7 +91,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   let closed = false;
   const closeSnackbar_ = async () => {
     if (closed === true) return;
-    logger.logMethodArgs?.(`${__package_name__}:closeSnackbar`, {options});
+    logger.logMethodArgs?.('closeSnackbar', {options});
 
     await element.close();
     unsubscribeActionButtonHandler?.();
