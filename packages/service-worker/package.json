@@ -57,14 +57,8 @@
   },
   "dependencies": {
     "@alwatr/flux": "^4.0.2",
-    "@alwatr/i18n": "^2.0.4",
-    "@alwatr/local-storage": "^5.0.0",
     "@alwatr/logger": "^5.0.0",
-    "@alwatr/package-tracer": "^5.0.0",
-    "@alwatr/parse-duration": "^5.0.0",
-    "@alwatr/wait": "^1.1.16",
-    "@nexim/snackbar": "workspace:^",
-    "alpinejs": "^3.14.7"
+    "@alwatr/package-tracer": "^5.0.0"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
