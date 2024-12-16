@@ -1,4 +1,4 @@
-import { waitForAnimationFrame, waitForTimeout } from '@alwatr/wait';
+import {waitForAnimationFrame, waitForTimeout} from '@alwatr/wait';
 
 /**
  * Waits for the next frame to ensure the DOM has been fully calculated.

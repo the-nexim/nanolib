@@ -36,6 +36,22 @@ export const snackbarActionButtonClickedSignal = new AlwatrTrigger({
 
 /**
  * Signal for displaying the snackbar.
+ *
+ * @example
+ * import {snackbarSignal} from '@nexim/snackbar';
+ *
+ * snackbarSignal.notify({
+ *   content: 'This is a snackbar message',
+ *   // The following properties are optional.
+ *   action: {
+ *     label: 'Undo',
+ *     handler: () => {
+ *       console.log('Action button clicked');
+ *     },
+ *   },
+ *   duration: '4s',
+ *   addCloseButton: true,
+ * });
  */
 export const snackbarSignal = new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
 
