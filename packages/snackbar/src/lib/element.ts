@@ -34,10 +34,6 @@ export class SnackbarComponent extends LightDomMixin(LoggerMixin(LitElement)) {
    */
   private static openAndCloseAnimationDuration__ = 200; // ms
 
-  /**
-   * Called when the element is first updated.
-   * @param changedProperties - The changed properties.
-   */
   protected override firstUpdated(changedProperties: PropertyValues): void {
     super.firstUpdated(changedProperties);
 
