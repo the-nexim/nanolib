@@ -4,7 +4,7 @@ import {html, LitElement, nothing, type PropertyValues, type TemplateResult} fro
 import {customElement, property} from 'lit/decorators.js';
 
 import {snackbarActionButtonClickedSignal} from './signal.js';
-import {waitForNextFrame} from '../utils/utils.js';
+import {waitForNextFrame} from './utils.js';
 
 declare global {
   interface HTMLElementTagNameMap {
