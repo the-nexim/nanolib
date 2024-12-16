@@ -5,28 +5,34 @@ import {snackbarSignal} from '@nexim/snackbar';
 import {logger} from './logger.js';
 
 /**
- * Check Is on installed PWA mode.
+ * Type definition for BeforeInstallPromptEvent.
+ */
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<void>;
+}
+
+/**
+ * Check if the app is running in installed PWA mode.
  */
 function isOnInstalledPwa(): boolean {
   return (
-    window.matchMedia('(display-mode: standalone)').matches || ('standalone' in window.navigator && window.navigator.standalone != null)
+    window.matchMedia('(display-mode: standalone)').matches ||
+    ('standalone' in window.navigator && window.navigator.standalone != null)
   );
 }
 
 /**
  * Check browser compatibility for PWA installation and setup the installation prompt handler.
- *
- * If browser support `BeforeInstallPromptEvent` event, show the install button and handle the installation process.
- *
- * require element with `install-pwa-prompt` id.
+ * If the browser supports the `BeforeInstallPromptEvent` event, show the install button and handle the installation process.
+ * Requires an element with the `install-pwa-prompt` id.
  */
 export function setupInstallPwaPromptHandler(): void {
   logger.logMethod?.('setupInstallPwaPromptHandler');
 
   if (isOnInstalledPwa() === true) return;
 
-  const isSupportInstallFromApp = 'BeforeInstallPromptEvent' in window;
-  if (isSupportInstallFromApp === false) return;
+  if (('BeforeInstallPromptEvent' in window) === false) return;
 
   const installPwaPromptButton = document.getElementById('install-pwa-prompt');
   if (installPwaPromptButton === null) return;
@@ -36,12 +42,12 @@ export function setupInstallPwaPromptHandler(): void {
   installPwaPromptButton.classList.add('!flex');
 
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let deferredPrompt: any;
+    let deferredPrompt: BeforeInstallPromptEvent | null = null;
 
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
+    window.addEventListener('beforeinstallprompt', (event: Event) => {
+      const beforeInstallPromptEvent = event as BeforeInstallPromptEvent;
+      beforeInstallPromptEvent.preventDefault();
+      deferredPrompt = beforeInstallPromptEvent;
     });
 
     installPwaPromptButton.addEventListener('click', () => {
@@ -49,7 +55,7 @@ export function setupInstallPwaPromptHandler(): void {
         logger.error('setupInstallPwaPromptHandler', 'deferred_prompt_is_null');
         snackbarSignal.notify({
           content: 'مشکلی در نصب برنامه پیش آمده است! ممکن است برنامه را قبلا نصب کرده باشید.',
-          duration: parseDuration('2s'),
+          duration: '2s',
         });
         waitForTimeout(parseDuration('3s')).then(() => {
           location.href = '/';
@@ -63,7 +69,6 @@ export function setupInstallPwaPromptHandler(): void {
       });
     });
 
-    // FIXME: check this to ensure work fine
     window.addEventListener('appinstalled', () => {
       deferredPrompt = null;
       snackbarSignal.notify({
@@ -84,8 +89,7 @@ export function setupInstallPwaPromptHandler(): void {
 
 /**
  * Show a guide link to install the PWA.
- *
- * require element with `install-pwa-guide` id.
+ * Requires an element with the `install-pwa-guide` id.
  */
 export function showInstallPwaGuideElement(): void {
   logger.logMethod?.('showInstallPwaGuideElement');
@@ -101,8 +105,7 @@ export function showInstallPwaGuideElement(): void {
 
 /**
  * Show a message that the PWA is installed.
- *
- * require element with `installed-pwa` id.
+ * Requires an element with the `installed-pwa` id.
  */
 export function showInstalledPwaMessage(): void {
   logger.logMethod?.('showInstalledPwaMessage');
