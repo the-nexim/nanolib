@@ -1,10 +1,4 @@
-import {createLogger} from '@alwatr/logger';
-import {waitForAnimationFrame, waitForTimeout} from '@alwatr/wait';
-
-/**
- * Logger instance for the snackbar package.
- */
-export const logger = /* @__PURE__ */ createLogger(__package_name__);
+import { waitForAnimationFrame, waitForTimeout } from '@alwatr/wait';
 
 /**
  * Waits for the next frame to ensure the DOM has been fully calculated.
@@ -18,8 +12,6 @@ export const logger = /* @__PURE__ */ createLogger(__package_name__);
  * @see https://stackoverflow.com/a/47184426
  */
 export function waitForNextFrame(): Promise<void> {
-  logger.logOther?.(`${__package_name__}:waitForNextFrame`);
-
   return new Promise((resolve) => {
     waitForAnimationFrame().then(() => {
       waitForTimeout(0).then(resolve);
