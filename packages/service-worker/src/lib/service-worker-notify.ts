@@ -1,7 +1,6 @@
 import {l10n} from '@alwatr/i18n';
 import {snackbarSignal} from '@nexim/snackbar';
 
-
 import {logger} from './logger.js';
 import {serviceWorkerSignal} from './service-worker.js';
 import {isVersionLarger} from './version-checker.js';
@@ -17,7 +16,7 @@ export function serviceWorkerNotifyHandler(options: {lastNotifyVersion: string; 
     if (event === 'service_worker_update_found') {
       snackbarSignal.notify({
         content: 'در حال به‌روزرسانی برنامه...',
-        duration: -1,
+        duration: 'infinite',
       });
     }
     else if (event === 'service_worker_first_install') {
@@ -37,7 +36,7 @@ export function serviceWorkerNotifyHandler(options: {lastNotifyVersion: string; 
         ) {
           snackbarSignal.notify({
             content: message,
-            duration: -1,
+            duration: 'infinite',
             addCloseButton: true,
             action: {
               label: 'مشاهده‌ی تغیرات',
@@ -51,7 +50,7 @@ export function serviceWorkerNotifyHandler(options: {lastNotifyVersion: string; 
         else {
           snackbarSignal.notify({
             content: message,
-            duration: -1,
+            duration: 'infinite',
             addCloseButton: true,
           });
         }
@@ -66,7 +65,7 @@ export function serviceWorkerNotifyHandler(options: {lastNotifyVersion: string; 
       localStorage.setItem(notifyLocalStorageKey, __package_version__);
       snackbarSignal.notify({
         content: 'به روز رسانی انجام شد.',
-        duration: -1,
+        duration: 'infinite',
         action: {
           label: 'بارگذاری مجدد',
           handler: () => window.location.reload(),
