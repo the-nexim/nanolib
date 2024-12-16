@@ -1,4 +1,4 @@
-import {AlwatrSignal} from '@alwatr/flux';
+import { AlwatrSignal } from '@alwatr/flux';
 
 import {logger} from './logger.js';
 
@@ -11,7 +11,7 @@ const eventList = [
   'service_worker_update_found',
 ] as const;
 
-export const serviceWorkerSignal = new AlwatrSignal<{event: (typeof eventList)[number]}>({
+export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: (typeof eventList)[number]}>({
   name: 'serviceWorker',
 });
 
@@ -19,8 +19,6 @@ export const serviceWorkerSignal = new AlwatrSignal<{event: (typeof eventList)[n
  * Register the service worker and listen for the 'updatefound' event
  *
  * @param serviceWorkerPath The path to the service worker
- *
- * @returns A promise that resolves to the service worker registration
  */
 export async function registerServiceWorker(serviceWorkerPath: string) {
   logger.logMethod?.('registerServiceWorker');
