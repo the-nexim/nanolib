@@ -23,7 +23,7 @@ export type SnackbarOptions = {
     label: string;
     handler: () => void;
   };
-  duration?: Duration;
+  duration?: Duration | 'infinite';
   addCloseButton?: boolean;
 };
 
@@ -71,10 +71,9 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   logger.logMethodArgs?.('showSnackbar', {options});
 
   // Parse the duration
-  if (options.duration != null) options.duration = parseDuration(options.duration);
 
   // Set default duration if not provided
-  options.duration = parseDuration('4s');
+  options.duration ??= parseDuration('4s');
 
   const element = document.createElement('snack-bar') as SnackbarComponent;
 
@@ -111,7 +110,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   document.body.appendChild(element);
 
   // Set a timeout to close the snackbar if duration is not infinite
-  if (options.duration !== -1) {
+  if (options.duration !== 'infinite') {
     waitForTimeout(parseDuration(options.duration)).then(closeSnackbar_);
   }
 }
