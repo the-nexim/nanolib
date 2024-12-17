@@ -1072,6 +1072,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@nexim/service-worker@workspace:packages/service-worker":
+  version: 0.0.0-use.local
+  resolution: "@nexim/service-worker@workspace:packages/service-worker"
+  dependencies:
+    "@alwatr/flux": "npm:^4.0.2"
+    "@alwatr/logger": "npm:^5.0.0"
+    "@alwatr/nano-build": "npm:^5.0.0"
+    "@alwatr/package-tracer": "npm:^5.0.0"
+    "@alwatr/type-helper": "npm:^5.0.0"
+    "@nexim/typescript-config": "workspace:^"
+    ava: "npm:^6.2.0"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
 "@nexim/snackbar@workspace:packages/snackbar":
   version: 0.0.0-use.local
   resolution: "@nexim/snackbar@workspace:packages/snackbar"

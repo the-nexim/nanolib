@@ -5,16 +5,16 @@ import {waitForTimeout} from '@alwatr/wait';
 
 import type {SnackbarComponent} from './element.js';
 
-const logger = createLogger(`${__package_name__}/handler`);
+const logger = /* @__PURE__ */ createLogger(`${__package_name__}/handler`);
 
 /**
  * @property content - Content to be displayed in the snackbar.
  * @property {action} - The action button configuration.
  * @property action.label - The label for the action button.
  * @property action.handler - The handler function for the action button.
- * @property duration - Duration for which the snackbar is displayed. `-1` for infinite duration.
+ * @property duration - Duration for which the snackbar is displayed. `infinite` for infinite duration.
  * Duration for which the snackbar is displayed.
- * `-1` for infinite duration.
+ * `infinite` for infinite duration.
  * @property addCloseButton - Whether to add a close button to the snackbar.
  */
 export type SnackbarOptions = {
@@ -23,7 +23,7 @@ export type SnackbarOptions = {
     label: string;
     handler: () => void;
   };
-  duration?: Duration;
+  duration?: Duration | 'infinite';
   addCloseButton?: boolean;
 };
 
@@ -53,7 +53,7 @@ export const snackbarActionButtonClickedSignal = new AlwatrTrigger({
  *   addCloseButton: true,
  * });
  */
-export const snackbarSignal = new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
+export const snackbarSignal = /* @__PURE__ */ new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
 
 // Subscribe to the snackbar signal to show the snackbar when the signal is emitted.
 snackbarSignal.subscribe((options) => {
@@ -71,10 +71,9 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   logger.logMethodArgs?.('showSnackbar', {options});
 
   // Parse the duration
-  if (options.duration != null) options.duration = parseDuration(options.duration);
 
   // Set default duration if not provided
-  options.duration = parseDuration('4s');
+  options.duration ??= '4s';
 
   const element = document.createElement('snack-bar') as SnackbarComponent;
 
@@ -111,7 +110,7 @@ async function showSnackbar(options: SnackbarOptions): Promise<void> {
   document.body.appendChild(element);
 
   // Set a timeout to close the snackbar if duration is not infinite
-  if (options.duration !== -1) {
+  if (options.duration !== 'infinite') {
     waitForTimeout(parseDuration(options.duration)).then(closeSnackbar_);
   }
 }

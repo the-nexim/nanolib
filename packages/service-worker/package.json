@@ -1,22 +1,21 @@
 {
-  "name": "@nexim/snackbar",
+  "name": "@nexim/service-worker",
   "version": "0.0.0",
-  "description": "A customizable snackbar component for displaying brief messages to users, with state management and animation utilities.",
+  "description": "Utilities to simplify the usage of service workers in your web applications.",
   "keywords": [
-    "snackbar",
-    "notification",
-    "web-component",
+    "worker",
+    "service-worker",
     "typescript",
     "nexim"
   ],
-  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/snackbar#readme",
+  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/service-worker#readme",
   "bugs": {
     "url": "https://github.com/the-nexim/nanolib/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/the-nexim/nanolib",
-    "directory": "packages/snackbar"
+    "directory": "packages/service-worker"
   },
   "license": "AGPL-3.0-only",
   "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (https://www.njfamirm.ir)",
@@ -59,11 +58,7 @@
   "dependencies": {
     "@alwatr/flux": "^4.0.2",
     "@alwatr/logger": "^5.0.0",
-    "@alwatr/package-tracer": "^5.0.0",
-    "@alwatr/parse-duration": "^5.0.0",
-    "@alwatr/wait": "^1.1.16",
-    "@nexim/element": "workspace:^",
-    "lit": "^3.2.1"
+    "@alwatr/package-tracer": "^5.0.0"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
