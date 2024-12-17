@@ -53,7 +53,7 @@ export const snackbarActionButtonClickedSignal = new AlwatrTrigger({
  *   addCloseButton: true,
  * });
  */
-export const snackbarSignal = /* @__PURE__ */  new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
+export const snackbarSignal = /* @__PURE__ */ new AlwatrSignal<SnackbarOptions>({name: 'snackbar'});
 
 // Subscribe to the snackbar signal to show the snackbar when the signal is emitted.
 snackbarSignal.subscribe((options) => {

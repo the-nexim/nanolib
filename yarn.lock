@@ -1082,7 +1082,6 @@ __metadata:
     "@alwatr/package-tracer": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.0.0"
     "@nexim/typescript-config": "workspace:^"
-    "@types/alpinejs": "npm:^3.13.11"
     ava: "npm:^6.2.0"
     typescript: "npm:^5.6.3"
   languageName: unknown
