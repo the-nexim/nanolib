@@ -8,7 +8,7 @@
 
 ## Overview
 
-Snackbar component, It includes utilities for managing the snackbar's state and animations.
+Snackbar component. It includes utilities for managing the snackbar's state and animations.
 
 ## Installation
 
@@ -34,11 +34,9 @@ snackbarSignal.notify({
   content: 'This is a snackbar message',
   action: {
     label: 'Undo',
-    handler: () => {
-      console.log('Action button clicked');
-    },
+    signalId: 'undo-handler',
   },
-  duration: '4s',
+  duration: '5s',
   addCloseButton: true,
 });
 ```
