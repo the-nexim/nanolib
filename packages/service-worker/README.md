@@ -8,7 +8,7 @@
 
 ## Overview
 
-`@nexim/service-worker` provides utility functions to enhance the usage of service workers in your web applications. It includes robust solutions for registering and managing service workers, with built-in logging and event signaling capabilities.
+Utilities to simplify the usage of service workers in your web applications.
 
 ## Installation
 
@@ -20,3 +20,32 @@ npm install @nexim/service-worker
 # Or using yarn
 yarn add @nexim/service-worker
 ```
+
+## Api
+
+### registerServiceWorker
+
+Register the service worker and handle updates.
+
+```ts
+import {registerServiceWorker} from '@nexim/service-worker';
+
+const serviceWorkerPath = '/service-worker.js';
+registerServiceWorker(serviceWorkerPath);
+```
+
+### serviceWorkerSignal
+
+Signal for service worker events.
+
+```ts
+import {serviceWorkerSignal} from '@nexim/service-worker';
+
+serviceWorkerSignal.subscribe(({event}) => {
+  console.log('Service worker event:', event);
+});
+```
+
+### Type ServiceWorkerEvent
+
+The events that can be emitted by the service worker.

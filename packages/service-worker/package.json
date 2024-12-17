@@ -1,7 +1,7 @@
 {
   "name": "@nexim/service-worker",
   "version": "0.0.0",
-  "description": "Utility functions to enhance Alpine.js usage with backup support.",
+  "description": "Utilities to simplify the usage of service workers in your web applications.",
   "keywords": [
     "worker",
     "service-worker",
@@ -64,7 +64,6 @@
     "@alwatr/nano-build": "^5.0.0",
     "@alwatr/type-helper": "^5.0.0",
     "@nexim/typescript-config": "workspace:^",
-    "@types/alpinejs": "^3.13.11",
     "ava": "^6.2.0",
     "typescript": "^5.6.3"
   },
