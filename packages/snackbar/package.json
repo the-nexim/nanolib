@@ -1,7 +1,7 @@
 {
   "name": "@nexim/snackbar",
   "version": "0.0.0",
-  "description": "A customizable snackbar component for displaying brief messages to users, with state management and animation utilities.",
+  "description": "Snackbar component, It includes utilities for managing the snackbar's state and animations.",
   "keywords": [
     "snackbar",
     "notification",

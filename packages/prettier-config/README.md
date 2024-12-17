@@ -6,6 +6,8 @@
 ![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Fprettier-config)
 ![NPM License](https://img.shields.io/npm/l/%40nexim%2Fprettier-config)
 
+## Overview
+
 Nexim's [shareable configurations](https://prettier.io/docs/en/configuration.html#sharing-configurations) for [Prettier](https://prettier.io/).
 
 ## Installation

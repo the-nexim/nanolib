@@ -1,7 +1,5 @@
 # @nexim/snackbar
 
-This package provides a customizable snackbar component for displaying brief messages to users. It includes utilities for managing the snackbar's state and animations.
-
 ![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fsnackbar)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fsnackbar)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
@@ -10,7 +8,7 @@ This package provides a customizable snackbar component for displaying brief mes
 
 ## Overview
 
-`@nexim/snackbar` is a versatile library designed to provide a customizable snackbar component for displaying brief messages to users. It includes utilities for managing the snackbar's state and animations, ensuring efficiency and scalability in high-performance projects.
+Snackbar component, It includes utilities for managing the snackbar's state and animations.
 
 ## Installation
 
@@ -34,7 +32,6 @@ import {snackbarSignal} from '@nexim/snackbar';
 
 snackbarSignal.notify({
   content: 'This is a snackbar message',
-  // The following properties are optional.
   action: {
     label: 'Undo',
     handler: () => {

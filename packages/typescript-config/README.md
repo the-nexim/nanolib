@@ -6,6 +6,8 @@
 ![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Ftypescript-config)
 ![NPM License](https://img.shields.io/npm/l/%40nexim%2Ftypescript-config)
 
+## Overview
+
 This is a base TypeScript configuration for Nexim projects.
 
 ## installation
