@@ -28,7 +28,7 @@ yarn add @nexim/analytic
 To set up Clarity Analytics, use the `setupClarityAnalytics` function.
 
 ```ts
-import { setupClarityAnalytics } from '@nexim/analytic';
+import {setupClarityAnalytics} from '@nexim/analytic';
 
 setupClarityAnalytics('your-clarity-tracking-id');
 ```
@@ -38,7 +38,7 @@ setupClarityAnalytics('your-clarity-tracking-id');
 To set up Google Analytics, use the `loadGoogleAnalyticsScript` function.
 
 ```ts
-import { loadGoogleAnalyticsScript } from '@nexim/analytic';
+import {loadGoogleAnalyticsScript} from '@nexim/analytic';
 
 loadGoogleAnalyticsScript('your-google-analytics-tracking-id');
 ```

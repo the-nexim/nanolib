@@ -6,10 +6,10 @@ Here is a brief overview of the included libraries:
 
 1. [`element`](./packages/element): Utility functions and mixins for building high-performance web components with Lit.
 2. [`alpine`](./packages/alpine): Utility functions to enhance Alpine.js usage with backup support.
-4. [`service-worker`](./packages/service-worker): Utilities to simplify the usage of service workers in your web applications.
-5. [`typescript-config`](./packages/typescript-config): Base TypeScript configuration for Nexim projects.
-6. [`prettier-config`](./packages/prettier-config): Base Prettier configuration for Nexim projects.
-7. [`eslint-config`](./packages/eslint-config): Base Eslint configuration for Nexim projects.
+3. [`service-worker`](./packages/service-worker): Utilities to simplify the usage of service workers in your web applications.
+4. [`typescript-config`](./packages/typescript-config): Base TypeScript configuration for Nexim projects.
+5. [`prettier-config`](./packages/prettier-config): Base Prettier configuration for Nexim projects.
+6. [`eslint-config`](./packages/eslint-config): Base Eslint configuration for Nexim projects.
 
 For more detailed information and guidelines on how to use each package, please refer to each package's README.
 
