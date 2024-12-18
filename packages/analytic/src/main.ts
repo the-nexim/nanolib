@@ -9,7 +9,7 @@ declare global {
 
     // Type of Clarity Analytics Setup
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    clarity: any;
+    clarity: (...args: unknown[]) => void;
   }
 }
 
@@ -23,7 +23,7 @@ export function setupClarityAnalytics(trackingId: string): void {
       };
     t = l.createElement(r);
     t.async = 1;
-    t.src = 'https://www.clarity.ms/tag/' + i;
+    t.src = `https://www.clarity.ms/tag/${i}`;
     y = l.getElementsByTagName(r)[0];
     y.parentNode.insertBefore(t, y);
   })(window, document, 'clarity', 'script', trackingId);
