@@ -13,7 +13,14 @@ declare global {
   }
 }
 
-// Clarity Analytics setup
+/**
+ * Sets up Clarity Analytics.
+ * @param {string} trackingId - The Clarity Analytics tracking ID.
+ * @example
+ * import {setupClarityAnalytics} from '@nexim/analytic'
+ *
+ * setupClarityAnalytics('your-clarity-tracking-id');
+ */
 export function setupClarityAnalytics(trackingId: string): void {
   (function (c, l, a, r, i, t, y) {
     c[a] =
@@ -29,10 +36,17 @@ export function setupClarityAnalytics(trackingId: string): void {
   })(window, document, 'clarity', 'script', trackingId);
 }
 
-// Google Analytics setup
+/**
+ * Sets up Google Analytics.
+ * @param {string} trackingId - The Google Analytics tracking ID.
+ */
 function setupGoogleAnalytics(trackingId: string): void {
   window.dataLayer = window.dataLayer || [];
 
+  /**
+   * Google Analytics tracking function.
+   * @param {...unknown[]} args - The arguments to be passed to the dataLayer.
+   */
   function gtag(...args: unknown[]): void {
     window.dataLayer.push(args);
   }
@@ -41,7 +55,14 @@ function setupGoogleAnalytics(trackingId: string): void {
   gtag('config', trackingId);
 }
 
-// Load Google Analytics script
+/**
+ * Loads the Google Analytics script.
+ * @param {string} trackingId - The Google Analytics tracking ID.
+ * @example
+ * import {loadGoogleAnalyticsScript} from '@nexim/analytic'
+ *
+ * loadGoogleAnalyticsScript('your-google-analytics-tracking-id');
+ */
 export function loadGoogleAnalyticsScript(trackingId: string): void {
   const script = document.createElement('script');
   script.defer = true;

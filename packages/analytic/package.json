@@ -1,7 +1,7 @@
 {
   "name": "@nexim/analytic",
   "version": "1.0.0",
-  "description": "Utility functions to enhance Alpine.js usage with backup support.",
+  "description": "This package provides functions to set up Clarity Analytics and Google Analytics for your web application.",
   "keywords": [
     "analytic",
     "typescript",
