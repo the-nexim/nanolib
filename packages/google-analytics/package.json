@@ -1,7 +1,7 @@
 {
   "name": "@nexim/google-analytics",
   "version": "1.0.0",
-  "description": "This package provides functions to set up Google Analytics for your web application.",
+  "description": "Utilities provides functions to set up Google Analytics for your web application.",
   "keywords": [
     "analytic",
     "typescript",
