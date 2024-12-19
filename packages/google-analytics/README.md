@@ -1,14 +1,14 @@
 # @nexim/google-analytics
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fanalytic)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fanalytic)
+![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fgoogle-analytic)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fgoogle-analytic)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Fanalytic)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Fanalytic)
+![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Fgoogle-analytic)
+![NPM License](https://img.shields.io/npm/l/%40nexim%2Fgoogle-analytic)
 
 ## Overview
 
-This package provides functions to set up Clarity Analytics and Google Analytics for your web application.
+Simple google analytic setup functions.
 
 ## Installation
 
@@ -25,7 +25,7 @@ yarn add @nexim/google-analytics
 
 ### initializeGoogleAnalytics
 
-To load and set up Google Analytics, use the `initializeGoogleAnalytics` function.
+Initialize google analytics with tracking id.
 
 ```ts
 import {initializeGoogleAnalytics} from '@nexim/analytic';

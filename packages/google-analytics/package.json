@@ -54,6 +54,10 @@
     "watch:es": "yarn run build:es --watch",
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput"
   },
+  "dependencies": {
+    "@alwatr/logger": "^5.0.0",
+    "@alwatr/package-tracer": "^5.0.0"
+  },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
     "@alwatr/type-helper": "^5.0.0",
@@ -63,8 +67,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@alwatr/package-tracer": "^5.0.0"
   }
 }
