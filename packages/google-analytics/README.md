@@ -1,4 +1,4 @@
-# @nexim/analytic
+# @nexim/google-analytics
 
 ![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fanalytic)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fanalytic)
@@ -15,30 +15,20 @@ This package provides functions to set up Clarity Analytics and Google Analytics
 Install the package using npm or yarn:
 
 ```sh
-npm install @nexim/analytic
+npm install @nexim/google-analytics
 
 # Or using yarn
-yarn add @nexim/analytic
+yarn add @nexim/google-analytics
 ```
 
 ## API
 
-### setupClarityAnalytics
+### initializeGoogleAnalytics
 
-To set up Clarity Analytics, use the `setupClarityAnalytics` function.
-
-```ts
-import {setupClarityAnalytics} from '@nexim/analytic';
-
-setupClarityAnalytics('your-clarity-tracking-id');
-```
-
-### loadGoogleAnalyticsScript
-
-To set up Google Analytics, use the `loadGoogleAnalyticsScript` function.
+To load and set up Google Analytics, use the `initializeGoogleAnalytics` function.
 
 ```ts
-import {loadGoogleAnalyticsScript} from '@nexim/analytic';
+import {initializeGoogleAnalytics} from '@nexim/analytic';
 
-loadGoogleAnalyticsScript('your-google-analytics-tracking-id');
+initializeGoogleAnalytics('your-google-analytics-tracking-id');
 ```

@@ -1001,18 +1001,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@nexim/analytic@workspace:packages/analytic":
-  version: 0.0.0-use.local
-  resolution: "@nexim/analytic@workspace:packages/analytic"
-  dependencies:
-    "@alwatr/nano-build": "npm:^5.0.0"
-    "@alwatr/type-helper": "npm:^5.0.0"
-    "@nexim/typescript-config": "workspace:^"
-    ava: "npm:^6.2.0"
-    typescript: "npm:^5.6.3"
-  languageName: unknown
-  linkType: soft
-
 "@nexim/element@workspace:packages/element":
   version: 0.0.0-use.local
   resolution: "@nexim/element@workspace:packages/element"
@@ -1046,6 +1034,19 @@ __metadata:
     eslint-import-resolver-typescript: ">3.0.0"
     eslint-plugin-import: ">2.0.0"
     eslint-plugin-require-extensions: ">0.1.0"
+  languageName: unknown
+  linkType: soft
+
+"@nexim/google-analytics@workspace:packages/google-analytics":
+  version: 0.0.0-use.local
+  resolution: "@nexim/google-analytics@workspace:packages/google-analytics"
+  dependencies:
+    "@alwatr/nano-build": "npm:^5.0.0"
+    "@alwatr/package-tracer": "npm:^5.0.0"
+    "@alwatr/type-helper": "npm:^5.0.0"
+    "@nexim/typescript-config": "workspace:^"
+    ava: "npm:^6.2.0"
+    typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
 

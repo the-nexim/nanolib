@@ -1,7 +1,7 @@
 {
-  "name": "@nexim/analytic",
+  "name": "@nexim/google-analytics",
   "version": "1.0.0",
-  "description": "This package provides functions to set up Clarity Analytics and Google Analytics for your web application.",
+  "description": "This package provides functions to set up Google Analytics for your web application.",
   "keywords": [
     "analytic",
     "typescript",
@@ -63,5 +63,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@alwatr/package-tracer": "^5.0.0"
   }
 }

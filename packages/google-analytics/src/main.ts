@@ -1,7 +1,16 @@
+import {packageTracer} from '@alwatr/package-tracer';
+
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
+
 declare global {
   interface Window {
     dataLayer: unknown[];
   }
+}
+
+export function initializeGoogleAnalytics(trackingId: string): void {
+  loadGoogleAnalyticsScript(trackingId);
+  setupGoogleAnalytics(trackingId);
 }
 
 /**
@@ -31,11 +40,10 @@ function setupGoogleAnalytics(trackingId: string): void {
  *
  * loadGoogleAnalyticsScript('your-google-analytics-tracking-id');
  */
-export function loadGoogleAnalyticsScript(trackingId: string): void {
+function loadGoogleAnalyticsScript(trackingId: string): void {
   const script = document.createElement('script');
   script.defer = true;
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
-  script.onload = () => setupGoogleAnalytics(trackingId);
   document.head.appendChild(script);
 }
