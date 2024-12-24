@@ -69,13 +69,13 @@
       "command": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" ava"
     },
     "build": {
-      "dependencies":[
+      "dependencies": [
         "build:ts",
         "build:es"
       ]
     },
     "build:es": {
-      "command": "nano-build --preset=weaver",
+      "command": "nano-build --preset=module",
       "files": [
         "src",
         "tsconfig.json"
@@ -95,13 +95,13 @@
       ]
     },
     "watch:ts": {
-      "command": "yarn run build:ts --watch --preserveWatchOutput",
+      "command": "tsc --build --watch --preserveWatchOutput",
       "dependencies": [
         "watch:es"
       ]
     },
     "watch:es": {
-      "command": "yarn run build:es -- --watch",
+      "command": "nano-build --preset=module -- --watch",
       "service": true
     }
   }
