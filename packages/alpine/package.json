@@ -41,20 +41,9 @@
     "!demo/**/*"
   ],
   "scripts": {
-    "b": "yarn run build",
-    "build": "yarn run build:ts && yarn run build:es",
-    "build:es": "nano-build --preset=module",
-    "build:ts": "tsc --build",
-    "c": "yarn run clean",
-    "cb": "yarn run clean && yarn run build",
-    "clean": "rm -rfv dist *.tsbuildinfo",
-    "d": "yarn run build:es && yarn node --enable-source-maps --trace-warnings",
-    "t": "yarn run test",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" ava",
-    "w": "yarn run watch",
-    "watch": "yarn run watch:ts & yarn run watch:es",
-    "watch:es": "yarn run build:es --watch",
-    "watch:ts": "yarn run build:ts --watch --preserveWatchOutput"
+    "build": "wireit",
+    "test": "wireit",
+    "watch": "wireit"
   },
   "dependencies": {
     "@alwatr/local-storage": "^5.0.0",
@@ -69,9 +58,30 @@
     "@nexim/typescript-config": "workspace:^",
     "@types/alpinejs": "^3.13.11",
     "ava": "^6.2.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "wireit": "^0.14.9"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "wireit": {
+    "test": {
+      "command": "ava"
+    },
+    "build": {
+      "command": "nano-build --preset=module",
+      "files": [
+        "src",
+        "tsconfig.json"
+      ],
+      "clean": "if-file-deleted",
+      "output": [
+        "dist",
+        "tsconfig.tsbuildinfo"
+      ]
+    },
+    "watch": {
+      "command": "yarn run build --watch"
+    }
   }
 }
