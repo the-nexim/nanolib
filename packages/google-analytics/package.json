@@ -1,6 +1,6 @@
 {
   "name": "@nexim/google-analytics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities provides functions to set up Google Analytics for your web application.",
   "keywords": [
     "analytic",

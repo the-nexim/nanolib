@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.0.6...@nexim/element@1.1.0) (2024-12-24)
+
+### Features
+
+* **service-worker:** add service worker utilities and logging support ([#18](https://github.com/the-nexim/nanolib/issues/18)) ([d428086](https://github.com/the-nexim/nanolib/commit/d428086dd98fbb5dfd077d14de4de8dd29ed78dc)) by @
+
+### Code Refactoring
+
+* migrate scripts to use wireit for improved build process ([#23](https://github.com/the-nexim/nanolib/issues/23)) ([3376d29](https://github.com/the-nexim/nanolib/commit/3376d2944332f3f28a91eba6b63a8fa981faf774)) by @arashagp
+
 ## [1.0.6](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.0.5...@nexim/element@1.0.6) (2024-12-10)
 
 **Note:** Version bump only for package @nexim/element
