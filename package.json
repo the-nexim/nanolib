@@ -86,10 +86,10 @@
       ]
     },
     "lint:es": {
-      "command": "eslint . --config .eslintrc.json --ext .ts --ext .js --ext .cjs --ext .mjs --ignore-path .prettierignore --cache-location .eslintcache --cache --color"
+      "command": "eslint . --config .eslintrc.json --ext .ts --ext .js --ext .cjs --ext .mjs --ignore-path .prettierignore"
     },
     "lint:ts": {
-      "command": "tsc --build"
+      "command": "lerna run build:ts"
     },
     "publish": {
       "command": "lerna publish from-package"

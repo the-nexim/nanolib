@@ -39,9 +39,6 @@ dist
 
 .tmp
 
-# deploy data backup
-deploy/_data
-
 .wireit
 
 .eslintcache
