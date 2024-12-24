@@ -70,7 +70,7 @@
     },
     "build": {
       "dependencies": [
-        "build:ts",
+        "build:type",
         "build:es"
       ]
     },
@@ -86,7 +86,7 @@
         "tsconfig.tsbuildinfo"
       ]
     },
-    "build:ts": {
+    "build:type": {
       "command": "tsc --build"
     },
     "watch": {

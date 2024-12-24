@@ -18,10 +18,9 @@
     "format": "wireit",
     "lint": "wireit",
     "publish": "wireit",
-    "pull": "wireit",
     "release": "wireit",
     "test": "wireit",
-    "upd": "wireit"
+    "upd": "yarn set version latest && yarn up '*' && yarn up '*' -R && yarn dlx @yarnpkg/sdks vscode && yarn dedupe"
   },
   "devDependencies": {
     "@lerna-lite/changed": "^3.10.1",
@@ -72,7 +71,7 @@
       ]
     },
     "format:eslint": {
-      "command": "yarn run lint:es -- --fix",
+      "command": "yarn run lint -- --fix",
       "dependencies": [
         "format:prettier"
       ]
@@ -81,31 +80,28 @@
       "command": "prettier . --ignore-path .prettierignore --write"
     },
     "lint": {
-      "dependencies": [
-        "lint:es",
-        "lint:ts"
-      ]
-    },
-    "lint:es": {
       "command": "eslint . --config .eslintrc.json --ext .ts --ext .js --ext .cjs --ext .mjs --ignore-path .prettierignore"
-    },
-    "lint:ts": {
-      "command": "lerna run build:ts"
     },
     "publish": {
       "command": "lerna publish from-package"
     },
-    "pull": {
-      "command": "git pull"
-    },
     "release": {
-      "command": "lerna version"
+      "command": "gh workflow list --json id,name,path | jq -r '.[] | select(.path == \".github/workflows/release.yaml\") | .id' | xargs -r gh workflow run",
+      "dependencies": [
+        "push"
+      ]
+    },
+    "pull": {
+      "command": "git pull -v"
+    },
+    "push": {
+      "command": "git push -v",
+      "dependencies": [
+        "pull"
+      ]
     },
     "test": {
       "command": "lerna run test"
-    },
-    "upd": {
-      "command": "yarn set version latest && yarn up '*' && yarn up '*' -R && yarn dlx @yarnpkg/sdks vscode && yarn dedupe"
     }
   }
 }

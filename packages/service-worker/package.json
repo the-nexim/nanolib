@@ -66,7 +66,7 @@
     },
     "build": {
       "dependencies": [
-        "build:ts",
+        "build:type",
         "build:es"
       ]
     },
@@ -78,26 +78,25 @@
       ],
       "clean": "if-file-deleted",
       "output": [
-        "dist/es",
+        "dist",
         "tsconfig.tsbuildinfo"
       ]
     },
-    "build:ts": {
+    "build:type": {
       "command": "tsc --build"
     },
     "watch": {
       "dependencies": [
+        "watch:es",
         "watch:ts"
       ]
     },
     "watch:ts": {
       "command": "tsc --build --watch --preserveWatchOutput",
-      "dependencies": [
-        "watch:es"
-      ]
+      "service": true
     },
     "watch:es": {
-      "command": "nano-build --preset=module -- --watch",
+      "command": "nano-build --preset=module --watch",
       "service": true
     }
   }
