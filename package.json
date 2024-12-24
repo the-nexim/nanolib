@@ -18,6 +18,7 @@
     "format": "wireit",
     "lint": "wireit",
     "publish": "wireit",
+    "pull": "wireit",
     "release": "wireit",
     "test": "wireit",
     "upd": "wireit"
@@ -94,14 +95,11 @@
     "publish": {
       "command": "lerna publish from-package"
     },
-    "push": {
-      "command": "git push -v"
+    "pull": {
+      "command": "git pull"
     },
     "release": {
-      "command": "gh workflow list --json id,name,path | jq -r '.[] | select(.path == \".github/workflows/release.yaml\") | .id' | xargs -r gh workflow run",
-      "dependencies": [
-        "push"
-      ]
+      "command": "lerna version"
     },
     "test": {
       "command": "lerna run test"

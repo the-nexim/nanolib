@@ -60,7 +60,7 @@
   },
   "wireit": {
     "test": {
-      "command": "ava"
+      "command": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" ava"
     },
     "build": {
       "dependencies":[
@@ -69,13 +69,34 @@
       ]
     },
     "build:es": {
-      "command":"nano-build --preset=module"
+      "command": "nano-build --preset=weaver",
+      "files": [
+        "src",
+        "tsconfig.json"
+      ],
+      "clean": "if-file-deleted",
+      "output": [
+        "dist/es",
+        "tsconfig.tsbuildinfo"
+      ]
     },
     "build:ts": {
       "command": "tsc --build"
     },
     "watch": {
-      "command": "yarn run build --watch"
+      "dependencies": [
+        "watch:ts"
+      ]
+    },
+    "watch:ts": {
+      "command": "yarn run build:ts --watch --preserveWatchOutput",
+      "dependencies": [
+        "watch:es"
+      ]
+    },
+    "watch:es": {
+      "command": "yarn run build:es -- --watch",
+      "service": true
     }
   }
 }
