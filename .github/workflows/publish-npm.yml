@@ -51,7 +51,7 @@ jobs:
         run: yarn install --immutable
 
       - name: 🏗 Build
-        run: yarn build
+        run: WIREIT_LOGGER=metrics  yarn build
         env:
           NODE_ENV: production
 
