@@ -10,14 +10,13 @@ on:
   push:
     branches:
       - next
-      - main
 
 env:
   NODE_VERSION: lts/*
 
 jobs:
-  build-lint-ts:
-    name: Build & Lint Typescript
+  main:
+    name: Build & Lint & Test
     runs-on: ubuntu-latest
 
     permissions:
@@ -41,7 +40,6 @@ jobs:
 
       - name: 🏗 Cache Layer
         uses: actions/cache@v4
-        # id: yarn_cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn_config.outputs.cache_folder }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
@@ -51,11 +49,14 @@ jobs:
       - name: 🏗 Install dependencies
         run: yarn install --immutable
 
+      - name: 🏗 Cache Wireit
+        uses: google/wireit@setup-github-actions-caching/v2
+
       - name: 🚀 Build Typescript
-        run: yarn build
+        run: WIREIT_LOGGER=metrics yarn build
 
       - name: 🚀 Run ESLint
-        run: yarn lint
+        run: WIREIT_LOGGER=metrics yarn lint
 
       - name: 🚀 Run Test
-        run: yarn test
+        run: WIREIT_LOGGER=metrics yarn test

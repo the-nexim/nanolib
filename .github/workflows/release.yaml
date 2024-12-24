@@ -61,15 +61,15 @@ jobs:
         run: yarn install --immutable
 
       - name: 🚀 Build Typescript
-        run: yarn build
+        run: WIREIT_LOGGER=metrics yarn build
 
       - name: 🚀 Run ESLint
-        run: yarn lint
+        run: WIREIT_LOGGER=metrics yarn lint
 
       - name: 🧪 Run Test
-        run: yarn test
+        run: WIREIT_LOGGER=metrics yarn test
 
       - name: 🤖 Get Release
-        run: yarn release -y
+        run: WIREIT_LOGGER=metrics yarn release -y
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
