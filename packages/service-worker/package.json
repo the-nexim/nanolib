@@ -65,16 +65,16 @@
       "command": "ava"
     },
     "build": {
-      "command": "nano-build --preset=module",
-      "files": [
-        "src",
-        "tsconfig.json"
-      ],
-      "clean": "if-file-deleted",
-      "output": [
-        "dist",
-        "tsconfig.tsbuildinfo"
+      "dependencies":[
+        "build:ts",
+        "build:es"
       ]
+    },
+    "build:es": {
+      "command":"nano-build --preset=module"
+    },
+    "build:ts": {
+      "command": "tsc --build"
     },
     "watch": {
       "command": "yarn run build --watch"
