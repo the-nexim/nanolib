@@ -41,8 +41,7 @@
   "main": "./eslint-config.cjs",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
-    "LICENSE",
-    "!demo/**/*"
+    "LICENSE"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.15.0",

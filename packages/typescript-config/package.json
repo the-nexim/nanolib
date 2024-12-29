@@ -27,8 +27,7 @@
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
     "tsconfig.json",
-    "LICENSE",
-    "!demo/**/*"
+    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"
