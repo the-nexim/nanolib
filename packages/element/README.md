@@ -1,10 +1,10 @@
 # @nexim/element
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Felement)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Felement)
+![NPM Version](https://img.shields.io/npm/v/@nexim/element)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@nexim/element)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Felement)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Felement)
+![NPM Downloads](https://img.shields.io/npm/dm/@nexim/element)
+![NPM License](https://img.shields.io/npm/l/@nexim/element)
 
 ## Overview
 

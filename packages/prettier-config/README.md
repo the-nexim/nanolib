@@ -1,10 +1,9 @@
 # Nexim's Prettier Configurations
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Fprettier-config)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Fprettier-config)
+![NPM Version](https://img.shields.io/npm/v/@nexim/prettier-config)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Fprettier-config)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Fprettier-config)
+![NPM Downloads](https://img.shields.io/npm/dm/@nexim/prettier-config)
+![NPM License](https://img.shields.io/npm/l/@nexim/prettier-config)
 
 ## Overview
 

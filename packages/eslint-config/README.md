@@ -1,10 +1,9 @@
 # Nexim's ESLint Configurations
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Feslint-config)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Feslint-config)
+![NPM Version](https://img.shields.io/npm/v/@nexim/eslint-config)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Feslint-config)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Feslint-config)
+![NPM Downloads](https://img.shields.io/npm/dm/@nexim/eslint-config)
+![NPM License](https://img.shields.io/npm/l/@nexim/eslint-config)
 
 ## Overview
 
