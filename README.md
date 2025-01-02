@@ -1,6 +1,8 @@
 # ECMAScript Nano Libs
 
-This repository contains numerous small utility packages. These packages serve various useful purposes and are written in nano ESModule without any dependencies.
+This repository contains numerous small utility packages. These packages serve various useful purposes and are written in nano ESModule.
+
+## List of packages
 
 Here is a brief overview of the included libraries:
 
@@ -14,7 +16,7 @@ Here is a brief overview of the included libraries:
 
 For more detailed information and guidelines on how to use each package, please refer to each package's README.
 
-### Contributing
+## Contributing
 
 Contributions are welcome! Please read our [contribution guidelines](https://github.com/the-nexim/.github/blob/next/CONTRIBUTING.md) before submitting a pull request.
 
