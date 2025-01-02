@@ -33,7 +33,7 @@
     "@nexim/eslint-config": "workspace:^",
     "@nexim/prettier-config": "workspace:^",
     "@nexim/typescript-config": "workspace:^",
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.3",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
     "ava": "^6.2.0",
