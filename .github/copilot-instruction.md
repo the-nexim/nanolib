@@ -4,7 +4,6 @@ As an advanced web developer, prioritize code maintainability, readability, and 
 
 ## General Rules
 
-- Follow JAMstack architecture principles.
 - Write minimal and clear descriptions and if possible don't write anything and just send code.
 - Fully optimize JavaScript code for best performance.
 - Ensure clear separation of concerns.
@@ -13,14 +12,7 @@ As an advanced web developer, prioritize code maintainability, readability, and 
 
 ## Technologies
 
-- Use Lit for web components with light DOM.
-- Use Tailwind CSS for styling; avoid additional CSS.
 - Use the latest TypeScript features for type safety and improved code quality.
-- Use Nunjucks templating engine in the 11ty static site generator.
-- Utilize in-ecosystem packages developed by our team.
-- Use the NoSQL database developed by our team.
-- Alpine Store for state management.
-- Use FSM for state machines by our team for many parts of client-side logic.
 - Use logger for logging by our team for each function.
 
 ## Commenting
