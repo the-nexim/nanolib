@@ -15,8 +15,5 @@ jobs:
     permissions:
       contents: read
     with:
-      NODE_VERSION: lts/*
-    secrets:
-      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-      GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
-      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+      node-version: lts/*
+    secrets: inherit
