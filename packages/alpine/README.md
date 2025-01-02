@@ -1,10 +1,10 @@
 # @nexim/alpine
 
-![NPM Version](https://img.shields.io/npm/v/%40nexim%2Falpine)
-![npm bundle size](https://img.shields.io/bundlephobia/min/%40nexim%2Falpine)
+![NPM Version](https://img.shields.io/npm/v/@nexim/alpine)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@nexim/alpine)
 ![Build & Lint & Test](https://github.com/the-nexim/nanolib/actions/workflows/build-lint-test.yaml/badge.svg)
-![NPM Downloads](https://img.shields.io/npm/dm/%40nexim%2Falpine)
-![NPM License](https://img.shields.io/npm/l/%40nexim%2Falpine)
+![NPM Downloads](https://img.shields.io/npm/dm/@nexim/alpine)
+![NPM License](https://img.shields.io/npm/l/@nexim/alpine)
 
 ## Overview
 
