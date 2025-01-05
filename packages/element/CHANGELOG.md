@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.1.0...@nexim/element@1.1.1) (2025-01-05)
+
+### Bug Fixes
+
+* **element:** build for browser platform ([02b4573](https://github.com/the-nexim/nanolib/commit/02b45737e00d22d56c729bc4e5b80aa72edaf007)) by @njfamirm
+
 ## [1.1.0](https://github.com/the-nexim/nanolib/compare/@nexim/element@1.0.6...@nexim/element@1.1.0) (2024-12-24)
 
 ### Features

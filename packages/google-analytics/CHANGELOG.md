@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/the-nexim/nanolib/compare/@nexim/google-analytics@1.0.1...@nexim/google-analytics@1.0.2) (2025-01-05)
+
+### Bug Fixes
+
+* **google-analytic:** build for browser platform ([0d16bca](https://github.com/the-nexim/nanolib/commit/0d16bca2529aae0dab368e68a5ad9a8c924037e2)) by @njfamirm
+
 ## 1.0.1 (2024-12-24)
 
 ### Code Refactoring

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/the-nexim/nanolib/compare/@nexim/alpine@1.1.0...@nexim/alpine@1.1.1) (2025-01-05)
+
+### Bug Fixes
+
+* **alpine:** build for browser platform ([01e4e4a](https://github.com/the-nexim/nanolib/commit/01e4e4afc16ef6ceab61c58bb942395c6450dcd0)) by @njfamirm
+
 ## [1.1.0](https://github.com/the-nexim/nanolib/compare/@nexim/alpine@1.0.0...@nexim/alpine@1.1.0) (2024-12-24)
 
 ### Features
