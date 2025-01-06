@@ -26,6 +26,7 @@
   "peerDependencies": {
     "typescript": "^5"
   },
+  "main": "tsconfig.base.json",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
     "tsconfig*.json",

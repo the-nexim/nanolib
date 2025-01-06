@@ -16,7 +16,6 @@
     // "outFile": "./",
     // "outDir": "./",
     // "rootDir": "./src",
-    "composite": true,
     // "tsBuildInfoFile": ".tsbuildinfo",
     // "removeComments": true,
     // "noEmit": true,
