@@ -24,7 +24,7 @@
     "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
   ],
   "peerDependencies": {
-    "typescript": "^5.7.2"
+    "typescript": "^5"
   },
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
