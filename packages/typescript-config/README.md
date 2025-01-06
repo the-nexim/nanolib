@@ -36,7 +36,7 @@ Use this configuration for browser-based applications. It extends the base confi
 
 ### Browser Library (`tsconfig.browser.lib.json`)
 
-Use this configuration for browser-based libraries. It extends the base configuration and generates type definition files (`*.d.ts`) in the `dist` folder. These type definitions allow other TypeScript projects to use your library with proper type checking.
+Use this configuration for browser-based libraries. extends the base configuration, generates declaration files (\*.d.ts), and supports referencing other projects.
 
 ```json
 {
@@ -47,7 +47,7 @@ Use this configuration for browser-based libraries. It extends the base configur
 
 ### Node.js Application (`tsconfig.node.app.json`)
 
-Use this configuration for Node.js applications. It extends the base configuration and includes Node.js specific type definitions for accurate type checking during development. It doesn't produce build outputs.
+Use this configuration for nodejs-based applications. It extends the base configuration and includes Node.js specific type definitions. It doesn't produce build outputs and primarily used for type checking during development.
 
 ```json
 {
@@ -58,7 +58,7 @@ Use this configuration for Node.js applications. It extends the base configurati
 
 ### Node.js Library (`tsconfig.node.lib.json`)
 
-Use this configuration for Node.js libraries. It extends the base configuration, includes Node.js type definitions, and generates type definition files (`*.d.ts`) in the `dist` folder. These type definitions make it possible for other TypeScript projects to reference and use your library with type safety.
+Use this configuration for nodejs-based libraries. extends the base configuration, incorporates Node.js type definitions, generates declaration files (\*.d.ts), and supports referencing other projects.
 
 ```json
 {
