@@ -23,10 +23,13 @@
   "contributors": [
     "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
   ],
-  "main": "tsconfig.json",
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "main": "tsconfig.base.json",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
-    "tsconfig.json",
+    "tsconfig*.json",
     "LICENSE"
   ],
   "publishConfig": {
