@@ -1056,6 +1056,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@nexim/financial-calculate@workspace:packages/financial-calculate":
+  version: 0.0.0-use.local
+  resolution: "@nexim/financial-calculate@workspace:packages/financial-calculate"
+  dependencies:
+    "@alwatr/logger": "npm:^5.0.0"
+    "@alwatr/nano-build": "npm:^5.0.0"
+    "@alwatr/package-tracer": "npm:^5.0.0"
+    "@alwatr/type-helper": "npm:^5.0.0"
+    "@nexim/typescript-config": "workspace:^"
+    ava: "npm:^6.2.0"
+    typescript: "npm:^5.7.2"
+    wireit: "npm:^0.14.9"
+  languageName: unknown
+  linkType: soft
+
 "@nexim/google-analytics@workspace:packages/google-analytics":
   version: 0.0.0-use.local
   resolution: "@nexim/google-analytics@workspace:packages/google-analytics"
