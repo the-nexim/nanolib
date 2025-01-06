@@ -1,5 +1,5 @@
 {
-  "extends": "@nexim/typescript-config/tsconfig.json",
+  "extends": "@nexim/typescript-config/tsconfig.base.json",
   "compilerOptions": {
     "noEmit": true,
     "types": ["node"]
@@ -11,7 +11,7 @@
       "path": "./packages/element"
     },
     {
-      "path": "./packages/typescript-config"
+      "path": "./packages/typescript-config/tsconfig.base.json"
     },
     {
       "path": "./packages/alpine"

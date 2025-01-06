@@ -1100,6 +1100,8 @@ __metadata:
 "@nexim/typescript-config@workspace:^, @nexim/typescript-config@workspace:packages/typescript-config":
   version: 0.0.0-use.local
   resolution: "@nexim/typescript-config@workspace:packages/typescript-config"
+  peerDependencies:
+    typescript: ^5
   languageName: unknown
   linkType: soft
 
