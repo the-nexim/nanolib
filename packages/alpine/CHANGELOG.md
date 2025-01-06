@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/the-nexim/nanolib/compare/@nexim/alpine@1.1.1...@nexim/alpine@1.1.2) (2025-01-06)
+
+### Code Refactoring
+
+* use new @nexim/typescript-config api ([6d656b4](https://github.com/the-nexim/nanolib/commit/6d656b483f27d556e59bdcec1220511c5c819cc8)) by @njfamirm
+
 ## [1.1.1](https://github.com/the-nexim/nanolib/compare/@nexim/alpine@1.1.0...@nexim/alpine@1.1.1) (2025-01-05)
 
 ### Bug Fixes
