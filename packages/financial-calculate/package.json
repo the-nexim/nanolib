@@ -36,8 +36,7 @@
   "types": "./dist/main.d.ts",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
-    "LICENSE",
-    "!**/*.test.js"
+    "LICENSE"
   ],
   "scripts": {
     "build": "wireit",
