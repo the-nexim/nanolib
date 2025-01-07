@@ -5,9 +5,9 @@ const logger = createLogger(__package_name__);
 /**
  * Calculate the price after applying a discount.
  *
- * @param {number} price - The original price.
- * @param {number} discount - The discount percentage to apply.
- * @param {number} [decimal=2] - The number of decimal places to round to.
+ * @param price - The original price.
+ * @param discount - The discount percentage to apply.
+ * @param decimal - The number of decimal places to round to (default is 2).
  * @example
  * // with default decimal
  * calcPriceFromDiscount(100, 10); // returns 90.00
@@ -24,9 +24,9 @@ export const calcPriceFromDiscount = (price: number, discount: number, decimal =
 /**
  * Calculate the discount amount from the original price.
  *
- * @param {number} price - The original price.
- * @param {number} discount - The discount percentage.
- * @param {number} [decimal=2] - The number of decimal places to round to.
+ * @param price - The original price.
+ * @param discount - The discount percentage.
+ * @param decimal - The number of decimal places to round to (default is 2).
  * @example
  * // with default decimal
  * calcDiscountPrice(100, 10); // returns 10.00
