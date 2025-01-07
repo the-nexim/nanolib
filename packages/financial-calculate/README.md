@@ -21,7 +21,7 @@ npm install @nexim/financial-calculate
 yarn add @nexim/financial-calculate
 ```
 
-## Api
+## API
 
 ### calcPriceFromDiscount
 
