@@ -84,7 +84,7 @@
       ],
       "clean": "if-file-deleted",
       "output": [
-        "dist",
+        "dist/es",
         "tsconfig.tsbuildinfo"
       ]
     },
