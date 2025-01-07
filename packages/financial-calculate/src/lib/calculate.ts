@@ -15,11 +15,11 @@ const logger = createLogger(__package_name__);
  * // with incoming decimal
  * calcPriceFromDiscount(95, 10, 1); // returns 85.50
  */
-export const calcPriceFromDiscount = (price: number, discount: number, decimal = 2): number => {
+export function calculateDiscountedPrice (price: number, discount: number, decimal = 2): number  {
   logger.logMethodArgs?.('calcPriceFromDiscount', {price, discount, decimal});
   const factor = Math.pow(10, decimal);
   return Math.round(price * (1 - discount / 100) * factor) / factor;
-};
+}
 
 /**
  * Calculate the discount amount from the original price.
@@ -34,7 +34,7 @@ export const calcPriceFromDiscount = (price: number, discount: number, decimal =
  * // with incoming decimal
  * calcDiscountPrice(95, 10, 1); // returns 9.50
  */
-export function calcDiscountFromPrice(price: number, discount: number, decimal = 2): number {
+export function computeDiscountFromPrice(price: number, discount: number, decimal = 2): number {
   logger.logMethodArgs?.('calcDiscountPrice', {price, discount, decimal});
   const factor = Math.pow(10, decimal);
   return Math.round(((price * discount) / 100) * factor) / factor;
