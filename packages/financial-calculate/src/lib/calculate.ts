@@ -31,7 +31,7 @@ export const calcPriceFromDiscount = (price: number, discount: number, decimal =
  * // with default decimal
  * calcDiscountPrice(100, 10); // returns 10.00
  *
-* // with incoming decimal
+ * // with incoming decimal
  * calcDiscountPrice(95, 10, 1); // returns 9.50
  */
 export function calcDiscountFromPrice(price: number, discount: number, decimal = 2): number {
