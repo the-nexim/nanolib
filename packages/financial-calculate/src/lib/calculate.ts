@@ -10,13 +10,13 @@ const logger = createLogger(__package_name__);
  * @param decimal - The number of decimal places to round to (default is 2).
  * @example
  * // with default decimal
- * calcPriceFromDiscount(100, 10); // returns 90.00
+ * calculateDiscountedPrice(100, 10); // returns 90.00
  *
  * // with incoming decimal
- * calcPriceFromDiscount(95, 10, 1); // returns 85.50
+ * calculateDiscountedPrice(95, 10, 1); // returns 85.50
  */
 export function calculateDiscountedPrice (price: number, discount: number, decimal = 2): number  {
-  logger.logMethodArgs?.('calcPriceFromDiscount', {price, discount, decimal});
+  logger.logMethodArgs?.('calculateDiscountedPrice', {price, discount, decimal});
   const factor = Math.pow(10, decimal);
   return Math.round(price * (1 - discount / 100) * factor) / factor;
 }
@@ -29,13 +29,13 @@ export function calculateDiscountedPrice (price: number, discount: number, decim
  * @param decimal - The number of decimal places to round to (default is 2).
  * @example
  * // with default decimal
- * calcDiscountPrice(100, 10); // returns 10.00
+ * computeDiscountFromPrice(100, 10); // returns 10.00
  *
  * // with incoming decimal
- * calcDiscountPrice(95, 10, 1); // returns 9.50
+ * computeDiscountFromPrice(95, 10, 1); // returns 9.50
  */
 export function computeDiscountFromPrice(price: number, discount: number, decimal = 2): number {
-  logger.logMethodArgs?.('calcDiscountPrice', {price, discount, decimal});
+  logger.logMethodArgs?.('computeDiscountFromPrice', {price, discount, decimal});
   const factor = Math.pow(10, decimal);
   return Math.round(((price * discount) / 100) * factor) / factor;
 }
