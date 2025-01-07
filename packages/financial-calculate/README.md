@@ -15,10 +15,10 @@ a library for performing various financial calculations. It provides a set of fu
 To install the package, use npm or yarn:
 
 ```sh
-npm install @nexim/alpine
+npm install @nexim/financial-calculate
 
 # Or using yarn
-yarn add @nexim/alpine
+yarn add @nexim/financial-calculate
 ```
 
 ## Api
