@@ -13,7 +13,9 @@ const logger = createLogger(__package_name__);
  * @param decimal - The number of decimal places to round to (default is 2).
  *
  * @example
+ * ```
  * calculateDiscountedPrice(100, 10, 1); // returns 90.0
+ * ```
  */
 export function calculateDiscountedPrice(price: number, discount: number, decimal = 2): number {
   logger.logMethodArgs?.('calculateDiscountedPrice', {price, discount, decimal});
@@ -30,7 +32,9 @@ export function calculateDiscountedPrice(price: number, discount: number, decima
  * @param decimal - The number of decimal places to round to (default is 2).
  *
  * @example
+ * ```
  * calculateDiscountAmount(100, 10, 1); // returns 10.0
+ * ```
  */
 export function calculateDiscountAmount(price: number, discount: number, decimal = 2): number {
   logger.logMethodArgs?.('calculateDiscountAmount', {price, discount, decimal});
