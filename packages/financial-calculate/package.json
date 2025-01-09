@@ -1,7 +1,7 @@
 {
   "name": "@nexim/financial-calculate",
   "version": "0.0.0",
-  "description": "a library for performing various financial calculations. It provides a set of functions to handle common financial operations such as interest calculations, loan payments, and more.",
+  "description": "Provides a set of utils to handle common financial operations.",
   "keywords": [
     "financial",
     "calculate",

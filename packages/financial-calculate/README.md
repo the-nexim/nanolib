@@ -6,9 +6,7 @@
 ![NPM Downloads](https://img.shields.io/npm/dm/@nexim/financial-calculate)
 ![NPM License](https://img.shields.io/npm/l/@nexim/financial-calculate)
 
-## Overview
-
-a library for performing various financial calculations. It provides a set of functions to handle common financial operations such as interest calculations, loan payments, and more.
+Provides a set of utils to handle common financial operations.
 
 ## Installation
 
