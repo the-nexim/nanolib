@@ -1,6 +1,6 @@
 {
   "name": "@nexim/service-worker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utilities to simplify the usage of service workers in your web applications.",
   "keywords": [
     "worker",

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/the-nexim/nanolib/compare/@nexim/alpine@1.1.2...@nexim/alpine@1.1.3) (2025-01-09)
+
+### Code Refactoring
+
+* update output paths in package.json ([#30](https://github.com/the-nexim/nanolib/issues/30)) ([2e03380](https://github.com/the-nexim/nanolib/commit/2e033802420b65644b2af19d29b9c2c5f06332b0)) by @
+
 ## [1.1.2](https://github.com/the-nexim/nanolib/compare/@nexim/alpine@1.1.1...@nexim/alpine@1.1.2) (2025-01-06)
 
 ### Code Refactoring
