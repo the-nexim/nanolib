@@ -17,9 +17,11 @@ declare global {
  * @param trackingId - The Google Analytics tracking ID.
  *
  * @example
+ * ```
  * import {initializeGoogleAnalytics} from '@nexim/analytic';
  *
  * initializeGoogleAnalytics('your-google-analytics-tracking-id');
+ * ```
  */
 export async function initializeGoogleAnalytics(trackingId: string): Promise<void> {
   logger.logMethodArgs?.('initializeGoogleAnalytics', {trackingId});

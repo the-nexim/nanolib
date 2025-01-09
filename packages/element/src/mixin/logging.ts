@@ -21,6 +21,7 @@ export interface LoggerMixinInterface extends LitElement {
  * @returns A mixin class that extends the superclass and logs the lifecycle methods of the element.
  *
  * @example
+ * ```
  * import {LitElement, html} from 'lit';
  * import {LoggerMixin} from '@nexim/element';
  *
@@ -31,6 +32,7 @@ export interface LoggerMixinInterface extends LitElement {
  *     return html`<p>Hello, world!</p>`;
  *   }
  * }
+ * ```
  */
 export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(superClass: T): Class<LoggerMixinInterface> & T {
   return class MixinClass extends superClass {

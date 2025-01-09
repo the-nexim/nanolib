@@ -8,6 +8,7 @@ import type {LitElement, CSSResultGroup, ReactiveElement} from 'lit';
  * @returns A class that extends the base class with light DOM functionality.
  *
  * @example
+ * ```
  * import {LitElement, html, css} from 'lit';
  * import {LightDomMixin} from '@nexim/element';
  *
@@ -22,6 +23,7 @@ import type {LitElement, CSSResultGroup, ReactiveElement} from 'lit';
  *     return html`<p>Hello, light DOM!</p>`;
  *   }
  * }
+ * ```
  */
 export function LightDomMixin<T extends Class<LitElement> = Class<LitElement>>(superClass: T): T {
   class MixinClass extends superClass {

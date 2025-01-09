@@ -14,11 +14,12 @@ export type AlpineStoreWithBackupType = {
 /**
  * AlpineStoreWithBackup Options.
  *
- * @template T - The type of the store value.
- * @param {string} name - The name of the store.
- * @param {number} version - The version of the store.
- * @param {T} defaultValue - The default value of the store.
- * @param {Duration} [expireDuration] - Optional. The duration after which the store expires.
+ * @typeParam T - The type of the store value.
+ *
+ * @param name - The name of the store.
+ * @param version - The version of the store.
+ * @param defaultValue - The default value of the store.
+ * @param expireDuration - Optional. The duration after which the store expires.
  */
 export type AlpineStoreWithBackupOptions<T extends AlpineStoreWithBackupType> = {
   name: string;
@@ -49,9 +50,10 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
   /**
    * Provides a Alpine.js store implementation with backup and expiration.
    *
-   * @param {AlpineStoreWithBackupOptions} config__ - Configuration object.
+   * @param config__ - Configuration object.
    *
    * @example
+   * ```
    * import {AlpineStoreWithBackup} from '@nexim/alpine';
    *
    * const storeWithBackup = new AlpineStoreWithBackup({
@@ -68,6 +70,7 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    *
    * storeWithBackup.clear();
    * console.log(storeWithBackup.store.data); // Output: { data: 'root' }
+   * ```
    */
   constructor(private config__: AlpineStoreWithBackupOptions<T>) {
     super(config__);
@@ -132,7 +135,7 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    *
    * When data is not found or invalid in local storage, it uses the default value.
    *
-   * FIXME: remove `NonNullable` from <T['data']>, after local storage new version.
+   * FIXME: remove `NonNullable` from `<T['data']>`, after local storage new version.
    */
   private load__(): void {
     this.logger_.logMethod?.('load__');

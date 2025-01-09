@@ -21,11 +21,13 @@ const logger = /* @__PURE__ */ createLogger(__package_name__);
  * Signal for service worker events.
  *
  * @example
+ * ```
  * import {serviceWorkerSignal} from '@nexim/service-worker';
  *
  * serviceWorkerSignal.subscribe(({event}) => {
  *   console.log('Service worker event:', event);
  * });
+ * ```
  */
 export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: ServiceWorkerEvent}>({
   name: 'serviceWorker',
@@ -34,13 +36,15 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
 /**
  * Register the service worker and handle updates.
  *
- * @param serviceWorkerPath The path to the service worker.
+ * @param serviceWorkerPath - The path to the service worker.
  *
  * @example
+ * ```
  * import {registerServiceWorker} from '@nexim/service-worker';
  *
  * const serviceWorkerPath = '/service-worker.js';
  * registerServiceWorker(serviceWorkerPath);
+ * ```
  */
 export async function registerServiceWorker(serviceWorkerPath: string): Promise<void> {
   logger.logMethodArgs?.('registerServiceWorker', {serviceWorkerPath});
@@ -60,7 +64,7 @@ export async function registerServiceWorker(serviceWorkerPath: string): Promise<
 /**
  * Handle the 'updatefound' event
  *
- * @param serviceWorker The service worker
+ * @param serviceWorker - The service worker
  */
 function serviceWorkerUpdateFoundHandler(serviceWorker: ServiceWorker | null): void {
   if (serviceWorker == null) return;
@@ -85,7 +89,7 @@ function serviceWorkerUpdateFoundHandler(serviceWorker: ServiceWorker | null): v
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker/state
  *
- * @param serviceWorker The service worker.
+ * @param serviceWorker - The service worker.
  */
 function serviceWorkerStateChangeHandler(serviceWorker: ServiceWorker): void {
   logger.logMethodArgs?.('serviceWorkerStateChangeHandler', {state: serviceWorker.state});
