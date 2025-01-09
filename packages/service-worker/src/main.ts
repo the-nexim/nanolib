@@ -50,7 +50,7 @@ export async function registerServiceWorker(serviceWorkerPath: string): Promise<
   logger.logMethodArgs?.('registerServiceWorker', {serviceWorkerPath});
 
   if (('serviceWorker' in navigator) === false) {
-    logger.incident?.('registerServiceWorker', 'service worker not include in navigator');
+    logger.incident?.('registerServiceWorker', 'service_worker_not_supported');
     return;
   }
 
