@@ -50,10 +50,15 @@ export async function registerServiceWorker(serviceWorkerPath: string): Promise<
   logger.logMethodArgs?.('registerServiceWorker', {serviceWorkerPath});
 
   try {
-    const swRegistration = await navigator.serviceWorker.register(serviceWorkerPath);
-    serviceWorkerSignal.notify({event: 'service_worker_registered'});
-    swRegistration.addEventListener('updatefound', () => serviceWorkerUpdateFoundHandler(swRegistration.installing));
-    logger.logOther?.('Service worker registered.');
+    if ('serviceWorker' in navigator) {
+      const swRegistration = await navigator.serviceWorker.register(serviceWorkerPath);
+      serviceWorkerSignal.notify({event: 'service_worker_registered'});
+      swRegistration.addEventListener('updatefound', () => serviceWorkerUpdateFoundHandler(swRegistration.installing));
+      logger.logOther?.('Service worker registered.');
+    }
+    else {
+      logger.incident?.('serviceWorker', 'service worker not include in navigator', {inCludeInNavigator: false});
+    }
   }
   catch (error) {
     logger.error('registerServiceWorker', 'registration_failed ', {error});
