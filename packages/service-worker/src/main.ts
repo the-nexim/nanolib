@@ -49,16 +49,16 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
 export async function registerServiceWorker(serviceWorkerPath: string): Promise<void> {
   logger.logMethodArgs?.('registerServiceWorker', {serviceWorkerPath});
 
+  if (('serviceWorker' in navigator) === false) {
+    logger.incident?.('registerServiceWorker', 'service worker not include in navigator');
+    return;
+  }
+
   try {
-    if ('serviceWorker' in navigator) {
-      const swRegistration = await navigator.serviceWorker.register(serviceWorkerPath);
-      serviceWorkerSignal.notify({event: 'service_worker_registered'});
-      swRegistration.addEventListener('updatefound', () => serviceWorkerUpdateFoundHandler(swRegistration.installing));
-      logger.logOther?.('Service worker registered.');
-    }
-    else {
-      logger.incident?.('serviceWorker', 'service worker not include in navigator', {inCludeInNavigator: false});
-    }
+    const swRegistration = await navigator.serviceWorker.register(serviceWorkerPath);
+    serviceWorkerSignal.notify({event: 'service_worker_registered'});
+    swRegistration.addEventListener('updatefound', () => serviceWorkerUpdateFoundHandler(swRegistration.installing));
+    logger.logOther?.('Service worker registered.');
   }
   catch (error) {
     logger.error('registerServiceWorker', 'registration_failed ', {error});
