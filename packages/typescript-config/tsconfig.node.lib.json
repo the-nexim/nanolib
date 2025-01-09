@@ -4,5 +4,5 @@
     "emitDeclarationOnly": true,
     "composite": true,
     "types": ["node"]
-  },
+  }
 }

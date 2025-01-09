@@ -2,6 +2,6 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "emitDeclarationOnly": true,
-    "composite": true,
-  },
+    "composite": true
+  }
 }
