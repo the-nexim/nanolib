@@ -28,20 +28,13 @@ yarn add @nexim/financial-calculate
 Calculate the price after applying a discount.
 
 ```ts
-// with default decimal
-calculateDiscountedPrice(100, 10); // returns 90.00
-
-// with incoming decimal
-calculateDiscountedPrice(95, 10, 1); // returns 85.50
+calculateDiscountedPrice(100, 10, 1); // returns 90.0
 ```
 
-### computeDiscountFromPrice
+### calculateDiscountAmount
 
 Calculate the discount amount from the original price.
 
 ```ts
-// with default decimal
-computeDiscountFromPrice(100, 10); // returns 10.00
-// with incoming decimal
-computeDiscountFromPrice(95, 10, 1); // returns 9.50
+calculateDiscountAmount(100, 10, 1); // returns 10.0
 ```
