@@ -49,6 +49,11 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
 export async function registerServiceWorker(serviceWorkerPath: string): Promise<void> {
   logger.logMethodArgs?.('registerServiceWorker', {serviceWorkerPath});
 
+  if (('serviceWorker' in navigator) === false) {
+    logger.incident?.('registerServiceWorker', 'service_worker_not_supported');
+    return;
+  }
+
   try {
     const swRegistration = await navigator.serviceWorker.register(serviceWorkerPath);
     serviceWorkerSignal.notify({event: 'service_worker_registered'});
