@@ -42,3 +42,45 @@ export function calculateDiscountAmount(price: number, discount: number, decimal
   const discountAmount = (price * discount) / 100;
   return parseFloat(discountAmount.toFixed(decimal));
 }
+
+/**
+ * Calculates the discount percentage between the market price and the sale price for profit.
+ *
+ * @param marketPrice - The original market price of the item.
+ * @param salePrice - The sale price of the item.
+ * @param decimal - The number of decimal places to round the result to(optional with default value = 2).
+ * @param upSide - Determines the denominator for the percentage calculation (optional with default value = true).
+ *
+ * @example
+ * ```
+ * calculateDiscountPercentage(100, 80); // Returns 20.00
+ * calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
+ * ```
+ */
+export function calculatePercentageProfit(marketPrice: number, salePrice: number, decimal = 2): number {
+  logger.logMethodArgs?.('calculatePercentageProfit', {marketPrice, salePrice, decimal});
+
+  const percentage = ((marketPrice - salePrice) / salePrice) * 100;
+  return parseFloat(percentage.toFixed(decimal));
+}
+
+/**
+ * Calculates the discount percentage between the market price and the sale price for discount.
+ *
+ * @param marketPrice - The original market price of the item.
+ * @param salePrice - The sale price of the item.
+ * @param decimal - The number of decimal places to round the result to(optional with default value = 2).
+ * @param upSide - Determines the denominator for the percentage calculation (optional with default value = true).
+ *
+ * @example
+ * ```
+ * calculateDiscountPercentage(100, 80); // Returns 20.00
+ * calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
+ * ```
+ */
+export function calculatePercentageDiscount(marketPrice: number, salePrice: number, decimal = 2): number {
+  logger.logMethodArgs?.('calculatePercentageDiscount', {marketPrice, salePrice, decimal});
+
+  const percentage = ((marketPrice - salePrice) / marketPrice) * 100;
+  return parseFloat(percentage.toFixed(decimal));
+}
