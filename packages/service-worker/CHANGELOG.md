@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/the-nexim/nanolib/compare/@nexim/service-worker@1.0.3...@nexim/service-worker@1.0.4) (2025-01-11)
+
+**Note:** Version bump only for package @nexim/service-worker
+
 ## [1.0.3](https://github.com/the-nexim/nanolib/compare/@nexim/service-worker@1.0.2...@nexim/service-worker@1.0.3) (2025-01-09)
 
 ### Bug Fixes
