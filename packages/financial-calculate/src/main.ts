@@ -44,7 +44,7 @@ export function calculateDiscountAmount(price: number, discount: number, decimal
 }
 
 /**
- * Calculates the discount percentage between the market price and the sale price.
+ * Calculates the discount percentage between the market price and the sale price for profit.
  *
  * @param marketPrice - The original market price of the item.
  * @param salePrice - The sale price of the item.
@@ -57,7 +57,7 @@ export function calculateDiscountAmount(price: number, discount: number, decimal
  * calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
  * ```
  */
-export function calculateDiscountPercentage(marketPrice: number, salePrice: number, decimal = 2, upSide = true): number {
+export function calculateDiscountPercentageProfit(marketPrice: number, salePrice: number, decimal = 2): number {
   logger.logMethodArgs?.('calculateDiscountedPrice', {marketPrice, salePrice, decimal});
 
   if ([marketPrice, salePrice, decimal].some(value => isNaN(value)) || decimal < 0) {
@@ -65,12 +65,32 @@ export function calculateDiscountPercentage(marketPrice: number, salePrice: numb
     return 0
   }
 
-  const denominator = upSide ? salePrice : marketPrice;
-  if (denominator === 0) {
-    logger.error?.('calculateDiscountPercentage', 'denominator is zero');
+  const percentage = ((marketPrice - salePrice) / salePrice) * 100;
+  return parseFloat(percentage.toFixed(decimal));
+}
+
+/**
+ * Calculates the discount percentage between the market price and the sale price for discount.
+ *
+ * @param marketPrice - The original market price of the item.
+ * @param salePrice - The sale price of the item.
+ * @param decimal - The number of decimal places to round the result to(optional with default value = 2).
+ * @param upSide - Determines the denominator for the percentage calculation (optional with default value = true).
+ *
+ * @example
+ * ```
+ * calculateDiscountPercentage(100, 80); // Returns 20.00
+ * calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
+ * ```
+ */
+export function calculateDiscountPercentageDiscount(marketPrice: number, salePrice: number, decimal = 2): number {
+  logger.logMethodArgs?.('calculateDiscountedPrice', {marketPrice, salePrice, decimal});
+
+  if ([marketPrice, salePrice, decimal].some(value => isNaN(value)) || decimal < 0) {
+    logger.error?.('calculateDiscountPercentage', 'some of the input values is not a number');
     return 0
   }
 
-  const percentage = ((marketPrice - salePrice) / denominator) * 100;
+  const percentage = ((marketPrice - salePrice) / marketPrice) * 100;
   return parseFloat(percentage.toFixed(decimal));
 }
