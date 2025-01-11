@@ -42,3 +42,15 @@ export function calculateDiscountAmount(price: number, discount: number, decimal
   const discountAmount = (price * discount) / 100;
   return parseFloat(discountAmount.toFixed(decimal));
 }
+
+export function calculateDiscountPercentage(marketPrice: number, salePrice: number, decimal = 2, upSide = true): number {
+  // Validate inputs
+  if ([marketPrice, salePrice, decimal].some(value => isNaN(value)) || decimal < 0) return 0;
+
+  const denominator = upSide ? salePrice : marketPrice;
+  if (denominator === 0) return 0;
+
+  // Calculate discount percentage
+  const percentage = ((marketPrice - salePrice) / denominator) * 100;
+  return parseFloat(percentage.toFixed(decimal));
+}
