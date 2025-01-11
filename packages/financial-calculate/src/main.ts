@@ -57,13 +57,8 @@ export function calculateDiscountAmount(price: number, discount: number, decimal
  * calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
  * ```
  */
-export function calculateDiscountPercentageProfit(marketPrice: number, salePrice: number, decimal = 2): number {
-  logger.logMethodArgs?.('calculateDiscountedPrice', {marketPrice, salePrice, decimal});
-
-  if ([marketPrice, salePrice, decimal].some(value => isNaN(value)) || decimal < 0) {
-    logger.error?.('calculateDiscountPercentage', 'some of the input values is not a number');
-    return 0
-  }
+export function calculatePercentageProfit(marketPrice: number, salePrice: number, decimal = 2): number {
+  logger.logMethodArgs?.('calculatePercentageProfit', {marketPrice, salePrice, decimal});
 
   const percentage = ((marketPrice - salePrice) / salePrice) * 100;
   return parseFloat(percentage.toFixed(decimal));
@@ -83,13 +78,8 @@ export function calculateDiscountPercentageProfit(marketPrice: number, salePrice
  * calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
  * ```
  */
-export function calculateDiscountPercentageDiscount(marketPrice: number, salePrice: number, decimal = 2): number {
-  logger.logMethodArgs?.('calculateDiscountedPrice', {marketPrice, salePrice, decimal});
-
-  if ([marketPrice, salePrice, decimal].some(value => isNaN(value)) || decimal < 0) {
-    logger.error?.('calculateDiscountPercentage', 'some of the input values is not a number');
-    return 0
-  }
+export function calculatePercentageDiscount(marketPrice: number, salePrice: number, decimal = 2): number {
+  logger.logMethodArgs?.('calculatePercentageDiscount', {marketPrice, salePrice, decimal});
 
   const percentage = ((marketPrice - salePrice) / marketPrice) * 100;
   return parseFloat(percentage.toFixed(decimal));
