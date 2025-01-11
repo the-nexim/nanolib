@@ -58,13 +58,19 @@ export function calculateDiscountAmount(price: number, discount: number, decimal
  * ```
  */
 export function calculateDiscountPercentage(marketPrice: number, salePrice: number, decimal = 2, upSide = true): number {
-  // Validate inputs
-  if ([marketPrice, salePrice, decimal].some(value => isNaN(value)) || decimal < 0) return 0;
+  logger.logMethodArgs?.('calculateDiscountedPrice', {marketPrice, salePrice, decimal});
+
+  if ([marketPrice, salePrice, decimal].some(value => isNaN(value)) || decimal < 0) {
+    logger.error?.('calculateDiscountPercentage', 'some of the input values is not a number');
+    return 0
+  }
 
   const denominator = upSide ? salePrice : marketPrice;
-  if (denominator === 0) return 0;
+  if (denominator === 0) {
+    logger.error?.('calculateDiscountPercentage', 'denominator is zero');
+    return 0
+  }
 
-  // Calculate discount percentage
   const percentage = ((marketPrice - salePrice) / denominator) * 100;
   return parseFloat(percentage.toFixed(decimal));
 }
