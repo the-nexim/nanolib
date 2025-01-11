@@ -36,3 +36,12 @@ Calculate the discount amount from the original price.
 ```ts
 calculateDiscountAmount(100, 10, 1); // returns 10.0
 ```
+
+### calculateDiscountPercentage
+
+Calculates the discount percentage between the market price and the sale price.
+
+```ts
+calculateDiscountPercentage(100, 80); // Returns 20.00
+calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
+```
