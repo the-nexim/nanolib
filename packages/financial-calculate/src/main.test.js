@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import {calculateDiscountAmount, calculateDiscountedPrice, calculateDiscountPercentage} from '@nexim/financial-calculate';
+import {calculateDiscountAmount, calculateDiscountedPrice,calculateDiscountPercentageDiscount, calculateDiscountPercentageProfit} from '@nexim/financial-calculate';
 
 test('calculate discount from price with: 3, 4 input', (test) => {
   test.is(calculateDiscountAmount(3, 4), 0.12);
@@ -16,8 +16,10 @@ test('calculate price from discount with: 3, 4 input', (test) => {
   test.is(calculateDiscountedPrice(54205, 1332, 5), -667805.6);
 });
 
-test('calculate discount percentage', (test) => {
-  test.is(calculateDiscountPercentage(100, 80), 20); // upSide = true (default)
-  test.is(calculateDiscountPercentage(100, 80, 1, false), 20); // upSide = false
-  test.is(calculateDiscountPercentage(100, 80, 1, true), 25); // Explicit upSide = true
+test('calculate discount percentage for profit and discount', (test) => {
+  test.is(calculateDiscountPercentageProfit(100, 80), 25);
+  test.is(calculateDiscountPercentageProfit(100, 53), 88.68);
+
+  test.is(calculateDiscountPercentageDiscount(100, 80, 1), 20);
+  test.is(calculateDiscountPercentageDiscount(100, 53), 47);
 });
