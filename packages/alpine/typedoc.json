@@ -3,4 +3,5 @@
   "plugin": [
     "typedoc-plugin-markdown"
   ],
+  "readme": "./README.md",
 }
