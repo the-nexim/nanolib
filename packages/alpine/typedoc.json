@@ -1,0 +1,6 @@
+{
+  "entryPoints": ["src/main.ts"],
+  "plugin": [
+    "typedoc-plugin-markdown"
+  ],
+}
