@@ -20,3 +20,7 @@ npm install @nexim/alpine
 # Or using yarn
 yarn add @nexim/alpine
 ```
+
+## Documentation
+
+Read full documentation [here](./docs/README.md).

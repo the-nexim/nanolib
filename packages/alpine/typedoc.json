@@ -1,5 +1,25 @@
 {
   "entryPoints": ["src/main.ts"],
-  "readme": "./README.md",
-  "flattenOutputFiles": false
+  "out": "./docs",
+  "readme": "none",
+  "mergeReadme": false,
+  "markdownItOptions": {
+    "singlePage": true,
+    "indexName": "API Documentation",
+    "namedAnchors": true
+  },
+  "flattenOutputFiles": false,
+  "plugin": ["typedoc-plugin-markdown"],
+  "cleanOutputDir": true,
+  "hidePageHeader": true,
+  "expandParameters": true,
+  "indexFormat": "table",
+  "parametersFormat": "table",
+  "interfacePropertiesFormat": "table",
+  "classPropertiesFormat": "table",
+  "enumMembersFormat": "table",
+  "propertyMembersFormat": "table",
+  "typeDeclarationFormat": "table",
+  "formatWithPrettier": true,
+  "sanitizeComments": true
 }
