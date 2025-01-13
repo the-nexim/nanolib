@@ -1,7 +1,5 @@
 {
   "entryPoints": ["src/main.ts"],
-  "plugin": [
-    "typedoc-plugin-markdown"
-  ],
   "readme": "./README.md",
+  "flattenOutputFiles": false
 }

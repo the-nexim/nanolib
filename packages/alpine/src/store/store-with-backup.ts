@@ -53,7 +53,7 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    * @param config__ - Configuration object.
    *
    * @example
-   * ```
+   * ```ts
    * import {AlpineStoreWithBackup} from '@nexim/alpine';
    *
    * const storeWithBackup = new AlpineStoreWithBackup({

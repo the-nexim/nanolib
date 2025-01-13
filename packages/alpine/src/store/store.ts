@@ -31,7 +31,7 @@ export class AlpineStore<T extends DictionaryReq> {
    * @param config - Configuration object.
    *
    * @example
-   * ```
+   * ```ts
    * import {AlpineStore} from '@nexim/alpine';
    *
    * const {store} = new AlpineStore({

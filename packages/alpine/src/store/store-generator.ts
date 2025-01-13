@@ -38,7 +38,7 @@ export type AlpineStoreGeneratorOptions<T extends DictionaryReq> = {
  * @see {@link https://alpinejs.dev/globals/alpine-store}
  *
  * @example
- * ```
+ * ```ts
  * const store = alpineStoreGenerator({
  *   name: 'user',
  *   defaultValue: {type: 'root'},
