@@ -9,7 +9,7 @@
     "namedAnchors": true
   },
   "flattenOutputFiles": false,
-  "plugin": ["typedoc-plugin-markdown"],
+  "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-no-inherit"],
   "cleanOutputDir": true,
   "hidePageHeader": true,
   "expandParameters": true,
