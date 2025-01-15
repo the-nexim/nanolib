@@ -6,11 +6,16 @@ import {alpineStoreGenerator} from './store-generator.js';
  * AlpineStore Options.
  *
  * @typeParam T - The type of the store value.
- * @param name - The name of the store.
- * @param defaultValue - The default value of the store.
  */
 export type AlpineStoreOptions<T extends DictionaryReq> = {
+  /**
+   * The name of the store.
+   */
   name: string;
+
+  /**
+   * The default value of the store.
+   */
   defaultValue: T;
 };
 

@@ -15,16 +15,26 @@ export type AlpineStoreWithBackupType = {
  * AlpineStoreWithBackup Options.
  *
  * @typeParam T - The type of the store value.
- *
- * @param name - The name of the store.
- * @param version - The version of the store.
- * @param defaultValue - The default value of the store.
- * @param expireDuration - Optional. The duration after which the store expires.
  */
 export type AlpineStoreWithBackupOptions<T extends AlpineStoreWithBackupType> = {
+  /**
+   * The name of the store.
+   */
   name: string;
+
+  /**
+   * The version of the store.
+   */
   version: number;
+
+  /**
+   * The default value of the store.
+   */
   defaultValue: T;
+
+  /**
+   * Optional. The duration after which the store expires.
+   */
   expireDuration?: Duration;
 };
 
