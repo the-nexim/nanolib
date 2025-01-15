@@ -8,6 +8,9 @@ import type {LitElement, PropertyValues} from 'lit';
  */
 let elementIndex = /* @__PURE__ */ 0;
 
+/**
+ * Interface for elements that have a logger instance.
+ */
 export interface LoggerMixinInterface extends LitElement {
   logger_: AlwatrLogger;
 }
@@ -16,12 +19,12 @@ export interface LoggerMixinInterface extends LitElement {
  * Create a mixin class that extends the provided superclass and logs the lifecycle methods of the element.
  *
  * Hint: function super() must be called in the methods to logger work.
+ * @typeParam T - The base class to extend.
  *
- * @param superClass - The base class to extend.
  * @returns A mixin class that extends the superclass and logs the lifecycle methods of the element.
  *
  * @example
- * ```
+ * ```ts
  * import {LitElement, html} from 'lit';
  * import {LoggerMixin} from '@nexim/element';
  *
@@ -35,6 +38,9 @@ export interface LoggerMixinInterface extends LitElement {
  * ```
  */
 export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(superClass: T): Class<LoggerMixinInterface> & T {
+  /**
+   * The base class to extend.
+   */
   return class MixinClass extends superClass {
     /**
      * Unique index for each element instance.
