@@ -44,13 +44,16 @@
   "scripts": {
     "build": "wireit",
     "test": "wireit",
+    "doc": "wireit",
     "watch": "wireit"
   },
   "dependencies": {
     "@alwatr/logger": "^5.0.0",
     "@alwatr/package-tracer": "^5.0.0",
     "@alwatr/type-helper": "^5.0.0",
-    "lit": "^3.2.1"
+    "lit": "^3.2.1",
+    "typedoc": "^0.27.6",
+    "typedoc-plugin-markdown": "^4.4.1"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
@@ -103,6 +106,9 @@
     "watch:es": {
       "command": "nano-build --preset=module --watch",
       "service": true
+    },
+    "doc": {
+      "command": "typedoc"
     }
   }
 }
