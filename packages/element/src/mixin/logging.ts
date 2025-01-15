@@ -10,6 +10,7 @@ let elementIndex = /* @__PURE__ */ 0;
 
 /**
  * Interface for elements that have a logger instance.
+ * @noInheritDoc
  */
 export interface LoggerMixinInterface extends LitElement {
   logger_: AlwatrLogger;
