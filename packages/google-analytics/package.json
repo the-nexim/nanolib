@@ -40,6 +40,7 @@
   "scripts": {
     "build": "wireit",
     "test": "wireit",
+    "doc": "wireit",
     "watch": "wireit"
   },
   "dependencies": {
@@ -51,6 +52,8 @@
     "@alwatr/type-helper": "^5.0.0",
     "@nexim/typescript-config": "workspace:^",
     "ava": "^6.2.0",
+    "typedoc": "^0.27.6",
+    "typedoc-plugin-markdown": "^4.4.1",
     "typescript": "^5.7.2",
     "wireit": "^0.14.9"
   },
@@ -98,6 +101,9 @@
     "watch:es": {
       "command": "nano-build --preset=module --watch",
       "service": true
+    },
+    "doc": {
+      "command": "typedoc"
     }
   }
 }
