@@ -4,8 +4,6 @@
 
 > **alpineStoreGenerator**\<`T`\>(`config`: [`AlpineStoreGeneratorOptions`](../type-aliases/AlpineStoreGeneratorOptions.md)\<`T`\>): `T`
 
-Defined in: [store-generator.ts:50](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-generator.ts#L50)
-
 Generates an Alpine.js store with default value.
 
 ## Type Parameters

@@ -2,8 +2,6 @@
 
 # Class: AlpineStore\<T\>
 
-Defined in: [store.ts:25](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L25)
-
 Provides a Alpine.js pure store implementation with logger.
 
 ## Extended by
@@ -21,8 +19,6 @@ Provides a Alpine.js pure store implementation with logger.
 ### new AlpineStore()
 
 > **new AlpineStore**\<`T`\>(`config`: [`AlpineStoreOptions`](../type-aliases/AlpineStoreOptions.md)\<`T`\>): [`AlpineStore`](AlpineStore.md)\<`T`\>
-
-Defined in: [store.ts:52](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L52)
 
 Provides a Alpine.js pure store implementation with logger.
 
@@ -53,7 +49,7 @@ console.log(store.data); // Output: { data: 'user' }
 
 ## Properties
 
-| Property                       | Modifier    | Type           | Description       | Defined in                                                                                                                               |
-| ------------------------------ | ----------- | -------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="logger_"></a> `logger_` | `protected` | `AlwatrLogger` | -                 | [store.ts:31](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L31) |
-| <a id="store"></a> `store`     | `public`    | `T`            | The store's data. | [store.ts:29](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L29) |
+| Property                       | Modifier    | Type           | Description       |
+| ------------------------------ | ----------- | -------------- | ----------------- |
+| <a id="logger_"></a> `logger_` | `protected` | `AlwatrLogger` | -                 |
+| <a id="store"></a> `store`     | `public`    | `T`            | The store's data. |
