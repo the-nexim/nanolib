@@ -21,7 +21,7 @@ const logger = /* @__PURE__ */ createLogger(__package_name__);
  * Signal for service worker events.
  *
  * @example
- * ```
+ * ```ts
  * import {serviceWorkerSignal} from '@nexim/service-worker';
  *
  * serviceWorkerSignal.subscribe(({event}) => {
@@ -39,7 +39,7 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
  * @param serviceWorkerPath - The path to the service worker.
  *
  * @example
- * ```
+ * ```ts
  * import {registerServiceWorker} from '@nexim/service-worker';
  *
  * const serviceWorkerPath = '/service-worker.js';

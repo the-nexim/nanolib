@@ -59,6 +59,7 @@
     "@alwatr/nano-build": "^5.0.0",
     "@nexim/typescript-config": "workspace:^",
     "ava": "^6.2.0",
+    "typedoc-plugin-no-inherit": "^1.5.0",
     "typescript": "^5.7.2",
     "wireit": "^0.14.9"
   },

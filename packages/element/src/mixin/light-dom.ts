@@ -3,12 +3,12 @@ import type {LitElement, CSSResultGroup, ReactiveElement} from 'lit';
 
 /**
  * A mixin to enable light DOM rendering and style encapsulation for LitElement components.
+ * @typeParam T - The base class to extend.
  *
- * @param superClass - The base class to extend.
  * @returns A class that extends the base class with light DOM functionality.
  *
  * @example
- * ```
+ * ```ts
  * import {LitElement, html, css} from 'lit';
  * import {LightDomMixin} from '@nexim/element';
  *
@@ -26,6 +26,9 @@ import type {LitElement, CSSResultGroup, ReactiveElement} from 'lit';
  * ```
  */
 export function LightDomMixin<T extends Class<LitElement> = Class<LitElement>>(superClass: T): T {
+  /**
+   * The base class to extend.
+   */
   class MixinClass extends superClass {
     /**
      * Flattens the CSSResultGroup into a single string of CSS text.

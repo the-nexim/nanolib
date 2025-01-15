@@ -19,42 +19,6 @@ npm install @nexim/element
 yarn add @nexim/element
 ```
 
-## API
+## Documentation
 
-### LoggerMixin
-
-The LoggerMixin adds logging capabilities to your LitElement components. It logs lifecycle methods and measures update times.
-
-```ts
-import {LitElement, html} from 'lit';
-import {LoggerMixin} from '@nexim/element';
-
-class MyElement extends LoggerMixin(LitElement) {
-  protected override render() {
-    super.render(); // must call super method to logger work
-
-    return html`<p>Hello, world!</p>`;
-  }
-}
-```
-
-### LightDomMixin
-
-The LightDomMixin enables light DOM rendering and style encapsulation for LitElement components.
-
-```ts
-import {LitElement, html, css} from 'lit';
-import {LightDomMixin} from '@nexim/element';
-
-class MyLightDomElement extends LightDomMixin(LitElement) {
-  static styles = css`
-    p {
-      color: blue;
-    }
-  `;
-
-  protected override render() {
-    return html`<p>Hello, light DOM!</p>`;
-  }
-}
-```
+Read full documentation [here](./docs/README.md).

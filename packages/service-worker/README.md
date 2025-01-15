@@ -20,31 +20,6 @@ npm install @nexim/service-worker
 yarn add @nexim/service-worker
 ```
 
-## Api
+## Documentation
 
-### registerServiceWorker
-
-Register the service worker and handle updates.
-
-```ts
-import {registerServiceWorker} from '@nexim/service-worker';
-
-const serviceWorkerPath = '/service-worker.js';
-registerServiceWorker(serviceWorkerPath);
-```
-
-### serviceWorkerSignal
-
-Signal for service worker events.
-
-```ts
-import {serviceWorkerSignal} from '@nexim/service-worker';
-
-serviceWorkerSignal.subscribe(({event}) => {
-  console.log('Service worker event:', event);
-});
-```
-
-### Type ServiceWorkerEvent
-
-The events that can be emitted by the service worker.
+Read full documentation [here](./docs/README.md).

@@ -13,7 +13,7 @@ const logger = createLogger(__package_name__);
  * @param decimal - The number of decimal places to round to (default is 2).
  *
  * @example
- * ```
+ * ```ts
  * calculateDiscountedPrice(100, 10, 1); // returns 90.0
  * ```
  */
@@ -32,7 +32,7 @@ export function calculateDiscountedPrice(price: number, discount: number, decima
  * @param decimal - The number of decimal places to round to (default is 2).
  *
  * @example
- * ```
+ * ```ts
  * calculateDiscountAmount(100, 10, 1); // returns 10.0
  * ```
  */
@@ -49,12 +49,11 @@ export function calculateDiscountAmount(price: number, discount: number, decimal
  * @param marketPrice - The original market price of the item.
  * @param salePrice - The sale price of the item.
  * @param decimal - The number of decimal places to round the result to(optional with default value = 2).
- * @param upSide - Determines the denominator for the percentage calculation (optional with default value = true).
  *
  * @example
- * ```
- * calculateDiscountPercentage(100, 80); // Returns 20.00
- * calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
+ * ```ts
+ * calculatePercentageProfit(100, 80); // Returns 20.00
+ * calculatePercentageProfit(100, 80, 1, false); // Returns 25.0
  * ```
  */
 export function calculatePercentageProfit(marketPrice: number, salePrice: number, decimal = 2): number {
@@ -70,12 +69,11 @@ export function calculatePercentageProfit(marketPrice: number, salePrice: number
  * @param marketPrice - The original market price of the item.
  * @param salePrice - The sale price of the item.
  * @param decimal - The number of decimal places to round the result to(optional with default value = 2).
- * @param upSide - Determines the denominator for the percentage calculation (optional with default value = true).
  *
  * @example
- * ```
- * calculateDiscountPercentage(100, 80); // Returns 20.00
- * calculateDiscountPercentage(100, 80, 1, false); // Returns 25.0
+ * ```ts
+ * calculatePercentageDiscount(100, 80); // Returns 20.00
+ * calculatePercentageDiscount(100, 80, 1, false); // Returns 25.0
  * ```
  */
 export function calculatePercentageDiscount(marketPrice: number, salePrice: number, decimal = 2): number {
