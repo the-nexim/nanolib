@@ -24,3 +24,7 @@ yarn add @nexim/alpine
 ## Documentation
 
 Read full documentation [here](./docs/README.md).
+
+## TODO
+
+- [ ] Analyze [@alwatr/context](https://github.com/Alwatr/flux/tree/next/packages/context) for use here.

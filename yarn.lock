@@ -1040,7 +1040,7 @@ __metadata:
     "@alwatr/package-tracer": "npm:^5.0.0"
     "@alwatr/parse-duration": "npm:^5.0.0"
     "@alwatr/type-helper": "npm:^5.0.0"
-    "@nexim/typescript-config": "npm:^2.0.0"
+    "@nexim/typescript-config": "workspace:^"
     "@types/alpinejs": "npm:^3.13.11"
     alpinejs: "npm:^3.14.8"
     ava: "npm:^6.2.0"
@@ -1144,7 +1144,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@nexim/typescript-config@npm:^2.0.0, @nexim/typescript-config@workspace:^, @nexim/typescript-config@workspace:packages/typescript-config":
+"@nexim/typescript-config@workspace:^, @nexim/typescript-config@workspace:packages/typescript-config":
   version: 0.0.0-use.local
   resolution: "@nexim/typescript-config@workspace:packages/typescript-config"
   peerDependencies:
