@@ -17,7 +17,7 @@ declare global {
  * @param trackingId - The Google Analytics tracking ID.
  *
  * @example
- * ```
+ * ```ts
  * import {initializeGoogleAnalytics} from '@nexim/analytic';
  *
  * initializeGoogleAnalytics('your-google-analytics-tracking-id');
