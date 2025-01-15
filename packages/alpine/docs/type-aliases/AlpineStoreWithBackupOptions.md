@@ -4,7 +4,7 @@
 
 > **AlpineStoreWithBackupOptions**\<`T`\>: `object`
 
-Defined in: [store-with-backup.ts:24](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L24)
+Defined in: [store-with-backup.ts:19](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L19)
 
 AlpineStoreWithBackup Options.
 
@@ -16,25 +16,9 @@ AlpineStoreWithBackup Options.
 
 ## Type declaration
 
-| Name                                          | Type       | Defined in                                                                                                                                                       |
-| --------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="defaultvalue"></a> `defaultValue`      | `T`        | [store-with-backup.ts:27](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L27) |
-| <a id="expireduration"></a> `expireDuration`? | `Duration` | [store-with-backup.ts:28](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L28) |
-| <a id="name"></a> `name`                      | `string`   | [store-with-backup.ts:25](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L25) |
-| <a id="version"></a> `version`                | `number`   | [store-with-backup.ts:26](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L26) |
-
-## Param
-
-The name of the store.
-
-## Param
-
-The version of the store.
-
-## Param
-
-The default value of the store.
-
-## Param
-
-Optional. The duration after which the store expires.
+| Name                                          | Type       | Description                                           | Defined in                                                                                                                                                       |
+| --------------------------------------------- | ---------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="defaultvalue"></a> `defaultValue`      | `T`        | The default value of the store.                       | [store-with-backup.ts:33](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L33) |
+| <a id="expireduration"></a> `expireDuration`? | `Duration` | Optional. The duration after which the store expires. | [store-with-backup.ts:38](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L38) |
+| <a id="name"></a> `name`                      | `string`   | The name of the store.                                | [store-with-backup.ts:23](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L23) |
+| <a id="version"></a> `version`                | `number`   | The version of the store.                             | [store-with-backup.ts:28](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L28) |

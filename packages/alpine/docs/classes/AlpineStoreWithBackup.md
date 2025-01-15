@@ -2,7 +2,7 @@
 
 # Class: AlpineStoreWithBackup\<T\>
 
-Defined in: [store-with-backup.ts:41](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L41)
+Defined in: [store-with-backup.ts:51](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L51)
 
 Provides a Alpine.js store implementation with backup and expiration.
 
@@ -22,7 +22,7 @@ Provides a Alpine.js store implementation with backup and expiration.
 
 > **new AlpineStoreWithBackup**\<`T`\>(`config__`: [`AlpineStoreWithBackupOptions`](../type-aliases/AlpineStoreWithBackupOptions.md)\<`T`\>): [`AlpineStoreWithBackup`](AlpineStoreWithBackup.md)\<`T`\>
 
-Defined in: [store-with-backup.ts:75](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L75)
+Defined in: [store-with-backup.ts:85](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L85)
 
 Provides a Alpine.js store implementation with backup and expiration.
 
@@ -65,8 +65,8 @@ console.log(storeWithBackup.store.data); // Output: { data: 'root' }
 
 | Property                       | Modifier    | Type           | Description       | Inherited from                                                      | Defined in                                                                                                                               |
 | ------------------------------ | ----------- | -------------- | ----------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="logger_"></a> `logger_` | `protected` | `AlwatrLogger` | -                 | [`AlpineStore`](AlpineStore.md).[`logger_`](AlpineStore.md#logger_) | [store.ts:26](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store.ts#L26) |
-| <a id="store"></a> `store`     | `public`    | `T`            | The store's data. | [`AlpineStore`](AlpineStore.md).[`store`](AlpineStore.md#store)     | [store.ts:24](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store.ts#L24) |
+| <a id="logger_"></a> `logger_` | `protected` | `AlwatrLogger` | -                 | [`AlpineStore`](AlpineStore.md).[`logger_`](AlpineStore.md#logger_) | [store.ts:31](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L31) |
+| <a id="store"></a> `store`     | `public`    | `T`            | The store's data. | [`AlpineStore`](AlpineStore.md).[`store`](AlpineStore.md#store)     | [store.ts:29](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L29) |
 
 ## Methods
 
@@ -74,7 +74,7 @@ console.log(storeWithBackup.store.data); // Output: { data: 'root' }
 
 > **clear**(): `void`
 
-Defined in: [store-with-backup.ts:105](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L105)
+Defined in: [store-with-backup.ts:115](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L115)
 
 Clears the stored data.
 
@@ -88,7 +88,7 @@ Clears the stored data.
 
 > **save**(): `void`
 
-Defined in: [store-with-backup.ts:90](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L90)
+Defined in: [store-with-backup.ts:100](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L100)
 
 Saves the current data to local storage. If the data is null, it clears the stored data.
 

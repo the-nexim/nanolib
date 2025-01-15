@@ -4,7 +4,7 @@
 
 > **AlpineStoreOptions**\<`T`\>: `object`
 
-Defined in: [store.ts:12](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store.ts#L12)
+Defined in: [store.ts:10](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L10)
 
 AlpineStore Options.
 
@@ -16,15 +16,7 @@ AlpineStore Options.
 
 ## Type declaration
 
-| Name                                     | Type     | Defined in                                                                                                                               |
-| ---------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="defaultvalue"></a> `defaultValue` | `T`      | [store.ts:14](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store.ts#L14) |
-| <a id="name"></a> `name`                 | `string` | [store.ts:13](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store.ts#L13) |
-
-## Param
-
-The name of the store.
-
-## Param
-
-The default value of the store.
+| Name                                     | Type     | Description                     | Defined in                                                                                                                               |
+| ---------------------------------------- | -------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| <a id="defaultvalue"></a> `defaultValue` | `T`      | The default value of the store. | [store.ts:19](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L19) |
+| <a id="name"></a> `name`                 | `string` | The name of the store.          | [store.ts:14](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store.ts#L14) |

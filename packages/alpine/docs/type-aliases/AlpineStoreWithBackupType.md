@@ -4,7 +4,7 @@
 
 > **AlpineStoreWithBackupType**: `object`
 
-Defined in: [store-with-backup.ts:9](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L9)
+Defined in: [store-with-backup.ts:9](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L9)
 
 Type for the store's data to extends from them.
 
@@ -12,4 +12,4 @@ Type for the store's data to extends from them.
 
 | Name                     | Type                               | Defined in                                                                                                                                                       |
 | ------------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <a id="data"></a> `data` | `DictionaryReq`\<`any`\> \| `null` | [store-with-backup.ts:11](https://github.com/the-nexim/nanolib/blob/315d91a362c34ccd2cf8cc495cfd7f00cd8946a3/packages/alpine/src/store/store-with-backup.ts#L11) |
+| <a id="data"></a> `data` | `DictionaryReq`\<`any`\> \| `null` | [store-with-backup.ts:11](https://github.com/the-nexim/nanolib/blob/8cd0e8c8dba849aba4b329ce483b771961c07a60/packages/alpine/src/store/store-with-backup.ts#L11) |
