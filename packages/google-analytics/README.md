@@ -21,14 +21,6 @@ npm install @nexim/google-analytics
 yarn add @nexim/google-analytics
 ```
 
-## API
+## Documentation
 
-### initializeGoogleAnalytics
-
-Initialize google analytics with tracking id.
-
-```ts
-import {initializeGoogleAnalytics} from '@nexim/analytic';
-
-initializeGoogleAnalytics('your-google-analytics-tracking-id');
-```
+Read full documentation [here](./docs/README.md).
