@@ -1133,8 +1133,8 @@ __metadata:
   resolution: "@nexim/prettier-config@workspace:packages/prettier-config"
   dependencies:
     prettier: "npm:^3.4.2"
-    prettier-plugin-packagejson: "npm:^2.5.6"
-    prettier-plugin-tailwindcss: "npm:^0.6.9"
+    prettier-plugin-packagejson: "npm:^2.5.7"
+    prettier-plugin-tailwindcss: "npm:^0.6.10"
   languageName: unknown
   linkType: soft
 
@@ -5683,8 +5683,8 @@ __metadata:
     eslint-plugin-require-extensions: "npm:^0.1.3"
     eslint-plugin-tsdoc: "npm:^0.4.0"
     prettier: "npm:^3.4.2"
-    prettier-plugin-packagejson: "npm:^2.5.6"
-    prettier-plugin-tailwindcss: "npm:^0.6.9"
+    prettier-plugin-packagejson: "npm:^2.5.7"
+    prettier-plugin-tailwindcss: "npm:^0.6.10"
     typescript: "npm:^5.7.3"
     wireit: "npm:^0.14.9"
   dependenciesMeta:
@@ -6458,30 +6458,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-packagejson@npm:^2.5.6":
-  version: 2.5.6
-  resolution: "prettier-plugin-packagejson@npm:2.5.6"
+"prettier-plugin-packagejson@npm:^2.5.7":
+  version: 2.5.7
+  resolution: "prettier-plugin-packagejson@npm:2.5.7"
   dependencies:
-    sort-package-json: "npm:2.12.0"
+    sort-package-json: "npm:2.13.0"
     synckit: "npm:0.9.2"
   peerDependencies:
     prettier: ">= 1.16.0"
   peerDependenciesMeta:
     prettier:
       optional: true
-  checksum: 10c0/2606f33a5745c7a66795191bf70ef106df2a6f0aa05e86a5f65899e816818762d78b9f6679bd6473beb64984eaac879f31282d7102a6d3a937799f7f36fb7327
+  checksum: 10c0/cbaa2468e3e4b4beb9f35e8f8e47e96e792520c08e057db5a31f318a6e495c846085ae6f65c9305b3584c111bc4505abae031e90a2535c9d9b893dbaf39bc5eb
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.6.9":
-  version: 0.6.9
-  resolution: "prettier-plugin-tailwindcss@npm:0.6.9"
+"prettier-plugin-tailwindcss@npm:^0.6.10":
+  version: 0.6.10
+  resolution: "prettier-plugin-tailwindcss@npm:0.6.10"
   peerDependencies:
     "@ianvs/prettier-plugin-sort-imports": "*"
     "@prettier/plugin-pug": "*"
     "@shopify/prettier-plugin-liquid": "*"
     "@trivago/prettier-plugin-sort-imports": "*"
-    "@zackad/prettier-plugin-twig-melody": "*"
+    "@zackad/prettier-plugin-twig": "*"
     prettier: ^3.0
     prettier-plugin-astro: "*"
     prettier-plugin-css-order: "*"
@@ -6503,7 +6503,7 @@ __metadata:
       optional: true
     "@trivago/prettier-plugin-sort-imports":
       optional: true
-    "@zackad/prettier-plugin-twig-melody":
+    "@zackad/prettier-plugin-twig":
       optional: true
     prettier-plugin-astro:
       optional: true
@@ -6527,7 +6527,7 @@ __metadata:
       optional: true
     prettier-plugin-svelte:
       optional: true
-  checksum: 10c0/370b1d67063a6ff15b0b7fd5d6687bef587aa4be0c856e7f743d5016037ff25d0d69c6aa8c6cecf1355676962aeca52089dc28d063540fb030bcd326a07f47f8
+  checksum: 10c0/9e1e8d59285acb915c647235867e0c6da4f66e60a05984375036998c207662988cb59a362390f86050c09863e4ee982102dfcffb0131cc1413aec1b7d1d8fb08
   languageName: node
   linkType: hard
 
@@ -7151,9 +7151,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sort-package-json@npm:2.12.0":
-  version: 2.12.0
-  resolution: "sort-package-json@npm:2.12.0"
+"sort-package-json@npm:2.13.0":
+  version: 2.13.0
+  resolution: "sort-package-json@npm:2.13.0"
   dependencies:
     detect-indent: "npm:^7.0.1"
     detect-newline: "npm:^4.0.0"
@@ -7165,7 +7165,7 @@ __metadata:
     tinyglobby: "npm:^0.2.9"
   bin:
     sort-package-json: cli.js
-  checksum: 10c0/3c6b31068cfdd06a09993fa149e23d52ba33fe4cb54868aef06c4e589a1ad701b2cd74ff552749d06fbc2c64183fe0a0aee82fbef312f7f3cc14dd043430dc8f
+  checksum: 10c0/16765fead87546d7c51ee0863e43d69a9bc0447dd0ede6551c693a74e8a75fdf4a1a78643424ae5f7a702643901dc1813a277f155554fd3c3f727fa8768f1d76
   languageName: node
   linkType: hard
 
