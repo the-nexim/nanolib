@@ -38,13 +38,19 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
  * Register the service worker and handle updates.
  *
  * @param serviceWorkerPath - The path to the service worker.
+ * @param timeForAutoUpdate - For updating automatically service worker.
  *
  * @example
  * ```ts
  * import {registerServiceWorker} from '@nexim/service-worker';
  *
  * const serviceWorkerPath = '/service-worker.js';
+ *
+ * // without auto update
  * registerServiceWorker(serviceWorkerPath);
+ *
+ * // with auto update
+ * registerServiceWorker(serviceWorkerPath, '10m');
  * ```
  */
 export async function registerServiceWorker(serviceWorkerPath: string, timeForAutoUpdate?: Duration): Promise<void> {
