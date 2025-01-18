@@ -59,6 +59,9 @@ export async function registerServiceWorker(serviceWorkerPath: string): Promise<
     serviceWorkerSignal.notify({event: 'service_worker_registered'});
     swRegistration.addEventListener('updatefound', () => serviceWorkerUpdateFoundHandler(swRegistration.installing));
     logger.logOther?.('Service worker registered.');
+
+    // Start periodic update checks
+    startPeriodicUpdateChecks(swRegistration);
   }
   catch (error) {
     logger.error('registerServiceWorker', 'registration_failed ', {error});
@@ -110,6 +113,25 @@ function serviceWorkerStateChangeHandler(serviceWorker: ServiceWorker): void {
   }
   else if (serviceWorker.state === 'redundant') {
     logger.accident('serviceWorkerStateChangeHandler', 'sw_redundant', 'Service worker redundant');
-    serviceWorkerSignal.notify({event: 'service_worker_installed'});
+    serviceWorkerSignal.notify({event: 'service_worker_update_found'});
   }
+}
+
+/**
+ * Start periodic update checks for the service worker
+ *
+ * @param swRegistration - The service worker registration
+ */
+function startPeriodicUpdateChecks(swRegistration: ServiceWorkerRegistration): void {
+  setInterval(async () => {
+    logger.logMethod?.('startPeriodicUpdateChecks');
+
+    try {
+      await swRegistration.update();
+      logger.logOther?.('Checked for service worker update.');
+    }
+    catch (error) {
+      logger.error('startPeriodicUpdateChecks', 'update_check_failed', {message: (error as Error).message});
+    }
+  }, 10 * 60 * 1000); // 10 minutes
 }
