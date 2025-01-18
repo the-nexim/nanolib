@@ -1,6 +1,7 @@
 import {AlwatrSignal} from '@alwatr/flux';
 import {createLogger} from '@alwatr/logger';
 import {packageTracer} from '@alwatr/package-tracer';
+import { parseDuration, type Duration } from '@alwatr/parse-duration';
 
 /**
  * The events that can be emitted by the service worker.
@@ -46,7 +47,7 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
  * registerServiceWorker(serviceWorkerPath);
  * ```
  */
-export async function registerServiceWorker(serviceWorkerPath: string): Promise<void> {
+export async function registerServiceWorker(serviceWorkerPath: string, timeForAutoUpdate?: Duration): Promise<void> {
   logger.logMethodArgs?.('registerServiceWorker', {serviceWorkerPath});
 
   if ('serviceWorker' in navigator === false) {
@@ -60,8 +61,16 @@ export async function registerServiceWorker(serviceWorkerPath: string): Promise<
     swRegistration.addEventListener('updatefound', () => serviceWorkerUpdateFoundHandler(swRegistration.installing));
     logger.logOther?.('Service worker registered.');
 
-    // Start periodic update checks
-    startPeriodicUpdateChecks(swRegistration);
+    if (timeForAutoUpdate != null) {
+      setInterval(async () => {
+        logger.logMethod?.('startPeriodicUpdateChecks');
+
+        await swRegistration.update();
+
+        logger.logOther?.('Checked for service worker update.');
+
+      }, parseDuration(timeForAutoUpdate)); // 10 minutes
+    }
   }
   catch (error) {
     logger.error('registerServiceWorker', 'registration_failed ', {error});
@@ -115,23 +124,4 @@ function serviceWorkerStateChangeHandler(serviceWorker: ServiceWorker): void {
     logger.accident('serviceWorkerStateChangeHandler', 'sw_redundant', 'Service worker redundant');
     serviceWorkerSignal.notify({event: 'service_worker_update_found'});
   }
-}
-
-/**
- * Start periodic update checks for the service worker
- *
- * @param swRegistration - The service worker registration
- */
-function startPeriodicUpdateChecks(swRegistration: ServiceWorkerRegistration): void {
-  setInterval(async () => {
-    logger.logMethod?.('startPeriodicUpdateChecks');
-
-    try {
-      await swRegistration.update();
-      logger.logOther?.('Checked for service worker update.');
-    }
-    catch (error) {
-      logger.error('startPeriodicUpdateChecks', 'update_check_failed', {message: (error as Error).message});
-    }
-  }, 10 * 60 * 1000); // 10 minutes
 }

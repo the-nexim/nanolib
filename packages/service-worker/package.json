@@ -47,7 +47,8 @@
   "dependencies": {
     "@alwatr/flux": "^4.0.2",
     "@alwatr/logger": "^5.0.0",
-    "@alwatr/package-tracer": "^5.0.0"
+    "@alwatr/package-tracer": "^5.0.0",
+    "@alwatr/parse-duration": "^5.0.0"
   },
   "devDependencies": {
     "@alwatr/nano-build": "^5.0.0",
