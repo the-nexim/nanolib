@@ -11,8 +11,8 @@ Register the service worker and handle updates.
 | Parameter                    | Type                                                                  | Description                                                                 |
 | ---------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | `options`                    | \{ `serviceWorkerPath`: `string`; `timeForAutoUpdate`: `Duration`; \} | An object containing the service worker path and optional auto-update time. |
-| `options.serviceWorkerPath`  | `string`                                                              | The path to the service worker.                                             |
-| `options.timeForAutoUpdate`? | `Duration`                                                            | Optional duration for automatically updating the service worker.            |
+| `options.serviceWorkerPath`  | `string`                                                              | -                                                                           |
+| `options.timeForAutoUpdate`? | `Duration`                                                            | -                                                                           |
 
 ## Returns
 

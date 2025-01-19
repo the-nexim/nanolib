@@ -39,8 +39,8 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
  * Register the service worker and handle updates.
  *
  * @param options - An object containing the service worker path and optional auto-update time.
- * @param options.serviceWorkerPath - The path to the service worker.
- * @param options.timeForAutoUpdate - Optional duration for automatically updating the service worker.
+ * @param serviceWorkerPath - [Options] The path to the service worker.
+ * @param timeForAutoUpdate - [Options] Optional duration for automatically updating the service worker.
  *
  * @example
  * ```ts
