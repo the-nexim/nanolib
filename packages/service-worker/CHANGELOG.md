@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0-alpha.0](https://github.com/the-nexim/nanolib/compare/@nexim/service-worker@1.0.4...@nexim/service-worker@2.0.0-alpha.0) (2025-01-19)
+
+### Features
+
+* **service-worker:** add periodic update checks for service worker ([c2b5dd9](https://github.com/the-nexim/nanolib/commit/c2b5dd971d39e484db4f2ca5e6fe9be6b5b4bd67)) by @arashagp
+* **service-worker:** add support for configurable periodic update checks ([68ecd16](https://github.com/the-nexim/nanolib/commit/68ecd167b9c301570bc5daf18b1e2a2d62849003)) by @arashagp
+
+### Bug Fixes
+
+* **service-worker:** correctly set redundant event ([6167dee](https://github.com/the-nexim/nanolib/commit/6167dee8d96f790d4a5dae9037feb7f55f7c2a71)) by @njfamirm
+
+### Code Refactoring
+
+* **service-worker:** resolve comment ([f7bfb36](https://github.com/the-nexim/nanolib/commit/f7bfb360e3b76ee877634659a88c9beba2078766)) by @arashagp
+
 ## [1.0.4](https://github.com/the-nexim/nanolib/compare/@nexim/service-worker@1.0.3...@nexim/service-worker@1.0.4) (2025-01-11)
 
 **Note:** Version bump only for package @nexim/service-worker
