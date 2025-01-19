@@ -38,8 +38,9 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
 /**
  * Register the service worker and handle updates.
  *
- * @param serviceWorkerPath - The path to the service worker.
- * @param timeForAutoUpdate - For updating automatically service worker.
+ * @param options - An object containing the service worker path and optional auto-update time.
+ * @param options.serviceWorkerPath - The path to the service worker.
+ * @param options.timeForAutoUpdate - Optional duration for automatically updating the service worker.
  *
  * @example
  * ```ts
@@ -48,15 +49,14 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
  * const serviceWorkerPath = '/service-worker.js';
  *
  * // without auto update
- * registerServiceWorker(serviceWorkerPath);
+ * registerServiceWorker({ serviceWorkerPath });
  *
  * // with auto update
- * registerServiceWorker(serviceWorkerPath, '10m');
+ * registerServiceWorker({ serviceWorkerPath, timeForAutoUpdate: '10m' });
  * ```
  */
 export async function registerServiceWorker(options: {serviceWorkerPath: string, timeForAutoUpdate?: Duration}): Promise<void> {
   logger.logMethodArgs?.('registerServiceWorker', {options});
-
   if ('serviceWorker' in navigator === false) {
     logger.incident?.('registerServiceWorker', 'service_worker_not_supported');
     return;
