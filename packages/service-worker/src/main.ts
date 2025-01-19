@@ -1,6 +1,7 @@
 import {AlwatrSignal} from '@alwatr/flux';
 import {createLogger} from '@alwatr/logger';
 import {packageTracer} from '@alwatr/package-tracer';
+import {parseDuration, type Duration} from '@alwatr/parse-duration';
 
 /**
  * The events that can be emitted by the service worker.
@@ -11,7 +12,8 @@ export type ServiceWorkerEvent =
   | 'service_worker_first_install'
   | 'service_worker_updated'
   | 'service_worker_installed'
-  | 'service_worker_update_found';
+  | 'service_worker_update_found'
+  | 'service_worker_update_failed';
 
 __dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
@@ -36,32 +38,46 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
 /**
  * Register the service worker and handle updates.
  *
- * @param serviceWorkerPath - The path to the service worker.
+ * @param options - An object containing the service worker path and optional auto-update time.
+ * @param serviceWorkerPath - [Options] The path to the service worker.
+ * @param timeForAutoUpdate - [Options] Optional duration for automatically updating the service worker.
  *
  * @example
  * ```ts
  * import {registerServiceWorker} from '@nexim/service-worker';
  *
  * const serviceWorkerPath = '/service-worker.js';
- * registerServiceWorker(serviceWorkerPath);
+ *
+ * // without auto update
+ * registerServiceWorker({ serviceWorkerPath });
+ *
+ * // with auto update
+ * registerServiceWorker({ serviceWorkerPath, timeForAutoUpdate: '10m' });
  * ```
  */
-export async function registerServiceWorker(serviceWorkerPath: string): Promise<void> {
-  logger.logMethodArgs?.('registerServiceWorker', {serviceWorkerPath});
-
+export async function registerServiceWorker(options: {serviceWorkerPath: string, timeForAutoUpdate?: Duration}): Promise<void> {
+  logger.logMethodArgs?.('registerServiceWorker', {options});
   if ('serviceWorker' in navigator === false) {
     logger.incident?.('registerServiceWorker', 'service_worker_not_supported');
     return;
   }
 
   try {
-    const swRegistration = await navigator.serviceWorker.register(serviceWorkerPath);
+    const swRegistration = await navigator.serviceWorker.register(options.serviceWorkerPath);
     serviceWorkerSignal.notify({event: 'service_worker_registered'});
     swRegistration.addEventListener('updatefound', () => serviceWorkerUpdateFoundHandler(swRegistration.installing));
     logger.logOther?.('Service worker registered.');
+
+    if (options.timeForAutoUpdate != null) {
+      setInterval(async () => {
+        logger.logOther?.('startPeriodicUpdateChecks');
+
+        await swRegistration.update();
+      }, parseDuration(options.timeForAutoUpdate));
+    }
   }
   catch (error) {
-    logger.error('registerServiceWorker', 'registration_failed ', {error});
+    logger.error('registerServiceWorker', 'registration_failed', {error});
     serviceWorkerSignal.notify({event: 'service_worker_register_failed'});
   }
 }
@@ -110,6 +126,6 @@ function serviceWorkerStateChangeHandler(serviceWorker: ServiceWorker): void {
   }
   else if (serviceWorker.state === 'redundant') {
     logger.accident('serviceWorkerStateChangeHandler', 'sw_redundant', 'Service worker redundant');
-    serviceWorkerSignal.notify({event: 'service_worker_installed'});
+    serviceWorkerSignal.notify({event: 'service_worker_update_failed'});
   }
 }

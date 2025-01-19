@@ -2,15 +2,17 @@
 
 # Function: registerServiceWorker()
 
-> **registerServiceWorker**(`serviceWorkerPath`: `string`): `Promise`\<`void`\>
+> **registerServiceWorker**(`options`: `object`): `Promise`\<`void`\>
 
 Register the service worker and handle updates.
 
 ## Parameters
 
-| Parameter           | Type     | Description                     |
-| ------------------- | -------- | ------------------------------- |
-| `serviceWorkerPath` | `string` | The path to the service worker. |
+| Parameter                    | Type                                                                  | Description                                                                 |
+| ---------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `options`                    | \{ `serviceWorkerPath`: `string`; `timeForAutoUpdate`: `Duration`; \} | An object containing the service worker path and optional auto-update time. |
+| `options.serviceWorkerPath`  | `string`                                                              | -                                                                           |
+| `options.timeForAutoUpdate`? | `Duration`                                                            | -                                                                           |
 
 ## Returns
 
@@ -22,5 +24,10 @@ Register the service worker and handle updates.
 import {registerServiceWorker} from '@nexim/service-worker';
 
 const serviceWorkerPath = '/service-worker.js';
-registerServiceWorker(serviceWorkerPath);
+
+// without auto update
+registerServiceWorker({serviceWorkerPath});
+
+// with auto update
+registerServiceWorker({serviceWorkerPath, timeForAutoUpdate: '10m'});
 ```
