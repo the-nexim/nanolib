@@ -12,7 +12,8 @@ export type ServiceWorkerEvent =
   | 'service_worker_first_install'
   | 'service_worker_updated'
   | 'service_worker_installed'
-  | 'service_worker_update_found';
+  | 'service_worker_update_found'
+  | 'service_worker_update_failed';
 
 __dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
@@ -76,7 +77,7 @@ export async function registerServiceWorker(serviceWorkerPath: string, timeForAu
     }
   }
   catch (error) {
-    logger.error('registerServiceWorker', 'registration_failed ', {error});
+    logger.error('registerServiceWorker', 'registration_failed', {error});
     serviceWorkerSignal.notify({event: 'service_worker_register_failed'});
   }
 }
@@ -125,6 +126,6 @@ function serviceWorkerStateChangeHandler(serviceWorker: ServiceWorker): void {
   }
   else if (serviceWorker.state === 'redundant') {
     logger.accident('serviceWorkerStateChangeHandler', 'sw_redundant', 'Service worker redundant');
-    serviceWorkerSignal.notify({event: 'service_worker_installed'});
+    serviceWorkerSignal.notify({event: 'service_worker_update_failed'});
   }
 }
