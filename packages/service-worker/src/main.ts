@@ -1,7 +1,7 @@
 import {AlwatrSignal} from '@alwatr/flux';
 import {createLogger} from '@alwatr/logger';
 import {packageTracer} from '@alwatr/package-tracer';
-import { parseDuration, type Duration } from '@alwatr/parse-duration';
+import {parseDuration, type Duration} from '@alwatr/parse-duration';
 
 /**
  * The events that can be emitted by the service worker.
@@ -72,9 +72,6 @@ export async function registerServiceWorker(serviceWorkerPath: string, timeForAu
         logger.logMethod?.('startPeriodicUpdateChecks');
 
         await swRegistration.update();
-
-        logger.logOther?.('Checked for service worker update.');
-
       }, parseDuration(timeForAutoUpdate)); // 10 minutes
     }
   }
@@ -128,6 +125,6 @@ function serviceWorkerStateChangeHandler(serviceWorker: ServiceWorker): void {
   }
   else if (serviceWorker.state === 'redundant') {
     logger.accident('serviceWorkerStateChangeHandler', 'sw_redundant', 'Service worker redundant');
-    serviceWorkerSignal.notify({event: 'service_worker_update_found'});
+    serviceWorkerSignal.notify({event: 'service_worker_installed'});
   }
 }

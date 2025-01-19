@@ -15,12 +15,12 @@
   "scripts": {
     "build": "wireit",
     "clean": "wireit",
+    "doc": "wireit",
     "format": "wireit",
     "lint": "wireit",
     "publish": "wireit",
     "release": "wireit",
     "test": "wireit",
-    "doc": "wireit",
     "upd": "yarn set version latest && yarn up '*' && yarn up '*' -R && yarn dlx @yarnpkg/sdks vscode && yarn dedupe"
   },
   "devDependencies": {
