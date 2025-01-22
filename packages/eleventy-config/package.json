@@ -32,7 +32,7 @@
       "require": "./dist/main.cjs"
     }
   },
-  "main": "./dist/main.cjs",
+  "main": "./dist/main.mjs",
   "module": "./dist/main.mjs",
   "types": "./dist/main.d.ts",
   "files": [

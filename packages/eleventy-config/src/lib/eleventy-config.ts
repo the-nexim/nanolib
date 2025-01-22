@@ -18,11 +18,13 @@ import {generateServiceWorker} from './workbox.js';
  * @see https://www.11ty.dev/docs/config-shapes/#optional-return-object
  *
  * @example
+ * ```
  * import {eleventyConfiguration} from '@nexim/eleventy-config';
  *
  * export default function (eleventyConfig) {
  *   return eleventyConfiguration(eleventyConfig);
  * }
+ * ```
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function eleventyConfiguration(eleventyConfig: any) {
