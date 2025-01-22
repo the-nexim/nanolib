@@ -1,0 +1,131 @@
+{
+  "name": "@nexim/eleventy-config",
+  "version": "0.0.0",
+  "description": "An optimized, production-ready configuration for the Eleventy static site generator tailored for the Nexim APP Template structure. This setup ensures efficient Eleventy projects by integrating HTML minification, PostCSS processing, service worker generation, and other performance-focused enhancements for scalable and maintainable web applications.",
+  "keywords": [
+    "eleventy",
+    "ssg",
+    "jamstack",
+    "config",
+    "typescript",
+    "nexim"
+  ],
+  "homepage": "https://github.com/the-nexim/nanolib/tree/next/packages/eleventy-config#readme",
+  "bugs": {
+    "url": "https://github.com/the-nexim/nanolib/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-nexim/nanolib",
+    "directory": "packages/eleventy-config"
+  },
+  "license": "AGPL-3.0-only",
+  "author": "S. Amir Mohammad Najafi <njfamirm@gmail.com> (https://www.njfamirm.ir)",
+  "contributors": [
+    "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "main": "./dist/main.mjs",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
+  "files": [
+    "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "wireit",
+    "test": "wireit",
+    "watch": "wireit"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-directory-output": "^1.0.1",
+    "@alwatr/font": "^1.2.0",
+    "@alwatr/logger": "^5.0.0",
+    "@alwatr/package-tracer": "^5.0.0",
+    "@alwatr/platform-info": "^5.0.0",
+    "@swc/html": "^1.10.7",
+    "cssnano": "^7.0.6",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^4.3.1",
+    "postcss": "^8.5.1",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^10.1.3",
+    "postcss-variable-compress": "^3.0.0",
+    "postcss-viewport-unit-fallback": "^1.0.1",
+    "tailwindcss": "^3.4.17",
+    "workbox-build": "^7.3.0"
+  },
+  "devDependencies": {
+    "@alwatr/nano-build": "^5.0.0",
+    "@alwatr/type-helper": "^5.0.0",
+    "@nexim/typescript-config": "^2.0.0",
+    "@types/11ty__eleventy-plugin-directory-output": "^1.0.0",
+    "@types/eleventy-plugin-toc": "^1.1.0",
+    "@types/markdown-it": "^14.1.2",
+    "@types/markdown-it-attrs": "^4.1.3",
+    "@types/node": "^22.10.7",
+    "@types/postcss-import": "^14.0.3",
+    "ava": "^6.2.0",
+    "typescript": "^5.7.3",
+    "wireit": "^0.14.9"
+  },
+  "peerDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "nano-build": {
+    "platform": "node"
+  },
+  "wireit": {
+    "test": {
+      "command": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" ava"
+    },
+    "build": {
+      "dependencies": [
+        "build:type",
+        "build:es"
+      ]
+    },
+    "build:es": {
+      "command": "nano-build --preset=module",
+      "files": [
+        "src",
+        "tsconfig.json"
+      ],
+      "clean": "if-file-deleted",
+      "output": [
+        "dist/es",
+        "tsconfig.tsbuildinfo"
+      ]
+    },
+    "build:type": {
+      "command": "tsc --build"
+    },
+    "watch": {
+      "dependencies": [
+        "watch:ts"
+      ]
+    },
+    "watch:ts": {
+      "command": "tsc --build --watch --preserveWatchOutput",
+      "dependencies": [
+        "watch:es"
+      ]
+    },
+    "watch:es": {
+      "command": "nano-build --preset=module -- --watch",
+      "service": true
+    }
+  }
+}
