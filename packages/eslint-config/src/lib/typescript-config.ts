@@ -5,7 +5,7 @@ import tseslint from 'typescript-eslint';
 const tsconfigRootDir = import.meta.dirname;
 
 export const tsConfig = tseslint.config({
-  files: [ '**/*.ts', '**/*.mjs', '**/*.js' ],
+  files: [ '**/*.ts', '**/*.mjs', '**/*.cjs', '**/*.js' ],
   languageOptions: {
     globals: {
       ...globals['shared-node-browser'],

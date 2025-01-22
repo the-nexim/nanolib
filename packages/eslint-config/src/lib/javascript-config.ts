@@ -17,7 +17,5 @@ export const jsConfigs = tseslint.config({
   rules: {
     '@typescript-eslint/no-require-imports': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-
-    'no-undef': 'off',
   },
 });
