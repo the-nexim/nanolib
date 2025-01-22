@@ -53,7 +53,6 @@
   ],
   "scripts": {
     "build": "wireit",
-    "test": "wireit",
     "watch": "wireit"
   },
   "dependencies": {
