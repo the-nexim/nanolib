@@ -61,6 +61,7 @@
     "@stylistic/eslint-plugin": "^2.13.0",
     "eslint": "^9.18.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-tsdoc": "^0.4.0",
     "globals": "^15.14.0",
     "typescript-eslint": "^8.21.0"
   },
@@ -70,7 +71,6 @@
     "@nexim/typescript-config": "workspace:^",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.10.7",
-    "eslint-plugin-tsdoc": "^0.4.0",
     "typescript": "^5.7.3",
     "wireit": "^0.14.9"
   },
