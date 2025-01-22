@@ -1,7 +1,7 @@
-import {createLogger, type AlwatrLogger} from '@alwatr/logger';
+import { type AlwatrLogger, createLogger } from '@alwatr/logger';
 
-import type {Class} from '@alwatr/type-helper';
-import type {LitElement, PropertyValues} from 'lit';
+import type { LitElement, PropertyValues } from 'lit';
+import type { Class } from '@alwatr/type-helper';
 
 /**
  * Global element index to uniquely identify each element instance
@@ -51,12 +51,13 @@ export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(sup
     /**
      * Logger instance with a tag name and unique index.
      */
-    protected logger_ = createLogger(`<${this.tagName.toLowerCase()}-${this.elementIndex__}>`);
+    protected logger_ = createLogger(`<${this.tagName.toLowerCase()}-${this.elementIndex__.toString()}>`);
 
     private firstUpdated__?: true;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     constructor(...args: any[]) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       super(...args);
       this.logger_.logMethod?.('constructor');
     }
@@ -73,21 +74,21 @@ export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(sup
 
     // Override update to measure update time
     protected override update(changedProperties: PropertyValues): void {
-      this.logger_.logMethodArgs?.('update', {changedProperties});
+      this.logger_.logMethodArgs?.('update', { changedProperties });
       this.logger_.time?.(this.firstUpdated__ ? 'update-time' : 'first-update-time');
       super.update(changedProperties);
     }
 
     // Override firstUpdated to end the first update time measurement
     protected override firstUpdated(changedProperties: PropertyValues): void {
-      this.logger_.logMethodArgs?.('firstUpdated', {changedProperties});
+      this.logger_.logMethodArgs?.('firstUpdated', { changedProperties });
       this.logger_.timeEnd?.('first-update-time');
       super.firstUpdated(changedProperties);
     }
 
     // Override updated to end the update time measurement
     protected override updated(changedProperties: PropertyValues): void {
-      this.logger_.logMethodArgs?.('updated', {changedProperties});
+      this.logger_.logMethodArgs?.('updated', { changedProperties });
 
       if (this.firstUpdated__) {
         this.logger_.timeEnd?.('update-time');
@@ -107,7 +108,7 @@ export function LoggerMixin<T extends Class<LitElement> = Class<LitElement>>(sup
     override dispatchEvent(event: Event): boolean {
       this.logger_.logMethodArgs?.('dispatchEvent', {
         type: event.type,
-        detail: (event as Event & {detail?: unknown}).detail,
+        detail: (event as Event & { detail?: unknown }).detail,
       });
       return super.dispatchEvent(event);
     }

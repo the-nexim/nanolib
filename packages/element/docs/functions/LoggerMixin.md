@@ -29,8 +29,8 @@ A mixin class that extends the superclass and logs the lifecycle methods of the 
 ## Example
 
 ```ts
-import {LitElement, html} from 'lit';
-import {LoggerMixin} from '@nexim/element';
+import { LitElement, html } from 'lit';
+import { LoggerMixin } from '@nexim/element';
 
 class MyElement extends LoggerMixin(LitElement) {
   protected override render() {

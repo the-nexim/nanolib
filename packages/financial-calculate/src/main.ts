@@ -1,5 +1,5 @@
-import {createLogger} from '@alwatr/logger';
-import {packageTracer} from '@alwatr/package-tracer';
+import { createLogger } from '@alwatr/logger';
+import { packageTracer } from '@alwatr/package-tracer';
 
 __dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
@@ -18,7 +18,7 @@ const logger = createLogger(__package_name__);
  * ```
  */
 export function calculateDiscountedPrice(price: number, discount: number, decimal = 2): number {
-  logger.logMethodArgs?.('calculateDiscountedPrice', {price, discount, decimal});
+  logger.logMethodArgs?.('calculateDiscountedPrice', { price, discount, decimal });
 
   const discountedPrice = price * (1 - discount / 100);
   return parseFloat(discountedPrice.toFixed(decimal));
@@ -37,7 +37,7 @@ export function calculateDiscountedPrice(price: number, discount: number, decima
  * ```
  */
 export function calculateDiscountAmount(price: number, discount: number, decimal = 2): number {
-  logger.logMethodArgs?.('calculateDiscountAmount', {price, discount, decimal});
+  logger.logMethodArgs?.('calculateDiscountAmount', { price, discount, decimal });
 
   const discountAmount = (price * discount) / 100;
   return parseFloat(discountAmount.toFixed(decimal));
@@ -57,7 +57,7 @@ export function calculateDiscountAmount(price: number, discount: number, decimal
  * ```
  */
 export function calculatePercentageProfit(marketPrice: number, salePrice: number, decimal = 2): number {
-  logger.logMethodArgs?.('calculatePercentageProfit', {marketPrice, salePrice, decimal});
+  logger.logMethodArgs?.('calculatePercentageProfit', { marketPrice, salePrice, decimal });
 
   const percentage = ((marketPrice - salePrice) / salePrice) * 100;
   return parseFloat(percentage.toFixed(decimal));
@@ -77,7 +77,7 @@ export function calculatePercentageProfit(marketPrice: number, salePrice: number
  * ```
  */
 export function calculatePercentageDiscount(marketPrice: number, salePrice: number, decimal = 2): number {
-  logger.logMethodArgs?.('calculatePercentageDiscount', {marketPrice, salePrice, decimal});
+  logger.logMethodArgs?.('calculatePercentageDiscount', { marketPrice, salePrice, decimal });
 
   const percentage = ((marketPrice - salePrice) / marketPrice) * 100;
   return parseFloat(percentage.toFixed(decimal));

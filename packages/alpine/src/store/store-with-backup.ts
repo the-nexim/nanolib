@@ -1,14 +1,12 @@
-import {localJsonStorage} from '@alwatr/local-storage';
-import {parseDuration, type Duration} from '@alwatr/parse-duration';
-
-import {AlpineStore} from './store.js';
+import { type Duration, parseDuration } from '@alwatr/parse-duration';
+import { AlpineStore } from './store.js';
+import { localJsonStorage } from '@alwatr/local-storage';
 
 /**
  * Type for the store's data to extends from them.
  */
 export type AlpineStoreWithBackupType = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: DictionaryReq<any> | null;
+  data: DictionaryReq | null;
 };
 
 /**
@@ -53,8 +51,8 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    * Keys for storing data and expire time in local storage with version.
    */
   private localStorageKey__ = {
-    data: `[${__package_name__}:data:sv${schemaVersion}]:${this.config__.name}`,
-    expireTime: `[${__package_name__}:expire-time:sv${schemaVersion}]:${this.config__.name}`,
+    data: `[${__package_name__}:data:sv${schemaVersion.toString()}]:${this.config__.name}`,
+    expireTime: `[${__package_name__}:expire-time:sv${schemaVersion.toString()}]:${this.config__.name}`,
   };
 
   /**
@@ -98,7 +96,7 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
    * Also updates the expiration time.
    */
   save(): void {
-    this.logger_.logMethodArgs?.('save', {data: this.store.data});
+    this.logger_.logMethodArgs?.('save', { data: this.store.data });
 
     if (this.store.data === null) {
       this.clear();
@@ -129,9 +127,9 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
     this.logger_.logMethod?.('handleDataExpiration__');
 
     // FIXME: use null if not set, after local storage new version.
-    const expireDuration = localJsonStorage.getItem<{time: number}>(
+    const expireDuration = localJsonStorage.getItem<{ time: number }>(
       this.localStorageKey__.expireTime,
-      {time: -1},
+      { time: -1 },
       this.config__.version,
     ).time;
 
@@ -166,8 +164,8 @@ export class AlpineStoreWithBackup<T extends AlpineStoreWithBackupType> extends 
     this.logger_.logMethod?.('updateExpireTime__');
 
     const newExpireTime = Date.now() + parseDuration(this.config__.expireDuration);
-    localJsonStorage.setItem(this.localStorageKey__.expireTime, {time: newExpireTime}, this.config__.version);
+    localJsonStorage.setItem(this.localStorageKey__.expireTime, { time: newExpireTime }, this.config__.version);
 
-    this.logger_.logOther?.('updated_expire_time', {newExpireTime});
+    this.logger_.logOther?.('updated_expire_time', { newExpireTime });
   }
 }

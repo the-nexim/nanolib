@@ -35,11 +35,11 @@ Provides a Alpine.js pure store implementation with logger.
 #### Example
 
 ```ts
-import {AlpineStore} from '@nexim/alpine';
+import { AlpineStore } from '@nexim/alpine';
 
-const {store} = new AlpineStore({
+const { store } = new AlpineStore({
   name: 'myStore',
-  defaultValue: {data: 'root'},
+  defaultValue: { data: 'root' },
 });
 console.log(store.data); // Output: { data: 'root' }
 

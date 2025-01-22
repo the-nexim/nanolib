@@ -19,7 +19,7 @@ Initialize google analytics with tracking id.
 ## Example
 
 ```ts
-import {initializeGoogleAnalytics} from '@nexim/analytic';
+import { initializeGoogleAnalytics } from '@nexim/analytic';
 
 initializeGoogleAnalytics('your-google-analytics-tracking-id');
 ```
