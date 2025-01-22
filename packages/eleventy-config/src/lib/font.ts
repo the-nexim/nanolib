@@ -10,8 +10,8 @@ const require = /* @__PURE__ */ createRequire(import.meta.url);
 /**
  * Copies a font from the `@alwatr/font` package to the specified output directory.
  *
- * @param {string} fontName - The name of the font to copy.
- * @param {string} outputDirectory - The directory where the font should be copied.
+ * @param fontName - The name of the font to copy.
+ * @param outputDirectory - The directory where the font should be copied.
  *
  * @example
  * ```typescript
@@ -45,8 +45,6 @@ export type EleventyCopyFontPluginOptions = {
 
   /**
    * The directory where the font should be copied.
-   *
-   * @default 'dist/font'
    */
   outputDirectory?: string;
 };
@@ -54,8 +52,8 @@ export type EleventyCopyFontPluginOptions = {
 /**
  * Eleventy plugin to copy a font before the build process.
  *
- * @param {any} eleventyConfig - The Eleventy configuration object.
- * @param {EleventyCopyFontPluginOptions} options - The options for the plugin.
+ * @param eleventyConfig - The Eleventy configuration object.
+ * @param options - The options for the plugin.
  *
  * @example
  * ```js
