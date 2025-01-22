@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0-alpha.0](https://github.com/the-nexim/nanolib/compare/@nexim/eslint-config@1.1.1...@nexim/eslint-config@2.0.0-alpha.0) (2025-01-22)
+
+### ⚠ BREAKING CHANGES
+
+* **eslint:** migrate to eslint v9 flat config
+
+### Features
+
+* **eslint-config:** add tsdoc plugin ([82e9336](https://github.com/the-nexim/nanolib/commit/82e93365c3d61295586ea6d33306bbded46a1fee)) by @njfamirm
+
+### Code Refactoring
+
+* **eslint:** migrate to eslint v9 flat config ([e458757](https://github.com/the-nexim/nanolib/commit/e4587570e202569ef1f7b06aab2d5bdf9a66bb8f)) by @njfamirm
+
 ## [1.1.1](https://github.com/the-nexim/nanolib/compare/@nexim/eslint-config@1.1.0...@nexim/eslint-config@1.1.1) (2025-01-05)
 
 **Note:** Version bump only for package @nexim/eslint-config
