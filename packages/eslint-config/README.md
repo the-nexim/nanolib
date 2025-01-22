@@ -5,32 +5,40 @@
 ![NPM Downloads](https://img.shields.io/npm/dm/@nexim/eslint-config)
 ![NPM License](https://img.shields.io/npm/l/@nexim/eslint-config)
 
-## Overview
-
-Alwatr ECMAScript Style Guide as a ESLint [shareable configurations](http://eslint.org/docs/developer-guide/shareable-configs.html).
+Nexim ECMAScript Style Guide as a ESLint [shareable configurations](http://eslint.org/docs/developer-guide/shareable-configs.html).
 
 ## Installation
 
 ```bash
-yarn add -D @nexim/eslint-config \
-  eslint \
-  @typescript-eslint/parser \
-  @typescript-eslint/eslint-plugin \
-  eslint-plugin-import \
-  eslint-import-resolver-typescript
+yarn add -D @nexim/eslint-config eslint
 ```
 
 ## Usage
 
-Create a `.eslintrc.json` file in the root of your project:
+Create a `eslint.config.mjs` file in the root of your project:
 
-```json
-{
-  "extends": "@nexim/eslint-config",
-  "rules": {
-    // Additional, per-project rules...
-  }
-}
+```js
+import { baseExtends, jsConfigs, tsConfig } from '@nexim/eslint-config';
+import { fileURLToPath } from 'node:url';
+import { includeIgnoreFile } from '@eslint/compat';
+import path from 'node:path';
+
+// pass gitignore file content as ignorePatterns
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const gitignorePath = path.resolve(__dirname, '.gitignore');
+const ignorePatterns = includeIgnoreFile(gitignorePath).ignores;
+
+// add your custom folders to ignore
+ignorePatterns?.push('.yarn');
+
+export default [
+  ...baseExtends,
+  ...tsConfig,
+  ...jsConfigs,
+  {
+    ignores: ignorePatterns,
+  },
+];
 ```
 
 ## Idea
