@@ -40,3 +40,42 @@ export async function minifyHtml(this: any, content: string): Promise<string> {
     return content;
   }
 }
+
+/**
+ * Options for the eleventyCopyFontPlugin.
+ */
+export type EleventyMinifyHTMLPluginOptions = {
+  /**
+   * The this of this.
+   */
+  this: any;
+
+  /**
+   * The content of html for minifying.
+   */
+  content: string;
+};
+
+/**
+ * Eleventy plugin to Minify HTML with eleventy transform.
+ *
+ * @param eleventyConfig - The Eleventy configuration object.
+ * @param options - The options for the plugin.
+ *
+ * @example
+ * ```js
+ * // eleventy.config.mjs
+ *
+ * import {eleventyMinifyHTMLPlugin} from '@nexim/eleventy-config';
+ *
+ * export default function (eleventyConfig) {
+ *   eleventyConfig.addPlugin(eleventyMinifyHTMLPlugin,{content});
+ *   // ...
+ * }
+ * ```
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function eleventyMinifyHTMLPlugin(eleventyConfig: any, options: EleventyMinifyHTMLPluginOptions): void {
+  const minifyingHtml = minifyHtml(options.content);
+  eleventyConfig.addTransform('minifyHtml', minifyingHtml);
+}
