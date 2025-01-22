@@ -1,5 +1,6 @@
 import * as globals from 'globals';
 import stylistic from '@stylistic/eslint-plugin';
+import tsdocPlugin from 'eslint-plugin-tsdoc';
 import tseslint from 'typescript-eslint';
 
 const tsconfigRootDir = import.meta.dirname;
@@ -21,6 +22,7 @@ export const tsConfig = tseslint.config({
   plugins: {
     '@typescript-eslint': tseslint.plugin,
     '@stylistic': stylistic,
+    tsdoc: tsdocPlugin,
   },
   rules: {
     '@stylistic/max-len': [ 'error', { code: 140 } ],
@@ -58,8 +60,7 @@ export const tsConfig = tseslint.config({
     '@stylistic/operator-linebreak': [ 'error', 'after', { overrides: { '?': 'before', ':': 'before' } } ],
 
     '@stylistic/semi': 'error',
-    // '@stylistic/valid-jsdoc': 'off', // TODO:
-    // '@stylistic/require-jsdoc': 'off', // TODO:
+    'tsdoc/syntax': 'warn',
 
     'no-unused-vars': 'off',
     'prefer-const': 'error',
