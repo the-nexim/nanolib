@@ -1,6 +1,6 @@
-import {type AlwatrLogger, createLogger} from '@alwatr/logger';
+import { type AlwatrLogger, createLogger } from '@alwatr/logger';
 
-import {alpineStoreGenerator} from './store-generator.js';
+import { alpineStoreGenerator } from './store-generator.js';
 
 /**
  * AlpineStore Options.

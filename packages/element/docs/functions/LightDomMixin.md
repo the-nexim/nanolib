@@ -27,8 +27,8 @@ A class that extends the base class with light DOM functionality.
 ## Example
 
 ```ts
-import {LitElement, html, css} from 'lit';
-import {LightDomMixin} from '@nexim/element';
+import { LitElement, html, css } from 'lit';
+import { LightDomMixin } from '@nexim/element';
 
 class MyLightDomElement extends LightDomMixin(LitElement) {
   static styles = css`

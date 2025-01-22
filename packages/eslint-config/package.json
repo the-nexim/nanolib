@@ -37,30 +37,90 @@
   "contributors": [
     "Arash Ghardashpoor <arash.qardashpoor@gmail.com> (https://www.agpagp.ir)"
   ],
-  "type": "commonjs",
-  "main": "./eslint-config.cjs",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.mjs"
+    }
+  },
+  "main": "./dist/main.mjs",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
     "LICENSE"
   ],
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "@typescript-eslint/parser": "^7.15.0",
-    "eslint": "^8.57.1",
-    "eslint-import-resolver-typescript": "^3.6.3",
+  "scripts": {
+    "build": "wireit",
+    "watch": "wireit"
+  },
+  "dependencies": {
+    "@eslint/compat": "^1.2.5",
+    "@eslint/js": "^9.18.0",
+    "@stylistic/eslint-plugin": "^2.13.0",
+    "eslint": "^9.18.0",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-require-extensions": "^0.1.3",
-    "typescript": "^5.7.3"
+    "globals": "^15.14.0",
+    "typescript-eslint": "^8.20.0"
+  },
+  "devDependencies": {
+    "@alwatr/nano-build": "^5.0.0",
+    "@alwatr/type-helper": "^5.0.0",
+    "@nexim/typescript-config": "workspace:^",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.10.7",
+    "eslint-plugin-tsdoc": "^0.4.0",
+    "typescript": "^5.7.3",
+    "wireit": "^0.14.9"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": ">7.0.0 <8.0.0",
-    "@typescript-eslint/parser": ">7.0.0 <8.0.0",
-    "eslint": ">8.0.0 <9.0.0",
-    "eslint-import-resolver-typescript": ">3.0.0",
-    "eslint-plugin-import": ">2.0.0",
-    "eslint-plugin-require-extensions": ">0.1.0"
+    "@eslint/compat": ">1.0.0 <2.0.0",
+    "eslint": ">9.0.0 <10.0.0"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "nano-build": {
+    "platform": "node",
+    "cjs": false
+  },
+  "wireit": {
+    "build": {
+      "dependencies": [
+        "build:type",
+        "build:es"
+      ]
+    },
+    "build:es": {
+      "command": "nano-build --preset=module",
+      "files": [
+        "src",
+        "tsconfig.json"
+      ],
+      "clean": "if-file-deleted",
+      "output": [
+        "dist",
+        "tsconfig.tsbuildinfo"
+      ]
+    },
+    "build:type": {
+      "command": "tsc --build"
+    },
+    "watch": {
+      "dependencies": [
+        "watch:ts"
+      ]
+    },
+    "watch:ts": {
+      "command": "tsc --build --watch --preserveWatchOutput",
+      "dependencies": [
+        "watch:es"
+      ]
+    },
+    "watch:es": {
+      "command": "nano-build --preset=module -- --watch",
+      "service": true
+    }
   }
 }

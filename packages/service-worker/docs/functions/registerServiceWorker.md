@@ -21,13 +21,13 @@ Register the service worker and handle updates.
 ## Example
 
 ```ts
-import {registerServiceWorker} from '@nexim/service-worker';
+import { registerServiceWorker } from '@nexim/service-worker';
 
 const serviceWorkerPath = '/service-worker.js';
 
 // without auto update
-registerServiceWorker({serviceWorkerPath});
+registerServiceWorker({ serviceWorkerPath });
 
 // with auto update
-registerServiceWorker({serviceWorkerPath, timeForAutoUpdate: '10m'});
+registerServiceWorker({ serviceWorkerPath, timeForAutoUpdate: '10m' });
 ```

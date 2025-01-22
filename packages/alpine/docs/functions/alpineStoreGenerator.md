@@ -40,7 +40,7 @@ data in your application, making it easy to keep your UI in sync with your data.
 ```ts
 const store = alpineStoreGenerator({
   name: 'user',
-  defaultValue: {type: 'root'},
+  defaultValue: { type: 'root' },
 });
 
 console.log(store.type); // Output: root

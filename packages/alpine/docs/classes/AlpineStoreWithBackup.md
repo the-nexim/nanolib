@@ -35,12 +35,12 @@ Provides a Alpine.js store implementation with backup and expiration.
 #### Example
 
 ```ts
-import {AlpineStoreWithBackup} from '@nexim/alpine';
+import { AlpineStoreWithBackup } from '@nexim/alpine';
 
 const storeWithBackup = new AlpineStoreWithBackup({
   name: 'myStoreWithBackup',
   version: 1,
-  defaultValue: {data: 'root'},
+  defaultValue: { data: 'root' },
   expireDuration: '1d',
 });
 

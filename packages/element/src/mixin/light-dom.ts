@@ -1,5 +1,5 @@
-import type {Class} from '@alwatr/type-helper';
-import type {LitElement, CSSResultGroup, ReactiveElement} from 'lit';
+import type { CSSResultGroup, LitElement, ReactiveElement } from 'lit';
+import type { Class } from '@alwatr/type-helper';
 
 /**
  * A mixin to enable light DOM rendering and style encapsulation for LitElement components.

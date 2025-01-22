@@ -1,5 +1,5 @@
-import {createLogger} from '@alwatr/logger';
-import {packageTracer} from '@alwatr/package-tracer';
+import { createLogger } from '@alwatr/logger';
+import { packageTracer } from '@alwatr/package-tracer';
 
 __dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
@@ -7,7 +7,7 @@ const logger = createLogger(__package_name__);
 
 declare global {
   interface Window {
-    dataLayer: unknown[];
+    dataLayer?: unknown[];
   }
 }
 
@@ -24,7 +24,7 @@ declare global {
  * ```
  */
 export async function initializeGoogleAnalytics(trackingId: string): Promise<void> {
-  logger.logMethodArgs?.('initializeGoogleAnalytics', {trackingId});
+  logger.logMethodArgs?.('initializeGoogleAnalytics', { trackingId });
 
   try {
     await loadGoogleAnalyticsScript(trackingId);
@@ -43,7 +43,7 @@ export async function initializeGoogleAnalytics(trackingId: string): Promise<voi
  * @param args - The arguments to be passed to the dataLayer.
  */
 function gtag(...args: unknown[]): void {
-  window.dataLayer.push(args);
+  window.dataLayer?.push(args);
 }
 
 /**
@@ -52,9 +52,9 @@ function gtag(...args: unknown[]): void {
  * @param trackingId - The Google Analytics tracking ID.
  */
 function setupGoogleAnalytics(trackingId: string): void {
-  logger.logMethodArgs?.('setupGoogleAnalytics', {trackingId});
+  logger.logMethodArgs?.('setupGoogleAnalytics', { trackingId });
 
-  window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer ?? [];
 
   gtag('js', new Date());
   gtag('config', trackingId);
@@ -66,7 +66,7 @@ function setupGoogleAnalytics(trackingId: string): void {
  * @param trackingId - The Google Analytics tracking ID.
  */
 function loadGoogleAnalyticsScript(trackingId: string): Promise<void> {
-  logger.logMethodArgs?.('loadGoogleAnalyticsScript', {trackingId});
+  logger.logMethodArgs?.('loadGoogleAnalyticsScript', { trackingId });
 
   const script = document.createElement('script');
   script.defer = true;
@@ -76,7 +76,9 @@ function loadGoogleAnalyticsScript(trackingId: string): Promise<void> {
 
   // return script load promise
   return new Promise((resolve, reject) => {
-    script.onload = () => resolve();
-    script.onerror = (error) => reject(error);
+    script.onload = () => {
+      resolve();
+    };
+    script.onerror = reject;
   });
 }

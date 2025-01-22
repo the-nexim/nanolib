@@ -32,3 +32,7 @@ Create a `.eslintrc.json` file in the root of your project:
   }
 }
 ```
+
+## Idea
+
+It's possible to generate a full eslint json bundle in build time and use them in project to figure out changes.

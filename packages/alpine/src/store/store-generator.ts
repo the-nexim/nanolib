@@ -1,5 +1,5 @@
-import {createLogger} from '@alwatr/logger';
 import alpine from 'alpinejs';
+import { createLogger } from '@alwatr/logger';
 
 const logger = createLogger(__package_name__);
 
@@ -48,7 +48,7 @@ export type AlpineStoreGeneratorOptions<T extends DictionaryReq> = {
  *```
  */
 export function alpineStoreGenerator<T extends DictionaryReq>(config: AlpineStoreGeneratorOptions<T>): T {
-  logger.logMethodArgs?.('alpineStoreGenerator', {config});
+  logger.logMethodArgs?.('alpineStoreGenerator', { config });
 
   alpine.store(config.name, config.defaultValue);
 

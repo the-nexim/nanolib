@@ -1,7 +1,7 @@
-import {AlwatrSignal} from '@alwatr/flux';
-import {createLogger} from '@alwatr/logger';
-import {packageTracer} from '@alwatr/package-tracer';
-import {parseDuration, type Duration} from '@alwatr/parse-duration';
+import { type Duration, parseDuration } from '@alwatr/parse-duration';
+import { AlwatrSignal } from '@alwatr/flux';
+import { createLogger } from '@alwatr/logger';
+import { packageTracer } from '@alwatr/package-tracer';
 
 /**
  * The events that can be emitted by the service worker.
@@ -31,7 +31,7 @@ const logger = /* @__PURE__ */ createLogger(__package_name__);
  * });
  * ```
  */
-export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: ServiceWorkerEvent}>({
+export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{ event: ServiceWorkerEvent }>({
   name: 'serviceWorker',
 });
 
@@ -55,17 +55,19 @@ export const serviceWorkerSignal = /* @__PURE__ */ new AlwatrSignal<{event: Serv
  * registerServiceWorker({ serviceWorkerPath, timeForAutoUpdate: '10m' });
  * ```
  */
-export async function registerServiceWorker(options: {serviceWorkerPath: string, timeForAutoUpdate?: Duration}): Promise<void> {
-  logger.logMethodArgs?.('registerServiceWorker', {options});
-  if ('serviceWorker' in navigator === false) {
+export async function registerServiceWorker(options: { serviceWorkerPath: string; timeForAutoUpdate?: Duration }): Promise<void> {
+  logger.logMethodArgs?.('registerServiceWorker', { options });
+  if (!('serviceWorker' in navigator)) {
     logger.incident?.('registerServiceWorker', 'service_worker_not_supported');
     return;
   }
 
   try {
     const swRegistration = await navigator.serviceWorker.register(options.serviceWorkerPath);
-    serviceWorkerSignal.notify({event: 'service_worker_registered'});
-    swRegistration.addEventListener('updatefound', () => serviceWorkerUpdateFoundHandler(swRegistration.installing));
+    serviceWorkerSignal.notify({ event: 'service_worker_registered' });
+    swRegistration.addEventListener('updatefound', () => {
+      serviceWorkerUpdateFoundHandler(swRegistration.installing);
+    });
     logger.logOther?.('Service worker registered.');
 
     if (options.timeForAutoUpdate != null) {
@@ -77,8 +79,8 @@ export async function registerServiceWorker(options: {serviceWorkerPath: string,
     }
   }
   catch (error) {
-    logger.error('registerServiceWorker', 'registration_failed', {error});
-    serviceWorkerSignal.notify({event: 'service_worker_register_failed'});
+    logger.error('registerServiceWorker', 'registration_failed', { error });
+    serviceWorkerSignal.notify({ event: 'service_worker_register_failed' });
   }
 }
 
@@ -93,13 +95,15 @@ function serviceWorkerUpdateFoundHandler(serviceWorker: ServiceWorker | null): v
 
   // Only notify update found if there's an existing controller
   if (navigator.serviceWorker.controller) {
-    serviceWorkerSignal.notify({event: 'service_worker_update_found'});
+    serviceWorkerSignal.notify({ event: 'service_worker_update_found' });
   }
   else {
-    serviceWorkerSignal.notify({event: 'service_worker_first_install'});
+    serviceWorkerSignal.notify({ event: 'service_worker_first_install' });
   }
 
-  serviceWorker.addEventListener('statechange', () => serviceWorkerStateChangeHandler(serviceWorker));
+  serviceWorker.addEventListener('statechange', () => {
+    serviceWorkerStateChangeHandler(serviceWorker);
+  });
 }
 
 /**
@@ -113,19 +117,19 @@ function serviceWorkerUpdateFoundHandler(serviceWorker: ServiceWorker | null): v
  * @param serviceWorker - The service worker.
  */
 function serviceWorkerStateChangeHandler(serviceWorker: ServiceWorker): void {
-  logger.logMethodArgs?.('serviceWorkerStateChangeHandler', {state: serviceWorker.state});
+  logger.logMethodArgs?.('serviceWorkerStateChangeHandler', { state: serviceWorker.state });
 
   if (serviceWorker.state === 'installed') {
     // if old controller available then its update else its new install
     if (navigator.serviceWorker.controller) {
-      serviceWorkerSignal.notify({event: 'service_worker_updated'});
+      serviceWorkerSignal.notify({ event: 'service_worker_updated' });
     }
     else {
-      serviceWorkerSignal.notify({event: 'service_worker_installed'});
+      serviceWorkerSignal.notify({ event: 'service_worker_installed' });
     }
   }
   else if (serviceWorker.state === 'redundant') {
     logger.accident('serviceWorkerStateChangeHandler', 'sw_redundant', 'Service worker redundant');
-    serviceWorkerSignal.notify({event: 'service_worker_update_failed'});
+    serviceWorkerSignal.notify({ event: 'service_worker_update_failed' });
   }
 }
