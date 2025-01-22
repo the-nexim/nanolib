@@ -10,7 +10,7 @@ Nexim ECMAScript Style Guide as a ESLint [shareable configurations](http://eslin
 ## Installation
 
 ```bash
-yarn add -D @nexim/eslint-config eslint
+yarn add -D @nexim/eslint-config eslint @eslint/compat
 ```
 
 ## Usage
@@ -39,6 +39,12 @@ export default [
     ignores: ignorePatterns,
   },
 ];
+```
+
+Run ESLint:
+
+```bash
+eslint . --config eslint.config.mjs --cache
 ```
 
 ## Idea
