@@ -93,7 +93,15 @@ export function eleventyConfiguration(eleventyConfig: any) {
    */
   const configureBuilding = postcssBuild({inputDir: 'style', outputDir: 'dist/css'});
   eleventyConfig.on('eleventy.after', configureBuilding);
-  eleventyConfig.on('eleventy.after', generateServiceWorker);
+
+  const generateServiceWorkerWithOptions = generateServiceWorker({
+    outputDir: 'dist',
+    deploymentServiceWorkerContent: "console.log('service worker not build in deployment.')",
+    nameOfServiceWorker: 'service-worker.js',
+    maximumFileSize: 1 * 1024 * 1024, // 1MB
+    mode: 'production',
+  });
+  eleventyConfig.on('eleventy.after', generateServiceWorkerWithOptions);
 
   /**
    * Add template cjs to extension

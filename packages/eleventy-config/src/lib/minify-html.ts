@@ -43,7 +43,7 @@ export async function minifyHtml(this: any, content: string): Promise<string> {
 }
 
 /**
- * Options for the eleventyCopyFontPlugin.
+ * Options for the eleventyMinifyHtmlPlugin.
  */
 export type EleventyMinifyHtmlPluginOptions = {
   /**
