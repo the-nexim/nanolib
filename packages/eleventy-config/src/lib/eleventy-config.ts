@@ -10,8 +10,27 @@ import { minifyHtml } from './minify-html.js';
 import { postcssBuild } from './postcss.js';
 import { trim } from './util/trim.js';
 
+type EleventyOptions = {
+  directories: {
+    root: string;
+    shortcode: string;
+    style: string;
+    jsOutput: string;
+    output: string;
+    data: string;
+    layouts: string;
+    includes: string;
+  };
+  files: {
+    baseFileName: string;
+    templateFormats?: string[];
+    markDownTemplateEngine: string;
+    htmlTemplateEngine: string;
+  }
+};
+
 /**
- * Configures Eleventy with nexi app specification and html minify, postcss, workbox, etc.
+ * Configures Eleventy with nexim app specification and html minify, postcss, workbox, etc.
  *
  * @param eleventyConfig - The eleventy config
  * @returns The eleventyConfig return type
@@ -24,29 +43,46 @@ import { trim } from './util/trim.js';
  * import {eleventyConfiguration} from '@nexim/eleventy-config';
  *
  * export default function (eleventyConfig) {
- *   return eleventyConfiguration(eleventyConfig);
+ *   return eleventyConfiguration(eleventyConfig,{
+ *    directories: {
+ *     root: 'site',
+ *     shortcode: 'shortcode',
+ *     style: 'style',
+ *     jsOutput: 'dist/es',
+ *     output: 'dist',
+ *     data: '_data',
+ *     layouts: '_layout',
+ *     includes: '_include',
+ *    },
+ *    files: {
+ *      baseFileName: 'index',
+ *     // optional
+ *     // have default value ['md', 'njk', '11ty.js'],
+ *      templateFormatsExtensions: [],
+ *      markDownTemplateEngine: 'md',
+ *      htmlTemplateEngine: 'njk',
+ *    });
  * }
  * ```
  */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export function eleventyConfiguration(eleventyConfig: any) {
+export function eleventyConfiguration(eleventyConfig: any,options: EleventyOptions) {
   eleventyConfig.addPassthroughCopy({
     assets: '/',
     'assets/img/meta/favicon.ico': '/favicon.ico',
   });
 
   // templates root Directory
-
-  eleventyConfig.addWatchTarget('site');
+  eleventyConfig.addWatchTarget(options.directories.root);
 
   // shortcodes Directory
-  eleventyConfig.addWatchTarget('shortcode');
+  eleventyConfig.addWatchTarget(options.directories.shortcode);
 
   // styles Directory
-  eleventyConfig.addWatchTarget('style');
+  eleventyConfig.addWatchTarget(options.directories.style);
 
   // build target typescript Directory
-  eleventyConfig.addWatchTarget('dist/es');
+  eleventyConfig.addWatchTarget(options.directories.jsOutput);
 
   /**
    * Watch javascript dependencies
@@ -91,11 +127,11 @@ export function eleventyConfiguration(eleventyConfig: any) {
   /**
    * Set after eventListener for build css and service worker
    */
-  const configureBuilding = postcssBuild({inputDir: 'style', outputDir: 'dist/css'});
+  const configureBuilding = postcssBuild({inputDir: options.directories.style, outputDir: options.directories.output + '/css'});
   eleventyConfig.on('eleventy.after', configureBuilding);
 
   const generateServiceWorkerWithOptions = generateServiceWorker({
-    outputDir: 'dist',
+    outputDir: options.directories.output,
     deploymentServiceWorkerContent: "console.log('service worker not build in deployment.')",
     nameOfServiceWorker: 'service-worker.js',
     maximumFileSize: 1 * 1024 * 1024, // 1MB
@@ -112,18 +148,18 @@ export function eleventyConfiguration(eleventyConfig: any) {
    * Set data root directory and base name of file
    */
   eleventyConfig.setDataFileSuffixes([ '.data' ]);
-  eleventyConfig.setDataFileBaseName('index');
+  eleventyConfig.setDataFileBaseName(options.files.baseFileName);
 
   /**
    * Add Html, Nunjucks, Markdown, Tsx, Jsx, for template engines
    */
-  eleventyConfig.templateFormats = [ 'md', 'njk', '11ty.js' ];
+  eleventyConfig.templateFormats = [ 'md', 'njk', '11ty.js', ...(options.files.templateFormats ?? []) ];
 
   return {
     // if your site lives in a subdirectory, change this
     pathPrefix: '/',
-    markdownTemplateEngine: 'md',
-    htmlTemplateEngine: 'njk',
+    markdownTemplateEngine: options.files.markDownTemplateEngine,
+    htmlTemplateEngine: options.files.htmlTemplateEngine,
 
     handlebarsHelpers: {},
     nunjucksFilters: {},
@@ -141,11 +177,11 @@ export function eleventyConfiguration(eleventyConfig: any) {
     },
 
     dir: {
-      input: 'site',
-      output: 'dist',
-      includes: '_include',
-      data: '_data',
-      layouts: '_layout',
+      data: options.directories.data,
+      input: options.directories.root,
+      output: options.directories.output,
+      layouts: options.directories.layouts,
+      includes: options.directories.includes,
     },
   };
 }
