@@ -1,4 +1,7 @@
 import * as globals from 'globals';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+// @ts-expect-error - don't have types
+import importPlugin from 'eslint-plugin-import';
 import stylistic from '@stylistic/eslint-plugin';
 import tsdocPlugin from 'eslint-plugin-tsdoc';
 import tseslint from 'typescript-eslint';
@@ -6,7 +9,7 @@ import tseslint from 'typescript-eslint';
 const tsconfigRootDir = import.meta.dirname;
 
 export const tsConfig = tseslint.config({
-  files: [ '**/*.ts', '**/*.mjs', '**/*.cjs', '**/*.js' ],
+  files: [ '**/*.{ts,js,cjs,mjs}' ],
   languageOptions: {
     globals: {
       ...globals['shared-node-browser'],
@@ -19,6 +22,8 @@ export const tsConfig = tseslint.config({
       tsconfigRootDir,
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  extends: [ (importPlugin as any).flatConfigs.recommended, (importPlugin as any).flatConfigs.typescript ],
   plugins: {
     '@typescript-eslint': tseslint.plugin,
     '@stylistic': stylistic,
@@ -64,7 +69,7 @@ export const tsConfig = tseslint.config({
 
     'no-unused-vars': 'off',
     'prefer-const': 'error',
-    'sort-imports': [ 'error' ],
+    // 'sort-imports': 'error',
 
     '@typescript-eslint/prefer-string-starts-ends-with': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
@@ -72,5 +77,14 @@ export const tsConfig = tseslint.config({
     'no-unused-labels': 'off',
     'require-await': 'error',
     '@typescript-eslint/consistent-type-definitions': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: [ tsconfigRootDir ],
+      },
+      node: {},
+    },
   },
 });
