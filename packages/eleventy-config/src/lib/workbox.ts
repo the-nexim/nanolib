@@ -3,15 +3,13 @@ import { logger } from './logger.js';
 import { platformInfo } from '@alwatr/platform-info';
 import { writeFile } from 'fs/promises';
 
-export async function generateServiceWorker(options:
-{
+export async function generateServiceWorker(options:{
   outputDir: string,
   deploymentServiceWorkerContent: string,
   nameOfServiceWorker: string,
   maximumFileSize: number,
   mode: 'production' | 'development',
-}
-): Promise<BuildResult | null> {
+}): Promise<BuildResult | null> {
   const isDevelopment = platformInfo.development;
   logger.logMethodArgs?.('generateServiceWorker', { isDevelopment });
 

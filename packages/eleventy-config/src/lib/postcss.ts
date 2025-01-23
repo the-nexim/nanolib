@@ -90,8 +90,18 @@ export async function postcssBuild(options: {inputDir: string, outputDir: string
   logger.logOther?.(`PostCSS build done in ${calculatedTime}ms`);
 }
 
+/**
+ * Options for the eleventyMinifyHtmlPlugin.
+ */
 type EleventyPostCssPluginOptions = {
+  /**
+   * The Css Input Directory.
+   */
   inputDir: string;
+
+  /**
+   * The Css Output Directory.
+   */
   outputDir: string;
 };
 
