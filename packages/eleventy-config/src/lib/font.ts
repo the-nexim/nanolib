@@ -1,8 +1,7 @@
-import {mkdir, cp} from 'fs/promises';
-import {createRequire} from 'node:module';
-import {dirname, join} from 'path';
-
-import {logger} from './logger.js';
+import { cp, mkdir } from 'fs/promises';
+import { dirname, join } from 'path';
+import { createRequire } from 'node:module';
+import { logger } from './logger.js';
 
 // TODO: handle in cjs
 const require = /* @__PURE__ */ createRequire(import.meta.url);
@@ -19,19 +18,19 @@ const require = /* @__PURE__ */ createRequire(import.meta.url);
  * ```
  */
 export async function copyFont(fontName: string, outputDirectory: string): Promise<void> {
-  logger.logMethodArgs?.('copyFont', {fontName, outputDirectory});
+  logger.logMethodArgs?.('copyFont', { fontName, outputDirectory });
 
   const resolvedOutputDirectory = join(outputDirectory, fontName);
-  await mkdir(resolvedOutputDirectory, {recursive: true});
+  await mkdir(resolvedOutputDirectory, { recursive: true });
 
   // Generate npm package font path directory
   let fontPath = require.resolve('@alwatr/font');
   fontPath = dirname(fontPath);
   fontPath = join(fontPath, fontName);
 
-  await cp(fontPath, resolvedOutputDirectory, {recursive: true, preserveTimestamps: true, force: true});
+  await cp(fontPath, resolvedOutputDirectory, { recursive: true, preserveTimestamps: true, force: true });
 
-  logger.logStep?.('copyFont', `${fontName} copy to output directory.`, {resolvedOutputDirectory});
+  logger.logStep?.('copyFont', `${fontName} copy to output directory.`, { resolvedOutputDirectory });
 }
 
 /**
@@ -70,6 +69,8 @@ export type EleventyCopyFontPluginOptions = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function eleventyCopyFontPlugin(eleventyConfig: any, options: EleventyCopyFontPluginOptions): void {
   // TODO: better event handling to just copy for the first time
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
   eleventyConfig.on('eleventy.before', async () => {
     options.outputDirectory ??= 'dist/font';
     await copyFont(options.fontName, options.outputDirectory);

@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+
 import directoryOutputPlugin from '@11ty/eleventy-plugin-directory-output';
+import { generateServiceWorker } from './workbox.js';
 import markdownIt from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItAttrs from 'markdown-it-attrs';
-
-import {minifyHtml} from './minify-html.js';
-import {postcssBuild} from './postcss.js';
-import {trim} from './util/trim.js';
-import {generateServiceWorker} from './workbox.js';
+import { minifyHtml } from './minify-html.js';
+import { postcssBuild } from './postcss.js';
+import { trim } from './util/trim.js';
 
 /**
  * Configures Eleventy with nexi app specification and html minify, postcss, workbox, etc.
@@ -26,7 +28,7 @@ import {generateServiceWorker} from './workbox.js';
  * }
  * ```
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function eleventyConfiguration(eleventyConfig: any) {
   eleventyConfig.addPassthroughCopy({
     assets: '/',
@@ -34,6 +36,7 @@ export function eleventyConfiguration(eleventyConfig: any) {
   });
 
   // templates root Directory
+
   eleventyConfig.addWatchTarget('site');
 
   // shortcodes Directory
@@ -53,7 +56,7 @@ export function eleventyConfiguration(eleventyConfig: any) {
   /**
    * Set markdown parser
    */
-  const markdownLibrary = markdownIt({html: true, breaks: true, linkify: true})
+  const markdownLibrary = markdownIt({ html: true, breaks: true, linkify: true })
     .use(markdownItAttrs) // required for enter manual set id for header
     .use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.headerLink(), // this can change create link mode
@@ -94,18 +97,18 @@ export function eleventyConfiguration(eleventyConfig: any) {
   /**
    * Add template cjs to extension
    */
-  eleventyConfig.addExtension('template.cjs', {key: '11ty.js'});
+  eleventyConfig.addExtension('template.cjs', { key: '11ty.js' });
 
   /**
    * Set data root directory and base name of file
    */
-  eleventyConfig.setDataFileSuffixes(['.data']);
+  eleventyConfig.setDataFileSuffixes([ '.data' ]);
   eleventyConfig.setDataFileBaseName('index');
 
   /**
    * Add Html, Nunjucks, Markdown, Tsx, Jsx, for template engines
    */
-  eleventyConfig.templateFormats = ['md', 'njk', '11ty.js'];
+  eleventyConfig.templateFormats = [ 'md', 'njk', '11ty.js' ];
 
   return {
     // if your site lives in a subdirectory, change this

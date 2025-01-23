@@ -29,7 +29,7 @@ Configures Eleventy with nexim app specification and html minify, postcss, workb
 ```js
 // eleventy.config.mjs
 
-import {eleventyConfiguration} from '@nexim/eleventy-config';
+import { eleventyConfiguration } from '@nexim/eleventy-config';
 
 export default function (eleventyConfig) {
   return eleventyConfiguration(eleventyConfig);
@@ -45,10 +45,10 @@ Eleventy plugin to copy a font before the build process.
 ```js
 // eleventy.config.mjs
 
-import {eleventyCopyFontPlugin} from '@nexim/eleventy-config';
+import { eleventyCopyFontPlugin } from '@nexim/eleventy-config';
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPlugin(eleventyCopyFontPlugin, {fontName: 'vazirmatn'});
+  eleventyConfig.addPlugin(eleventyCopyFontPlugin, { fontName: 'vazirmatn' });
   // ...
 }
 ```
