@@ -1,32 +1,31 @@
-import {existsSync} from 'fs';
-import {readFile, writeFile, mkdir, readdir} from 'fs/promises';
-import {join} from 'node:path';
-
-import {platformInfo} from '@alwatr/platform-info';
+import { mkdir, readFile, readdir, writeFile } from 'fs/promises';
 import cssnano from 'cssnano';
+import { existsSync } from 'fs';
+import { join } from 'node:path';
+import { logger } from './logger.js';
+import { platformInfo } from '@alwatr/platform-info';
 import postcss from 'postcss';
 import postcssImport from 'postcss-import';
+import postcssNesting from 'tailwindcss/nesting/index.js';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssVariableCompress from 'postcss-variable-compress';
 // @ts-expect-error - not type exists
 import postcssViewportUnitFallback from 'postcss-viewport-unit-fallback';
 import tailwindcss from 'tailwindcss';
-import postcssNesting from 'tailwindcss/nesting/index.js';
-
-import {logger} from './logger.js';
 
 const basePath = 'style';
 
 const postCssPlugins = [
-  /* @__PURE__ */ postcssImport({root: basePath}),
+  /* @__PURE__ */ postcssImport({ root: basePath }),
   postcssNesting,
   tailwindcss,
   postcssViewportUnitFallback,
   postcssPresetEnv,
 ];
 
-if (platformInfo.development !== true) {
-  /* @__PURE__ */ postCssPlugins.push(postcssVariableCompress, cssnano({preset: ['default', {discardComments: {removeAll: true}}]}));
+if (!platformInfo.development) {
+  const cssNano = cssnano({ preset: [ 'default', { discardComments: { removeAll: true } } ] });
+  /* @__PURE__ */ postCssPlugins.push(postcssVariableCompress, cssNano);
 }
 
 const postCss = /* @__PURE__ */ postcss(postCssPlugins);
@@ -39,7 +38,7 @@ export async function postcssBuild(): Promise<void> {
   const startTime = Date.now();
 
   if (!existsSync(outputDir)) {
-    await mkdir(outputDir, {recursive: true});
+    await mkdir(outputDir, { recursive: true });
   }
 
   const dirFileList = await readdir(inputDir);
@@ -54,7 +53,7 @@ export async function postcssBuild(): Promise<void> {
 
     try {
       const fileContent = await readFile(inputFilePath, 'utf8');
-      outputContent = (await postCss.process(fileContent, {from: inputFilePath, to: outputFilePath})).css;
+      outputContent = (await postCss.process(fileContent, { from: inputFilePath, to: outputFilePath })).css;
     }
     catch (err) {
       logger.error('postcssBuild', 'build_error', err);
@@ -79,12 +78,13 @@ export async function postcssBuild(): Promise<void> {
       `;
     }
 
-    await writeFile(outputFilePath, outputContent, {encoding: 'utf8'});
+    await writeFile(outputFilePath, outputContent, { encoding: 'utf8' });
 
-    const size = (new Blob([outputContent]).size / 1024).toFixed(1);
+    const size = (new Blob([ outputContent ]).size / 1024).toFixed(1);
     logger.logOther?.(`📦 ${outputFilePath} ${size}kb`);
   }
 
   const endTime = Date.now();
-  logger.logOther?.(`PostCSS build done in ${endTime - startTime}ms`);
+  const calculatedTime = String(endTime - startTime);
+  logger.logOther?.(`PostCSS build done in ${calculatedTime}ms`);
 }

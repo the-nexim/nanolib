@@ -1,18 +1,16 @@
-import {writeFile} from 'fs/promises';
-
-import {platformInfo} from '@alwatr/platform-info';
-import {generateSW, type BuildResult} from 'workbox-build';
-
-import {logger} from './logger.js';
+import { type BuildResult, generateSW } from 'workbox-build';
+import { logger } from './logger.js';
+import { platformInfo } from '@alwatr/platform-info';
+import { writeFile } from 'fs/promises';
 
 const deploymentServiceWorkerContent = "console.log('service worker not build in deployment.')";
 const serviceWorkerDest = 'dist/service-worker.js';
 
 export async function generateServiceWorker(): Promise<BuildResult | null> {
-  const isDevelopment = platformInfo.development === true;
-  logger.logMethodArgs?.('generateServiceWorker', {isDevelopment});
+  const isDevelopment = platformInfo.development;
+  logger.logMethodArgs?.('generateServiceWorker', { isDevelopment });
 
-  if (isDevelopment === true) {
+  if (isDevelopment) {
     await writeFile(serviceWorkerDest, deploymentServiceWorkerContent);
     return null;
   }
@@ -24,7 +22,7 @@ export async function generateServiceWorker(): Promise<BuildResult | null> {
     inlineWorkboxRuntime: false,
     clientsClaim: true,
     skipWaiting: true,
-    globPatterns: ['**/*.{woff,woff2,js,css,webmanifest,html}', 'index.html', 'favicon.ico'],
+    globPatterns: [ '**/*.{woff,woff2,js,css,webmanifest,html}', 'index.html', 'favicon.ico' ],
     swDest: serviceWorkerDest,
     sourcemap: false,
     mode: 'production',
@@ -65,7 +63,9 @@ export async function generateServiceWorker(): Promise<BuildResult | null> {
     ],
   });
 
-  const preCacheSize = Math.floor(buildResult.size / 1024);
-  logger.logOther?.(`Generated a service worker, which will pre-cache ${buildResult.count} files, totaling ${preCacheSize}kb.`);
+  const preCacheSize = String(Math.floor(buildResult.size / 1024));
+  const count = String(buildResult.count);
+
+  logger.logOther?.(`Generated a service worker, which will pre-cache ${count} files, totaling ${preCacheSize}kb.`);
   return buildResult;
 }
