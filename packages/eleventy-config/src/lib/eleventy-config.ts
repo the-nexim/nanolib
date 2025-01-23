@@ -91,7 +91,8 @@ export function eleventyConfiguration(eleventyConfig: any) {
   /**
    * Set after eventListener for build css and service worker
    */
-  eleventyConfig.on('eleventy.after', postcssBuild);
+  const configureBuilding = postcssBuild({inputDir: 'style', outputDir: 'dist/css'});
+  eleventyConfig.on('eleventy.after', configureBuilding);
   eleventyConfig.on('eleventy.after', generateServiceWorker);
 
   /**
