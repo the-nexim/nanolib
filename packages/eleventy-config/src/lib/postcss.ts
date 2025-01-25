@@ -30,11 +30,12 @@ if (!platformInfo.development) {
 
 const postCss = /* @__PURE__ */ postcss(postCssPlugins);
 
-export async function postcssBuild(): Promise<void> {
-  logger.logMethod?.('postcssBuild');
+export async function postcssBuild(options: {inputDir: string, outputDir: string}): Promise<void> {
+  postCssPlugins[0] = /* @__PURE__ */ postcssImport({ root: options.inputDir });
 
-  const inputDir = basePath;
-  const outputDir = 'dist/css/';
+  logger.logMethod?.('postcssBuild');
+  const inputDir = options.inputDir;
+  const outputDir = options.outputDir;
   const startTime = Date.now();
 
   if (!existsSync(outputDir)) {
@@ -88,3 +89,50 @@ export async function postcssBuild(): Promise<void> {
   const calculatedTime = String(endTime - startTime);
   logger.logOther?.(`PostCSS build done in ${calculatedTime}ms`);
 }
+
+/**
+ * Options for the eleventyMinifyHtmlPlugin.
+ */
+type EleventyPostCssPluginOptions = {
+  /**
+   * The Css Input Directory.
+   */
+  inputDir: string;
+
+  /**
+   * The Css Output Directory.
+   */
+  outputDir: string;
+};
+
+/**
+ * Eleventy plugin for Building Css with PostCss.
+ *
+ * @param eleventyConfig - The Eleventy configuration object.
+ * @param options - The options for the plugin.
+ *
+ * @example
+ * ```js
+ * // eleventy.config.mjs
+ *
+ * import {eleventyPostCssBuildPlugin} from '@nexim/eleventy-config';
+ *
+ * export default function (eleventyConfig) {
+ *   eleventyConfig.addPlugin(eleventyPostCssBuildPlugin, {outputDir: 'dist/css', inputDir: 'style'});
+ *   // ...
+ * }
+ * ```
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function eleventyPostCssBuildPlugin(eleventyConfig: any, options: EleventyPostCssPluginOptions): void {
+  // TODO: better event handling to just copy for the first time
+
+  const configureBuilding = postcssBuild({
+    inputDir: options.inputDir,
+    outputDir: options.outputDir,
+  });
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+  eleventyConfig.on('eleventy.after', configureBuilding);
+}
+
