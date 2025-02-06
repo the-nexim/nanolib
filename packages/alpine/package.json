@@ -46,15 +46,15 @@
     "watch": "wireit"
   },
   "dependencies": {
-    "@alwatr/local-storage": "^5.0.0",
-    "@alwatr/logger": "^5.0.0",
-    "@alwatr/package-tracer": "^5.0.0",
-    "@alwatr/parse-duration": "^5.0.0",
+    "@alwatr/local-storage": "^5.3.0",
+    "@alwatr/logger": "^5.3.0",
+    "@alwatr/package-tracer": "^5.3.0",
+    "@alwatr/parse-duration": "^5.3.0",
     "alpinejs": "^3.14.8"
   },
   "devDependencies": {
-    "@alwatr/nano-build": "^5.0.0",
-    "@alwatr/type-helper": "^5.0.0",
+    "@alwatr/nano-build": "^5.3.0",
+    "@alwatr/type-helper": "^5.3.0",
     "@nexim/typescript-config": "workspace:^",
     "@types/alpinejs": "^3.13.11",
     "ava": "^6.2.0",
